@@ -6,12 +6,13 @@ const {
   getPaymentHistory
 } = require('../controllers/paymentController');
 const { authMiddleware } = require('../middleware/auth');
+const { paymentLimiter, apiLimiter } = require('../middleware/rateLimiter');
 
 // All routes require authentication
 router.use(authMiddleware);
 
-router.post('/intent', createPaymentIntent);
-router.post('/process', processPayment);
-router.get('/history', getPaymentHistory);
+router.post('/intent', paymentLimiter, createPaymentIntent);
+router.post('/process', paymentLimiter, processPayment);
+router.get('/history', apiLimiter, getPaymentHistory);
 
 module.exports = router;

@@ -21,7 +21,9 @@
     "body-parser": "^1.20.3",
     "nodemailer": "^6.9.4",
     "stripe": "^13.5.0",
-    "multer": "^2.0.2"
+    "multer": "^2.0.2",
+    "express-rate-limit": "^7.1.5",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",

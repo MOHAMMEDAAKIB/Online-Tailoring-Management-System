@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const xss = require('xss');
 
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
@@ -12,11 +13,14 @@ const transporter = nodemailer.createTransport({
 
 const sendEmail = async (to, subject, html) => {
   try {
+    // Sanitize HTML to prevent XSS
+    const sanitizedHtml = xss(html);
+    
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to,
       subject,
-      html
+      html: sanitizedHtml
     };
 
     await transporter.sendMail(mailOptions);

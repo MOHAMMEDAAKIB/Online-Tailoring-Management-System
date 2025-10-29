@@ -9,9 +9,11 @@ const {
   estimateMeasurements
 } = require('../controllers/measurementController');
 const { authMiddleware } = require('../middleware/auth');
+const { apiLimiter } = require('../middleware/rateLimiter');
 
-// All routes require authentication
+// All routes require authentication and rate limiting
 router.use(authMiddleware);
+router.use(apiLimiter);
 
 router.post('/', createMeasurement);
 router.get('/', getMeasurements);
