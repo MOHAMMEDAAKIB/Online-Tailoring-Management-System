@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Details - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#204cdf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111521",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<div class="flex flex-col gap-4 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 p-4 w-64">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0aAe-E-BukA9NNeCh8J58o8hyIe9M0d0vZLPLHS4pP9SGbdHZ9d3QL7rrBytXy__uGEawrzL1hu3wPCsc_PB14kh-2WSN-WO95Ff2c3VHJiIJppi-iZPzdmV0vsucBBmJceuRKLIaqwJr2uyNPTw0Oc9EbXJv1hOOix6mUvU6FaSz8QD9k83bAdUNQ6sVQcVUPl6lcFfKtbNZ0b6_HAsfLwNE6G_0cgtlH7RKQtFSLz9bLup2-Zf3K8rQgOxNTEneN_tzWQhSDcpD");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#111317] dark:text-gray-100 text-base font-medium leading-normal">Alex Grim</h1>
+<p class="text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">Super Admin</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+<div class="flex flex-col gap-1 mt-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<!-- Header -->
+<header class="mb-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-2">
+<a class="text-[#646c87] dark:text-gray-400 text-sm font-medium leading-normal" href="#">Dashboard</a>
+<span class="text-[#646c87] dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<a class="text-[#646c87] dark:text-gray-400 text-sm font-medium leading-normal" href="#">Orders</a>
+<span class="text-[#646c87] dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+<span class="text-[#111317] dark:text-gray-100 text-sm font-medium leading-normal">#ORD12345</span>
+</div>
+<!-- Page Heading & Actions -->
+<div class="flex flex-wrap justify-between items-center gap-3">
+<p class="text-[#111317] dark:text-gray-100 text-3xl font-bold leading-tight tracking-tight min-w-72">Order #ORD12345</p>
+<div class="flex flex-1 gap-3 flex-wrap justify-end">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-gray-700 text-[#111317] dark:text-gray-100 border border-gray-300 dark:border-gray-600 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-50 dark:hover:bg-gray-600">
+<span class="truncate">Print Receipt</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Generate Invoice</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+<!-- Left Column -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Order Summary Card -->
+<div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+<h2 class="text-[#111317] dark:text-gray-100 text-lg font-bold leading-tight tracking-tight mb-4">Order Summary</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Order ID</p>
+<p class="font-medium text-[#111317] dark:text-gray-100">#ORD12345</p>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Order Date</p>
+<p class="font-medium text-[#111317] dark:text-gray-100">Oct 26, 2023</p>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Delivery Date</p>
+<p class="font-medium text-[#111317] dark:text-gray-100">Nov 10, 2023</p>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Status</p>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/50 dark:text-orange-300">In Progress</span>
+</div>
+</div>
+</div>
+<!-- Order Items Section -->
+<div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+<h2 class="text-[#111317] dark:text-gray-100 text-lg font-bold leading-tight tracking-tight mb-4">Order Items</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-gray-500 dark:text-gray-400 uppercase bg-gray-50 dark:bg-gray-700/50">
+<tr>
+<th class="px-4 py-3" scope="col">Product</th>
+<th class="px-4 py-3 text-center" scope="col">Quantity</th>
+<th class="px-4 py-3 text-right" scope="col">Price</th>
+<th class="px-4 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b dark:border-gray-700">
+<td class="px-4 py-4 font-medium flex items-center gap-3">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="Blue checkered shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-rzKEnFWcQex4sTY4mFkzMddVMszw7SqymVhPSZFlDjwhMu2m-QQxzVtek0jgprNdroxfVZJn59FSKEZFF9vUL8n3SwOIMGtasJyK0Lt2quD4NPl12nJeJy_pIQ3CJ0EzXpEldLBUMXsX3OYivrujIHQci_JhzblEYfiqnxF--J5xHq07Ln-_0VFWFtbvU1LNej2MtROpYi4uad_U6k25MmajxAJeEoZuQWEG2LM3F5SGCTSMLKMyyTvYu7D_1cMuWrgAjFRcO4iT"/>
+<div>
+<p class="text-[#111317] dark:text-gray-100">Custom Blue Shirt</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Slim Fit, Cotton</p>
+</div>
+</td>
+<td class="px-4 py-4 text-center">1</td>
+<td class="px-4 py-4 text-right">$120.00</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary"><span class="material-symbols-outlined text-xl">edit</span></button>
+</td>
+</tr>
+<tr class="border-b dark:border-gray-700">
+<td class="px-4 py-4 font-medium flex items-center gap-3">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="Gray trousers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOcxK4TZ9T4m5683rc8v_FF3UX8mWh38upT3TFrr2XA__9DhqVJ6t-h9at9omcW-oYHykFOvyJPgBL4RfIVZMRlaPs3OPKbxs2TFo8IXRmfvz7Goiuh-V7r3obk4YXoLyBqyWJrr-rfsfh7T-dZ6cPhRp5GyYuqBVEKFgwu2dS3ZGS3H1VOfmRVx3wD7VOwnQjuxCdnQCJRR8kQe62pOe-_FQoHuoxjCz3Z9j9LgJktdg5C_pvMsG9L9e3VJ9KE9PDHVrk5vKNZ8aO"/>
+<div>
+<p class="text-[#111317] dark:text-gray-100">Tailored Gray Trousers</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Wool Blend</p>
+</div>
+</td>
+<td class="px-4 py-4 text-center">1</td>
+<td class="px-4 py-4 text-right">$150.00</td>
+<td class="px-4 py-4 text-right">
+<button class="p-1 text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary"><span class="material-symbols-outlined text-xl">edit</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-end mt-4">
+<div class="w-full max-w-xs space-y-2">
+<div class="flex justify-between text-sm text-gray-500 dark:text-gray-400"><span>Subtotal</span><span>$270.00</span></div>
+<div class="flex justify-between text-sm text-gray-500 dark:text-gray-400"><span>Tax (5%)</span><span>$13.50</span></div>
+<div class="flex justify-between font-bold text-[#111317] dark:text-gray-100"><span>Total</span><span>$283.50</span></div>
+</div>
+</div>
+</div>
+<!-- Customer & Measurement Details -->
+<div class="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700">
+<div class="border-b border-gray-200 dark:border-gray-700 px-6">
+<nav class="-mb-px flex space-x-6">
+<button class="py-4 px-1 border-b-2 font-medium text-sm border-primary text-primary">Customer Info</button>
+<button class="py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:border-gray-600">Measurements</button>
+</nav>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<h3 class="font-semibold text-[#111317] dark:text-gray-100 mb-2">Contact Details</h3>
+<p class="text-sm text-gray-600 dark:text-gray-300">Jane Doe</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">jane.doe@example.com</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+</div>
+<div>
+<h3 class="font-semibold text-[#111317] dark:text-gray-100 mb-2">Shipping Address</h3>
+<p class="text-sm text-gray-600 dark:text-gray-300">123 Main Street</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">Apt 4B</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">New York, NY 10001</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Sidebar) -->
+<div class="lg:col-span-1 space-y-6">
+<!-- Status Update Panel -->
+<div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+<h3 class="text-lg font-bold text-[#111317] dark:text-gray-100 mb-4">Update Status</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="status">New Status</label>
+<select class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-[#111317] dark:text-gray-100 focus:border-primary focus:ring-primary text-sm" id="status">
+<option>In Progress</option>
+<option>Stitching</option>
+<option>Completed</option>
+<option>Cancelled</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="notes">Notes (Optional)</label>
+<textarea class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-[#111317] dark:text-gray-100 focus:border-primary focus:ring-primary text-sm" id="notes" placeholder="Add a reason for the status change..." rows="3"></textarea>
+</div>
+<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Update Order</span>
+</button>
+</div>
+</div>
+<!-- Status History -->
+<div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+<h3 class="text-lg font-bold text-[#111317] dark:text-gray-100 mb-4">Status History</h3>
+<ol class="relative border-l border-gray-200 dark:border-gray-700">
+<li class="mb-6 ml-6">
+<span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-800/50 dark:bg-blue-900">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-300 text-sm">check</span>
+</span>
+<h4 class="flex items-center mb-1 text-base font-semibold text-gray-900 dark:text-white">Order Placed</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Oct 26, 2023, 10:30 AM</time>
+</li>
+<li class="mb-6 ml-6">
+<span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-800/50 dark:bg-orange-900">
+<span class="material-symbols-outlined text-orange-800 dark:text-orange-300 text-sm">hourglass_top</span>
+</span>
+<h4 class="mb-1 text-base font-semibold text-gray-900 dark:text-white">In Progress</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Oct 26, 2023, 11:00 AM</time>
+<p class="text-sm font-normal text-gray-500 dark:text-gray-400">Assigned to tailor John Smith.</p>
+</li>
+<li class="ml-6">
+<span class="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-800/50 dark:bg-gray-700">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-300 text-sm">cut</span>
+</span>
+<h4 class="mb-1 text-base font-semibold text-gray-900 dark:text-white">Cutting</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Pending</time>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

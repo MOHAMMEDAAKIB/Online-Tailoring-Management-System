@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Place New Order - Bespoke Tailoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#204cdf",
+            "background-light": "#f6f6f8",
+            "background-dark": "#111521",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900/50 px-6 md:px-10 py-3 backdrop-blur-sm sticky top-0 z-10">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Bespoke Tailoring</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 md:gap-8">
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#">Dashboard</a>
+<a class="text-sm font-medium leading-normal text-primary dark:text-primary" href="#">My Orders</a>
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#">Measurements</a>
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary" href="#">Profile</a>
+</div>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/80 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/80 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOxk7z4_Xa_nAk4sVlXdS0aLC5qLH2QlWS-GDD31zIY0L4r0fNsYkMhhuzyT1OglUT-Xjnp_wnJ0Fpu520JR3vUNcNrjQxOUgH6rjApdp_kN1f4JGd1dqDzvjUVsP2fQyUQzDIMRF9SDoKvCut8xGv0M9MmnnX9a2ZKmt8jTUEz37pm8cD2dJNTvRig5U05jdiE5xUY-nj1fkLCZWpZqwDQ10MA7AVWwrW1-DbNTXCfaYqnJa7eiYpW2_ZPR2Wo3GsvjJRuAXx97V9");'></div>
+</div>
+</header>
+<main class="px-4 sm:px-6 lg:px-8 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-4xl flex-1 gap-8">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-3">
+<div class="flex min-w-72 flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Place New Order</p>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal">Follow the steps below to create your custom garment.</p>
+</div>
+</div>
+<!-- ProgressBar/Stepper -->
+<div class="flex flex-col gap-4">
+<div class="w-full">
+<div class="flex justify-between mb-2">
+<div class="text-sm font-medium text-slate-700 dark:text-slate-300">
+<span class="font-bold text-primary">1. Garment</span>
+</div>
+<div class="text-sm font-medium text-slate-500 dark:text-slate-400">2. Measurements</div>
+<div class="text-sm font-medium text-slate-500 dark:text-slate-400">3. Fabric</div>
+<div class="text-sm font-medium text-slate-500 dark:text-slate-400">4. Delivery</div>
+<div class="text-sm font-medium text-slate-500 dark:text-slate-400">5. Review</div>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-6 md:p-8">
+<!-- Step 1: Garment Selection -->
+<div class="flex flex-col gap-6">
+<!-- SectionHeader -->
+<h2 class="text-slate-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">What would you like to have made?</h2>
+<!-- ImageGrid (with interactive states) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col gap-3 pb-3 group cursor-pointer border-2 border-transparent rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-slate-800/50 ring-2 ring-transparent hover:ring-primary/50 focus-within:ring-primary">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg" data-alt="A mannequin wearing a custom white shirt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWnU9BJizqsUeI8B2Kb2cVi8BtFjQFvDiQSPhuGx_w0Ni__8JhWuYIMByejHH13SO82UygiM4Y8D5V9Wbdxb4LPGAjtKI-niqQdhsVb9G39fcaK-JQnNAezrtjzLmE7TPuA-5bpztsj_XNb3jaGe28oUW1DTNfJUoT2uT7HfsEOLsc2ksZIvoXVs_O3HGKju-ylSGxztpj0D3KLqsO_onsRFhZaqH3OnF8W74R4EPJruFt-mkx856kgoIAUACWsBWSjUMOYH0Sm5tH");'></div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Custom Shirt</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Starting from $150</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group cursor-pointer border-2 border-transparent rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-slate-800/50 ring-2 ring-transparent hover:ring-primary/50 focus-within:ring-primary">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg" data-alt="Close up of tailored grey trousers on a hanger" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfDylv8lJpi8E7TPqBgTGfeBJRZ6vT_qZB7DX4ZXCcYNy_qb9Vic-hY6XiOwgjgPjAUSNTbteO3y41vcBzriEULmiWOd22PIUiCSFWHvZ8autiiYGgmoXGhGpUyQEngyvDMXo538fEaVWFDkMZAQ-VJXJhfCOSOtGv0-1vYILjOLpWiBiYYiRenHXCPajuWN2WgImeFkPdsG_f49Z8xUGZKIGW7MPkGaXknZoA7SX-_XFZulvjKhALltYdpixvcMpuWpfnWAY8Ua4o");'></div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Tailored Trousers</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Starting from $200</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group cursor-pointer border-2 border-primary rounded-lg p-2 bg-primary/10 dark:bg-primary/20 ring-2 ring-primary">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg" data-alt="A bespoke navy blue jacket on a mannequin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_i3D-7fdvluYHA0JUcrZVdafQNGCI0Cf8wbG9HffT8716k9qmLouzHtJmox3GhNLi95w6IkBpqgb0HHPRQU5QMiuHJGNPBl5fv137F4QRx1syjlZgHhoinVrsTfob1p-YUJWLE66QeIxE-ihvODS34f3i9mcWZ8KUagVpWpknTEl-_4rGgsrjIAYBAB-e1W2RRtaKdFGCCxoiYgpPciojE9TOn8Q-u7oKlDHj2AQ9rwzxoXZtaPB7l1H6X7R6vCBN_H8pqgpKzJvF");'></div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Bespoke Jacket</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Starting from $450</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group cursor-pointer border-2 border-transparent rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-slate-800/50 ring-2 ring-transparent hover:ring-primary/50 focus-within:ring-primary">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg" data-alt="A full three-piece suit displayed on a form" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClyL6MtRdeFawslIo61D6II1aveENBBODjzY2_WcUSVX7JiY7MJl2ihO3eXN-ax0LVj71MnAXzPOkc3SONp-YKFYg_yQTap3T5YzpG_eCSZNp7bw2DlBSzZO9C2Z1QaxLwpomi4Md_5D2EpJEvan7V3-nYv2Cib9CneerqGfvz-ZaHMz4NcoZL86IeTbL8ItQY-DchZQx-1VHaBeEFojVzB9mfyQucLHjJGfNfDkbNG3BkY6kSiQpwkxKbcD3nEcYwjEZln-hX0gfC");'></div>
+<div>
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Full Suit</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Starting from $750</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="flex justify-end gap-4 mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800/80">
+<button class="flex items-center justify-center rounded-lg h-10 px-6 text-sm font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 disabled:opacity-50" disabled="">
+                  Previous Step
+                </button>
+<button class="flex items-center justify-center rounded-lg h-10 px-6 text-sm font-bold bg-primary text-white hover:bg-primary/90 gap-2">
+<span>Next Step</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

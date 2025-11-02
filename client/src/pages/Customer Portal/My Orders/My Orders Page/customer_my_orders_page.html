@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Orders - Online Tailoring Service</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#204cdf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111521",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111317] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-center gap-4 p-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#111317] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">My Orders</h1>
+<p class="text-[#646c87] dark:text-gray-400 text-base font-normal leading-normal">Track and manage your tailoring orders here.</p>
+</div>
+</div>
+<!-- Search and Filter Bar -->
+<div class="flex flex-col gap-4 p-4">
+<!-- Search and Sort -->
+<div class="flex flex-col sm:flex-row gap-4">
+<div class="flex-grow">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#646c87] dark:text-gray-400 flex bg-[#f0f1f4] dark:bg-background-dark/50 items-center justify-center pl-4 rounded-l-lg border border-gray-200 dark:border-gray-700 border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111317] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 bg-[#f0f1f4] dark:bg-background-dark/50 h-full placeholder:text-[#646c87] dark:placeholder:text-gray-500 px-4 rounded-l-none border border-gray-200 dark:border-gray-700 border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by Order ID or item name..." value=""/>
+</div>
+</label>
+</div>
+<div class="relative h-12 w-full sm:w-52">
+<select class="form-select w-full h-full rounded-lg border-gray-200 dark:border-gray-700 bg-[#f0f1f4] dark:bg-background-dark/50 text-[#111317] dark:text-white focus:ring-2 focus:ring-primary/50 focus:border-primary/50">
+<option>Sort by: Date</option>
+<option>Sort by: Amount</option>
+<option>Sort by: Status</option>
+</select>
+</div>
+</div>
+<!-- Status Chips -->
+<div class="flex gap-2 p-1 overflow-x-auto">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full px-4 bg-primary text-white text-sm font-medium leading-normal">All</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full px-4 bg-[#f0f1f4] dark:bg-background-dark/50 text-[#111317] dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium leading-normal">Pending</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full px-4 bg-[#f0f1f4] dark:bg-background-dark/50 text-[#111317] dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium leading-normal">In Progress</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full px-4 bg-[#f0f1f4] dark:bg-background-dark/50 text-[#111317] dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium leading-normal">Ready</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full px-4 bg-[#f0f1f4] dark:bg-background-dark/50 text-[#111317] dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium leading-normal">Completed</button>
+</div>
+</div>
+<!-- Order Cards List -->
+<div class="flex flex-col gap-4">
+<!-- Order Card 1: Completed -->
+<div class="p-4">
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-background-dark/50 p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
+<div class="flex flex-col md:flex-row items-start justify-between gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-[#111317] dark:text-white text-base font-bold leading-tight">Order #ORD-12345</p>
+<p class="text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">Placed: Oct 15, 2023 - Delivered: Nov 8, 2023</p>
+</div>
+<p class="text-[#111317] dark:text-white text-lg font-bold leading-tight">$450.00</p>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<div class="flex flex-col gap-4">
+<p class="text-base font-medium">1x Custom Suit, 2x Shirts</p>
+<!-- Status Timeline -->
+<div class="flex items-center justify-between text-xs text-center text-[#646c87] dark:text-gray-400">
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full bg-green-500 text-white mb-1"><span class="material-symbols-outlined text-base">check</span></div>
+<p>Order Placed</p>
+</div>
+<div class="flex-1 h-0.5 bg-green-500 mb-6"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full bg-green-500 text-white mb-1"><span class="material-symbols-outlined text-base">check</span></div>
+<p>In Progress</p>
+</div>
+<div class="flex-1 h-0.5 bg-green-500 mb-6"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full bg-green-500 text-white mb-1"><span class="material-symbols-outlined text-base">check</span></div>
+<p>Ready</p>
+</div>
+<div class="flex-1 h-0.5 bg-green-500 mb-6"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full bg-green-500 text-white mb-1"><span class="material-symbols-outlined text-base">check</span></div>
+<p>Delivered</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<div class="flex flex-wrap items-center justify-start gap-3">
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium">View Details</button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-9 px-4 bg-[#f0f1f4] dark:bg-background-dark text-[#111317] dark:text-white text-sm font-medium">Track Order</button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-9 px-4 bg-[#f0f1f4] dark:bg-background-dark text-[#111317] dark:text-white text-sm font-medium">Contact Tailor</button>
+</div>
+</div>
+</div>
+<!-- Order Card 2: In Progress -->
+<div class="p-4">
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-background-dark/50 p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
+<div class="flex flex-col md:flex-row items-start justify-between gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-[#111317] dark:text-white text-base font-bold leading-tight">Order #ORD-67890</p>
+<p class="text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">Placed: Nov 01, 2023 - Est. Delivery: Nov 25, 2023</p>
+</div>
+<p class="text-[#111317] dark:text-white text-lg font-bold leading-tight">$180.00</p>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<div class="flex flex-col gap-4">
+<p class="text-base font-medium">3x Custom Linen Shirts</p>
+<!-- Status Timeline -->
+<div class="flex items-center justify-between text-xs text-center text-[#646c87] dark:text-gray-400">
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full bg-green-500 text-white mb-1"><span class="material-symbols-outlined text-base">check</span></div>
+<p>Order Placed</p>
+</div>
+<div class="flex-1 h-0.5 bg-orange-400 mb-6"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full bg-orange-400 text-white mb-1"><span class="material-symbols-outlined text-base">progress_activity</span></div>
+<p>In Progress</p>
+</div>
+<div class="flex-1 h-0.5 bg-gray-200 dark:bg-gray-700 mb-6"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full border-2 border-gray-300 dark:border-gray-600 mb-1"></div>
+<p>Ready</p>
+</div>
+<div class="flex-1 h-0.5 bg-gray-200 dark:bg-gray-700 mb-6"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="flex items-center justify-center size-6 rounded-full border-2 border-gray-300 dark:border-gray-600 mb-1"></div>
+<p>Delivered</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<div class="flex flex-wrap items-center justify-start gap-3">
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium">View Details</button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-9 px-4 bg-[#E67E22] text-white text-sm font-medium">Track Order</button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-9 px-4 bg-[#f0f1f4] dark:bg-background-dark text-[#111317] dark:text-white text-sm font-medium">Contact Tailor</button>
+</div>
+</div>
+</div>
+<!-- Empty State Card -->
+<div class="p-4">
+<div class="flex flex-col items-center justify-center gap-6 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-white dark:bg-background-dark/50 p-8 text-center">
+<span class="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">shopping_bag</span>
+<div class="flex flex-col gap-2">
+<p class="text-lg font-bold text-[#111317] dark:text-white">You haven't placed any orders yet.</p>
+<p class="text-[#646c87] dark:text-gray-400">Let's create something unique!</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-medium leading-normal">
+<span class="truncate">Place a New Order</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center p-4 mt-4">
+<nav class="flex items-center gap-2">
+<button class="flex size-9 items-center justify-center rounded-lg text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="flex size-9 items-center justify-center rounded-lg bg-primary text-white text-sm font-medium">1</button>
+<button class="flex size-9 items-center justify-center rounded-lg text-[#111317] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium">2</button>
+<button class="flex size-9 items-center justify-center rounded-lg text-[#111317] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium">3</button>
+<button class="flex size-9 items-center justify-center rounded-lg text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

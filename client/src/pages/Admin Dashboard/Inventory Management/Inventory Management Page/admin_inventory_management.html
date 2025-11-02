@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management - TailorAdmin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1e3fae",
+              "background-light": "#f6f6f8",
+              "background-dark": "#121520",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex flex-row min-h-screen">
+<!-- SideNavBar -->
+<div class="flex flex-col w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800">
+<div class="flex flex-col justify-between flex-1 p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin Panel Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUVh6DubewVyP_HgG0tM-WroFh2msp39AZTe6HhySyanX5xE7ATGNsmaY-GBHTJDjw9j8mEaQNhP_4fsuXt8SXghubT4m5fGUJEGnt9qaor3RAAwPxSXSop4cr9vev0ToHSYouwdkuyGhHkjhbSgL1-ExrSUdQ7L-TsXjb4O3po1BTUyjSHucqhd6iKTJcHIjJ20MNrywE6ocoRb4aamx71ZlY1tWyp28Z9hpC87vb7S5QAP22onFbxb_D3KIqN_OcskPTEvA5q1Ho");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#121317] dark:text-white text-base font-medium leading-normal">TailorAdmin</h1>
+<p class="text-[#656d86] dark:text-gray-400 text-sm font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[#121317] dark:text-white">dashboard</span>
+<p class="text-[#121317] dark:text-white text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-300" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<p class="text-primary dark:text-primary-300 text-sm font-medium leading-normal">Inventory</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[#121317] dark:text-white">shopping_cart</span>
+<p class="text-[#121317] dark:text-white text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[#121317] dark:text-white">group</span>
+<p class="text-[#121317] dark:text-white text-sm font-medium leading-normal">Customers</p>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Log Out</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[#121317] dark:text-white">settings</span>
+<p class="text-[#121317] dark:text-white text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[#121317] dark:text-white">help</span>
+<p class="text-[#121317] dark:text-white text-sm font-medium leading-normal">Support</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-8">
+<div class="flex flex-col max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-4 items-center mb-6">
+<div class="flex flex-col gap-1">
+<p class="text-[#121317] dark:text-white text-3xl font-bold leading-tight tracking-tight">Inventory Management</p>
+<p class="text-[#656d86] dark:text-gray-400 text-base font-normal leading-normal">Track, add, and manage your fabric inventory and suppliers.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined text-base">add</span>
+<span class="truncate">Add New Fabric</span>
+</button>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+<p class="text-[#121317] dark:text-gray-300 text-base font-medium leading-normal">Total Items in Stock</p>
+<p class="text-[#121317] dark:text-white tracking-light text-3xl font-bold leading-tight">1,204</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+<p class="text-[#121317] dark:text-gray-300 text-base font-medium leading-normal">Items with Low Stock</p>
+<p class="text-[#121317] dark:text-white tracking-light text-3xl font-bold leading-tight">58</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+<p class="text-[#121317] dark:text-gray-300 text-base font-medium leading-normal">Out of Stock Items</p>
+<p class="text-[#121317] dark:text-white tracking-light text-3xl font-bold leading-tight">12</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+<p class="text-[#121317] dark:text-gray-300 text-base font-medium leading-normal">Number of Suppliers</p>
+<p class="text-[#121317] dark:text-white tracking-light text-3xl font-bold leading-tight">15</p>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
+<!-- SectionHeader -->
+<h2 class="text-[#121317] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] px-6 pt-5 pb-3">Fabric Stock</h2>
+<!-- ToolBar -->
+<div class="flex flex-wrap justify-between items-center gap-4 px-6 py-3 border-b border-gray-200 dark:border-gray-800">
+<div class="flex gap-2 items-center">
+<div class="relative w-full max-w-xs">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5 dark:placeholder-gray-400" placeholder="Search by name or SKU..." type="text"/>
+</div>
+<button class="p-2 text-[#121317] dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 text-[#121317] dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/20 text-primary dark:bg-primary/30 dark:text-primary-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4">
+<span class="material-symbols-outlined text-lg">group</span>
+<span class="truncate">Manage Suppliers</span>
+</button>
+</div>
+<!-- Inventory Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-800">
+<tr>
+<th class="p-4" scope="col"><input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox"/></th>
+<th class="px-6 py-3" scope="col">Fabric</th>
+<th class="px-6 py-3" scope="col">Category</th>
+<th class="px-6 py-3" scope="col">Supplier</th>
+<th class="px-6 py-3" scope="col">Qty on Hand</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="w-4 p-4"><input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox"/></td>
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="Blue silk fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYq4lPStro_6Y3qh3LdTLUqSW7IRw9_fwsyjiknTDgzufz_oTtDYKiaxVOKB2JhnNdBCr2VxDmMH2HzCp8YFi3dq5Q_7VTFFs_XB9nsGeQ4Zv2dAp8y93N3zrvlu_ieuMPNpP9LLvSb71urUrnhved-9kOcmRuTd5Y4NA8J_DbbXMVqC0TwPXGw2tRAC51_nFW8Uo4kkt3ldIqQNUX7lkJ6J3kpVW2EBNfKu4HDiLbmXn1WkGWoOsk-bSHokEQVf-rzNrSDlnVQJZG"/>
+<div>
+<div>Royal Blue Silk</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">SKU: SILK-BL-001</div>
+</div>
+</th>
+<td class="px-6 py-4">Silk</td>
+<td class="px-6 py-4">Fabricorp Inc.</td>
+<td class="px-6 py-4">150 meters</td>
+<td class="px-6 py-4"><span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>In Stock</span></td>
+<td class="px-6 py-4"><div class="flex gap-2"><button class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"><span class="material-symbols-outlined text-xl">edit</span></button><button class="p-1.5 rounded-md hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button></div></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="w-4 p-4"><input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox"/></td>
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="Red cotton fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7L0q1pOLNPubC_r-19NxQ-akQoLcDvZlmAqcbSKspjNMNyplbOxxTQNQ-aVVsbCbi_2lpqo0yEbtSj_VETsFUB34hKfMHtqzfRfl7wHNlBDcamePxsrznTU37mF31Tm8v3GOgIuHOGZNWxPHhZMZ8rotooIKbINtUzyhCj9xlsAmqWsSzCo4AcB9_-RIlvSPmwy31bNTqQL-3-gkt3gpBeVrc-jukLNxIgMF0ynYFvZQ9O8w59d3j8KqwVfWqSjKfS7JgYxmACods"/>
+<div>
+<div>Classic Red Cotton</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">SKU: COT-RD-012</div>
+</div>
+</th>
+<td class="px-6 py-4">Cotton</td>
+<td class="px-6 py-4">Weaver's Best</td>
+<td class="px-6 py-4">45 meters</td>
+<td class="px-6 py-4"><span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>Low Stock</span></td>
+<td class="px-6 py-4"><div class="flex gap-2"><button class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"><span class="material-symbols-outlined text-xl">edit</span></button><button class="p-1.5 rounded-md hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button></div></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="w-4 p-4"><input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox"/></td>
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="Black wool fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaUEV9bAamXYayDCz4wHLxgUR6Z5HDkZVkcTegCtB5OUxZf3LX5EiFQeQURwYIFlEYdigrvej5-kvZL4TlO2SOPxfbAKtCUR5v_Ws-ttSnsn1SnoBT_A8NgbQSFQS3m4eBpcm2-dd7vZuRcZEXnMft4ttJqkd97nIzh58aedYp-lZGHs8hXWwZDpCDp_y1xzvtxDoxXILkNmca4Y_o41haxpIeZSdS0Tj_AnICrvACsXIGYznoymXqgz3hSk2GyGJQqTsCiEp2Y9Gj"/>
+<div>
+<div>Heavy Black Wool</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">SKU: WOOL-BK-003</div>
+</div>
+</th>
+<td class="px-6 py-4">Wool</td>
+<td class="px-6 py-4">Fine Fibers Co.</td>
+<td class="px-6 py-4">0 meters</td>
+<td class="px-6 py-4"><span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>Out of Stock</span></td>
+<td class="px-6 py-4"><div class="flex gap-2"><button class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"><span class="material-symbols-outlined text-xl">edit</span></button><button class="p-1.5 rounded-md hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button></div></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="w-4 p-4"><input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" type="checkbox"/></td>
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="Beige linen fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaYGzv30BwdloT99R_c73LbMDVOyO6OWHWCwntTt8tZ4XXAkWOnXJlJTQWO086zr0L-CjFhi4NvrnA8hTMRZs6no-_kvBayegj7NMVNHccSmkWeEposY8921rHEDqCzm1zSezPYvojMgNP-WXwZGqc_l6w-KYE-2AUzATMVR_Ar2iBT_oVqfXp-1IaTwFJ-E7E07EBcOwzGo8-Na9sRJhzTtDrzK04QL3SCgpWawHcYMqSP7Jww5ogr-LkOWvgrE7vsrHpEZbYqOtS"/>
+<div>
+<div>Natural Beige Linen</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">SKU: LIN-BG-007</div>
+</div>
+</th>
+<td class="px-6 py-4">Linen</td>
+<td class="px-6 py-4">Weaver's Best</td>
+<td class="px-6 py-4">210 meters</td>
+<td class="px-6 py-4"><span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>In Stock</span></td>
+<td class="px-6 py-4"><div class="flex gap-2"><button class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"><span class="material-symbols-outlined text-xl">edit</span></button><button class="p-1.5 rounded-md hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div aria-label="Table navigation" class="flex items-center justify-between p-4">
+<span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">1-4</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span></span>
+<ul class="inline-flex items-center -space-x-px">
+<li><a class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Previous</a></li>
+<li><a class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">1</a></li>
+<li><a class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">2</a></li>
+<li><a aria-current="page" class="z-10 px-3 py-2 leading-tight text-primary bg-primary/10 border border-primary hover:bg-primary/20 dark:border-gray-700 dark:bg-gray-700 dark:text-white" href="#">3</a></li>
+<li><span class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400">...</span></li>
+<li><a class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Next</a></li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

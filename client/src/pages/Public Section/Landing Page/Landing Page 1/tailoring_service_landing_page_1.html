@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TailorSwift - Custom Tailoring, Perfectly Fitted</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Open+Sans:wght@400;700&amp;family=Playfair+Display:ital@1&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .font-display {
+        font-family: "Inter", sans-serif;
+      }
+      .font-heading {
+        font-family: "Poppins", sans-serif;
+      }
+      .font-body {
+        font-family: "Open Sans", sans-serif;
+      }
+      .font-accent {
+        font-family: "Playfair Display", serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00539C",
+              secondary: "#FFD700",
+              "background-light": "#F8F9FA",
+              "background-dark": "#121520",
+              "text-light": "#343A40",
+              "text-dark": "#F8F9FA",
+              "border-light": "#CED4DA",
+              "border-dark": "#343A40",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              heading: ["Poppins", "sans-serif"],
+              body: ["Open Sans", "sans-serif"],
+              accent: ["Playfair Display", "serif"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col w-full max-w-[1280px] flex-1">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-6 lg:px-10 py-3">
+<div class="flex items-center gap-4 text-primary dark:text-secondary">
+<div class="size-6">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-12h2v4h-2v-4zm0 6h2v2h-2v-2z"></path>
+</svg>
+</div>
+<h2 class="text-primary dark:text-white text-xl font-heading font-bold">TailorSwift</h2>
+</div>
+<nav class="hidden lg:flex flex-1 justify-center items-center gap-9">
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-secondary" href="#">Services</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-secondary" href="#">How It Works</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-secondary" href="#">Gallery</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-secondary" href="#">Pricing</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-secondary" href="#">Contact</a>
+</nav>
+<div class="flex items-center">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+<span class="truncate">Sign In / Sign Up</span>
+</button>
+</div>
+</header>
+<main>
+<!-- HeroSection -->
+<section class="@container">
+<div class="p-0 sm:p-4">
+<div class="flex min-h-[60vh] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center text-center px-4 py-10 @[480px]:px-10" data-alt="A tailor's workshop with measuring tape and fabric samples." style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMxcF2cjwrvuQaS0eeODe_DSX8MesT-G2F5V3G1p-zYo9kzwgeS3A-jvmTqw6nFoPuN0yi-ECucpfXnshyZmcR-ZROlFo7Q3W1gZpmoGJNnzg-fGxK7ieDWMFJyFtH8U32sYoaa5H516U8iriQ7n1KbCVYCerzl5vAf1wGUSpYxjGJ3mUhzz-PqpZCoCBmo9O-uuTTrH-UI6AmQUOMA9RonfV3-SfXM6TC6lgioCIaA2AmiKC1qLuvbak9yBk52G8mH4EHZ2MpKZk5");'>
+<div class="flex flex-col gap-4 max-w-3xl">
+<h1 class="text-white text-4xl font-heading font-bold leading-tight tracking-tight @[480px]:text-6xl @[480px]:font-bold">Custom Tailoring, Perfectly Fitted</h1>
+<h2 class="text-white text-lg font-body leading-normal @[480px]:text-xl @[480px]:leading-normal">Experience bespoke clothing crafted with precision, delivered to your door.</h2>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+<span class="truncate">Get Started</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-secondary text-text-light text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+<span class="truncate">View Services</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-3xl font-heading font-bold text-center mb-10 text-text-light dark:text-text-dark">Our Services</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-3 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark p-6 text-center items-center">
+<span class="material-symbols-outlined text-secondary text-4xl">styler</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-heading font-semibold">Bespoke Suits</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 text-sm font-body">Perfectly tailored suits for any occasion, crafted to your exact measurements.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark p-6 text-center items-center">
+<span class="material-symbols-outlined text-secondary text-4xl">apparel</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-heading font-semibold">Shirt Making</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 text-sm font-body">Custom-fit shirts from the finest fabrics for ultimate comfort and style.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark p-6 text-center items-center">
+<span class="material-symbols-outlined text-secondary text-4xl">cut</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-heading font-semibold">Alterations &amp; Repairs</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 text-sm font-body">Expert alterations to ensure your garments fit you flawlessly.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-background-dark p-6 text-center items-center">
+<span class="material-symbols-outlined text-secondary text-4xl">diamond</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-heading font-semibold">Wedding &amp; Formal Wear</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 text-sm font-body">Stunning attire for your special day, designed to make you shine.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-background-dark/50">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-3xl font-heading font-bold text-center mb-12 text-text-light dark:text-text-dark">How It Works</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative">
+<div class="absolute top-1/2 left-0 w-full h-px bg-border-light dark:bg-border-dark hidden md:block"></div>
+<div class="absolute top-8 md:top-1/2 left-1/2 md:left-0 w-px md:w-full h-full md:h-px bg-border-light dark:bg-border-dark"></div>
+<div class="flex flex-col items-center gap-4 z-10">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white font-bold text-xl border-4 border-background-light dark:border-background-dark/50">1</div>
+<h3 class="font-heading font-semibold text-lg mt-2">Consultation</h3>
+<p class="font-body text-sm text-text-light/80 dark:text-text-dark/80">Schedule a virtual or in-person consultation to discuss your needs and get measured.</p>
+</div>
+<div class="flex flex-col items-center gap-4 z-10">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white font-bold text-xl border-4 border-background-light dark:border-background-dark/50">2</div>
+<h3 class="font-heading font-semibold text-lg mt-2">Fabric Selection</h3>
+<p class="font-body text-sm text-text-light/80 dark:text-text-dark/80">Choose from our curated collection of high-quality fabrics from around the world.</p>
+</div>
+<div class="flex flex-col items-center gap-4 z-10">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white font-bold text-xl border-4 border-background-light dark:border-background-dark/50">3</div>
+<h3 class="font-heading font-semibold text-lg mt-2">Crafting &amp; Fitting</h3>
+<p class="font-body text-sm text-text-light/80 dark:text-text-dark/80">Our master tailors craft your garment. We'll schedule a fitting to ensure a perfect fit.</p>
+</div>
+<div class="flex flex-col items-center gap-4 z-10">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary text-white font-bold text-xl border-4 border-background-light dark:border-background-dark/50">4</div>
+<h3 class="font-heading font-semibold text-lg mt-2">Final Delivery</h3>
+<p class="font-body text-sm text-text-light/80 dark:text-text-dark/80">Your bespoke garment is delivered to your doorstep, ready to wear and impress.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-3xl font-heading font-bold text-center mb-10 text-text-light dark:text-text-dark">Our Gallery</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="grid gap-4">
+<div><img class="h-auto max-w-full rounded-lg" data-alt="A man in a sharp, well-fitted blue suit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPK7eIQYhyFuaCm9Tcqn4QGhYVS9fbVZvDq9EPtOHF7TaX0Egdql8JIKbEFI_gA98iIufob3NKrdvWr-f_lUqJSCp4ceo8hZY4MM3g4p3aTEJxxJKFC--bupyKspxUE7FIEg7OCtdvY_wf_qZR-5VPvTe8IThYXHRJeL4gfDOyKVMIDwJfKzD8VatqcLsm8sGThQrTJ9nVxPMOpcmHM4qwLCjQ9rTVJcIpFMkmFUx5bHBrXEvezVkef19oBegUX5M3_hkaJhiszRMs"/></div>
+<div><img class="h-auto max-w-full rounded-lg" data-alt="Close up of sewing machine stitching fabric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChw5dnq2579BautCt0hWTY5TC_ozJMRp7Tnfu7vbX2b7-iqAC_eQOilyQeMvOL6ehL1wKFqhdX6CSQPHRVhPNVMVGDM8ipMmyYrU3ImqtzLPVH2PskSJ5ddcTchuzIUsStFyan3sg7YZbSBq4G3EHVe_dJw-wc0vlysTQeYeo4ALhqNtZd0s0HyqJjgYujcSLNit1rixdIZXj1WsSZVIT3WlifUWClZkxZ9u-itqHgiXns4WwrWbhatDKxI7oAI-1GfSaGUCE5IQwc"/></div>
+</div>
+<div class="grid gap-4">
+<div><img class="h-auto max-w-full rounded-lg" data-alt="A woman in a custom-tailored white blouse." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJSR7n402TgTBmjVV_nsxXiuU0xHYF-FA0ZavXGHKvpy9xO5N2IxVTq2DRMy1U93_RNUFNf9N2ZhxUUYDIstfix-2zPifdrqTtOqMTZ1L2vnARwdfNPNk9BwF-wzxNzLG7DMj3oVW8Q90dmU3GLNfsMqh0bWY9CqEqgEtrGBYLLjm0ZZB9Oppwvlz-qrT25itE-txGws69_gxZ7UMF9GsGxQR546OOotJrDwN6VMo1XUkg-cfvB9FatYWturBxOn-_FNkraS_c4ZiY"/></div>
+<div><img class="h-auto max-w-full rounded-lg" data-alt="Detail of a custom suit jacket lapel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIrIKEh_81Bp_EK4aVwW21Lemivk2Wyb7mXxtad_bLCG_KzLp6rsMs0uAByWhvwIBY5JqwadKCIp-LDvcGhYmPSdO2_81eltOiLYWl3DqRgEdH7j0lpmf_ocMmOQQMCw4GoOjnE7Dts0iqmV72LPXIFMTLhXjpnDHIU_ZPYCiToIiGst9rvyBU5izQKHmNGBThjuq3buDysDsmfM6YjnOujTQaxDPvNdQZg1AStdFWqa0x-El03vMmsdPZTINUlTDTLrtxR2kjRgBN"/></div>
+</div>
+<div class="grid gap-4">
+<div><img class="h-auto max-w-full rounded-lg" data-alt="Fabric swatches in various colors and patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtvipwVpb53twAbRxjh0GdrdBp294bI3LyVOKYkKvqWIOi1kZrQ_7isRr_ljMNCFB70ak-Q4CS3-QD1TquarVpy1jOQ9Q8lr-tw2y3tcG8NYD2OuwZMDlZVyLhSa4-NJ4U4IHP8W1Csxuxf4VyKWXlNPZO_gABVaE8IHKAP5LPgofJfsoleAiylkdFg-u7BDv9KEUmMKJVFAH5-0VXfNcE_VCsHj6S164Z94C5Z2RFR8e0IbCs7HFJ8rCyOAHEP9frpAi4EP1tZqNI"/></div>
+<div><img class="h-auto max-w-full rounded-lg" data-alt="A happy groom in a bespoke wedding suit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASP7q9FGTKyH60qdxQOKfTNm2R6zegKTrqJeeB2xhshtuWLUyx6cs4nKvaixG0cM3PZOI9GddiJRdJ2qpXHJG8COtuU-a5ALvilHImYC66FoE-9AxqpymmAX7oMbaKNpXVWvuBWzl7IyRxqoW-OCv0pPMrTqBbtolGcy33ddcDt8EC7c5b7ZboQRiLd6UhCo63302J9ONRmj3uNqPjve5pGqDMuZwYGenmx1C9VR-zlXr6A9DnpGbakLfpxthsUPA_BcZo6mUQVlez"/></div>
+</div>
+<div class="grid gap-4">
+<div><img class="h-auto max-w-full rounded-lg" data-alt="Tailor taking measurements of a client." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5VvWznCYnlrHAvJ_A-KgbthSAxKGzyb_CVBIGlLo8lBnybTx1xhhhszIli9IYcYgHgtfB8Z7ujHnMJfWMiO9-ZLtj_W0l302ZpEaWo0lguToCJGf7JTABccw1v6ox4MJVN73JJ1VE0jIE24ldAs9DLhUn1wwOX6_BmnSNMbJuk4N0JEbO_JTAV-DoD1Zs8JgdrIqGr1svTIp2LEHA50Qwjiudgfeob1iGoeZadVYaiE8dKN0HQ-SDCdKzDnZcxb05x2ob-LE7cUwI"/></div>
+<div><img class="h-auto max-w-full rounded-lg" data-alt="A finished custom shirt folded neatly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnr8jT5so4HY492L476xYz8KlyYN_bol3aLtr3-a7X0GjcJS5qY_S7KK_54XSqT0979wMJr6MhT13tpJie9Lglsj4Ucnhjie-XXV7AeP99t7lcGb0bHSXi2xf0sh4tUFsBFd4e2QD4c9eoKdYnJnBjGAP7FG2mg0EZJy4plgj5ESmg59vYFnj3wG-ODcF5VR44hzS8AwtdSCZD38W--cs7VNSET2pIJvLrfNq1BMnes5HzzAuDFzMTSTJHBup2CNMIv36DE7nsuLca"/></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-background-dark/50">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-3xl font-heading font-bold text-center mb-10 text-text-light dark:text-text-dark">Get In Touch</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h3 class="text-xl font-heading font-semibold mb-4">Contact Us</h3>
+<p class="font-body mb-6 text-text-light/80 dark:text-text-dark/80">Have a question or want to start your custom tailoring journey? Send us a message or visit us.</p>
+<form action="#" class="space-y-4">
+<div>
+<label class="sr-only" for="name">Name</label>
+<input class="w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="name" placeholder="Your Name" type="text"/>
+</div>
+<div>
+<label class="sr-only" for="email">Email</label>
+<input class="w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="email" placeholder="Your Email" type="email"/>
+</div>
+<div>
+<label class="sr-only" for="message">Message</label>
+<textarea class="w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="message" placeholder="Your Message" rows="4"></textarea>
+</div>
+<button class="w-full flex items-center justify-center rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90" type="submit">
+                          Send Message
+                        </button>
+</form>
+</div>
+<div>
+<h3 class="text-xl font-heading font-semibold mb-4">Our Location</h3>
+<div class="space-y-4 text-text-light/80 dark:text-text-dark/80 font-body">
+<p class="flex items-center"><span class="material-symbols-outlined mr-2 text-primary">location_on</span>123 Fashion Ave, New York, NY 10001</p>
+<p class="flex items-center"><span class="material-symbols-outlined mr-2 text-primary">phone</span>(212) 555-0123</p>
+<p class="flex items-center"><span class="material-symbols-outlined mr-2 text-primary">email</span>contact@tailorswift.com</p>
+</div>
+<div class="mt-6 h-64 w-full rounded-lg overflow-hidden">
+<iframe allowfullscreen="" data-location="New York, NY" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.618645069778!2d-73.99042858459393!3d40.74844097932822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117429%3A0x9a6949c3a9a7a9a!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1676395358055!5m2!1sen!2sus" style="border:0;" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark/50 border-t border-border-light dark:border-border-dark">
+<div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+<p class="text-sm text-text-light/70 dark:text-text-dark/70 font-body">© 2024 TailorSwift. All Rights Reserved.</p>
+<div class="flex space-x-4">
+<a class="text-text-light/70 dark:text-text-dark/70 hover:text-primary dark:hover:text-secondary" href="#">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-text-light/70 dark:text-text-dark/70 hover:text-primary dark:hover:text-secondary" href="#">
+<span class="sr-only">Instagram</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2zm-1.002 6.363a4.733 4.733 0 100 9.467 4.733 4.733 0 000-9.467zM12 15.65a3.65 3.65 0 110-7.3 3.65 3.65 0 010 7.3zm6.305-9.88a1.293 1.293 0 100 2.586 1.293 1.293 0 000-2.586z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-text-light/70 dark:text-text-dark/70 hover:text-primary dark:hover:text-secondary" href="#">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

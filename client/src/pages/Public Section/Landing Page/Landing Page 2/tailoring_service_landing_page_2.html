@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TailorSwift - Financial Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Open+Sans:wght@400;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .font-display {
+            font-family: "Inter", sans-serif;
+        }
+        .font-heading {
+            font-family: "Poppins", sans-serif;
+        }
+        .font-body {
+            font-family: "Open Sans", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#00539C",
+                        secondary: "#FFD700",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#1A1D2D",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#24283B",
+                        "text-light": "#343A40",
+                        "text-dark": "#E0E0E0",
+                        "border-light": "#DEE2E6",
+                        "border-dark": "#3A405A",
+                        "success": "#28a745",
+                        "danger": "#dc3545",
+                        "warning": "#ffc107",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        heading: ["Poppins", "sans-serif"],
+                        body: ["Open Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark">
+<div class="flex min-h-screen">
+<aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex-col hidden lg:flex">
+<div class="h-16 flex items-center px-6 border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-3 text-primary dark:text-secondary">
+<svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.435 2.155a1 1 0 0 0-1.414.053L5.435 12.8a1 1 0 0 0 .01 1.414l10.586 9.389a1 1 0 0 0 1.467-1.353L8.26 13.5l8.742-9.932a1 1 0 0 0 .433-1.413zM12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path>
+</svg>
+<h1 class="text-xl font-heading font-bold text-primary dark:text-white">TailorSwift</h1>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-symbols-outlined text-base">dashboard</span>Dashboard</a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-symbols-outlined text-base">shopping_cart</span>Orders</a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-symbols-outlined text-base">group</span>Customers</a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 dark:bg-secondary/10 text-primary dark:text-secondary" href="#"><span class="material-symbols-outlined text-base">monitoring</span>Financial Reports</a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-symbols-outlined text-base">settings</span>Settings</a>
+</nav>
+<div class="px-4 py-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-symbols-outlined text-base">logout</span>Logout</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col">
+<header class="h-16 flex-shrink-0 flex items-center justify-between px-6 bg-card-light dark:bg-card-dark border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4">
+<button class="lg:hidden text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-xl font-heading font-semibold text-text-light dark:text-text-dark">Financial Reports</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 h-2 w-2 bg-danger rounded-full"></span>
+</button>
+<img alt="Admin Avatar" class="h-8 w-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJSR7n402TgTBmjVV_nsxXiuU0xHYF-FA0ZavXGHKvpy9xO5N2IxVTq2DRMy1U93_RNUFNf9N2ZhxUUYDIstfix-2zPifdrqTtOqMTZ1L2vnARwdfNPNk9BwF-wzxNzLG7DMj3oVW8Q90dmU3GLNfsMqh0bWY9CqEqgEtrGBYLLjm0ZZB9Oppwvlz-qrT25itE-txGws69_gxZ7UMF9GsGxQR546OOotJrDwN6VMo1XUkg-cfvB9FatYWturBxOn-_FNkraS_c4ZiY"/>
+</div>
+</header>
+<main class="flex-1 p-6 space-y-6">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 text-sm font-medium rounded-md bg-primary text-white hover:opacity-90">Daily</button>
+<button class="px-4 py-2 text-sm font-medium rounded-md bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark">Weekly</button>
+<button class="px-4 py-2 text-sm font-medium rounded-md bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark">Monthly</button>
+<button class="px-4 py-2 text-sm font-medium rounded-md bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light/80 dark:text-text-dark/80 hover:bg-background-light dark:hover:bg-background-dark">Yearly</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark hover:bg-background-light dark:hover:bg-background-dark"><span class="material-symbols-outlined text-base">picture_as_pdf</span>Export PDF</button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark hover:bg-background-light dark:hover:bg-background-dark"><span class="material-symbols-outlined text-base">grid_on</span>Export Excel</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-text-light/80 dark:text-text-dark/80">Total Revenue</h3>
+<span class="material-symbols-outlined text-success">trending_up</span>
+</div>
+<p class="text-3xl font-bold mt-2">$74,832</p>
+<p class="text-xs text-success mt-1">+12.5% from last period</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-text-light/80 dark:text-text-dark/80">Total Orders</h3>
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</div>
+<p class="text-3xl font-bold mt-2">1,245</p>
+<p class="text-xs text-success mt-1">+8.2% from last period</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-text-light/80 dark:text-text-dark/80">Avg. Order Value</h3>
+<span class="material-symbols-outlined text-secondary">monetization_on</span>
+</div>
+<p class="text-3xl font-bold mt-2">$60.11</p>
+<p class="text-xs text-success mt-1">+4.3% from last period</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-text-light/80 dark:text-text-dark/80">Outstanding Payments</h3>
+<span class="material-symbols-outlined text-danger">pending_actions</span>
+</div>
+<p class="text-3xl font-bold mt-2">$1,250</p>
+<p class="text-xs text-danger mt-1">5 overdue invoices</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-heading font-semibold mb-4">Revenue Overview</h3>
+<div class="h-80 flex items-center justify-center">
+<img alt="A line chart showing revenue trends over the past 30 days, with an upward trajectory." class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB75KYuMnrZ66z5paTdS0sUHlxZZlszWwOUZcNqxJsuMQz5I9NFqqXsL84Joo0ACqP7vzzh7OhkfQRcdbnpXo__bDvFBAQqzcpO6R3G40H8JXsSQjrdstp_dUxT_hzMH7dHhyGXkZ8jCEomnOroq69PfDL2Ca9j76m_J-KZqNnGLMOhY7KefAGTiqT0_I5sQ3E6o6RFAOVdqf2VZAEyXX-AIKxUt9jWCfq0PxA-UEPwjoEYemPd7Oeyy70Xv99pWFeXG6LFPoZEoI3n"/>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-heading font-semibold mb-4">Customer Lifetime Value (CLV)</h3>
+<div class="space-y-4">
+<div class="text-center">
+<p class="text-4xl font-bold text-primary dark:text-secondary">$482.50</p>
+<p class="text-sm text-text-light/80 dark:text-text-dark/80">Average CLV</p>
+</div>
+<div class="space-y-3 pt-4">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">New Customers</span>
+<span class="text-sm font-bold">$120.75</span>
+</div>
+<div class="w-full bg-background-light dark:bg-background-dark rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Repeat Customers</span>
+<span class="text-sm font-bold">$610.20</span>
+</div>
+<div class="w-full bg-background-light dark:bg-background-dark rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">VIP Customers</span>
+<span class="text-sm font-bold">$1,250.00</span>
+</div>
+<div class="w-full bg-background-light dark:bg-background-dark rounded-full h-2">
+<div class="bg-success h-2 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark overflow-hidden">
+<div class="p-6">
+<h3 class="text-lg font-heading font-semibold">Outstanding Payments</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-background-light dark:bg-background-dark text-xs uppercase text-text-light/60 dark:text-text-dark/60">
+<tr>
+<th class="px-6 py-3" scope="col">Invoice ID</th>
+<th class="px-6 py-3" scope="col">Customer</th>
+<th class="px-6 py-3" scope="col">Amount</th>
+<th class="px-6 py-3" scope="col">Due Date</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium whitespace-nowrap">#INV-00782</td>
+<td class="px-6 py-4">John Doe</td>
+<td class="px-6 py-4">$450.00</td>
+<td class="px-6 py-4">2024-07-15</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-danger/10 text-danger">Overdue</span></td>
+<td class="px-6 py-4 text-right"><button class="font-medium text-primary dark:text-secondary hover:underline">View</button></td>
+</tr>
+<tr class="border-t border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium whitespace-nowrap">#INV-00781</td>
+<td class="px-6 py-4">Jane Smith</td>
+<td class="px-6 py-4">$200.00</td>
+<td class="px-6 py-4">2024-07-28</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-warning/10 text-warning">Due Soon</span></td>
+<td class="px-6 py-4 text-right"><button class="font-medium text-primary dark:text-secondary hover:underline">View</button></td>
+</tr>
+<tr class="border-t border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium whitespace-nowrap">#INV-00779</td>
+<td class="px-6 py-4">Robert Johnson</td>
+<td class="px-6 py-4">$350.00</td>
+<td class="px-6 py-4">2024-07-10</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-danger/10 text-danger">Overdue</span></td>
+<td class="px-6 py-4 text-right"><button class="font-medium text-primary dark:text-secondary hover:underline">View</button></td>
+</tr>
+<tr class="border-t border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium whitespace-nowrap">#INV-00775</td>
+<td class="px-6 py-4">Emily White</td>
+<td class="px-6 py-4">$250.00</td>
+<td class="px-6 py-4">2024-08-05</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-success/10 text-success">Pending</span></td>
+<td class="px-6 py-4 text-right"><button class="font-medium text-primary dark:text-secondary hover:underline">View</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

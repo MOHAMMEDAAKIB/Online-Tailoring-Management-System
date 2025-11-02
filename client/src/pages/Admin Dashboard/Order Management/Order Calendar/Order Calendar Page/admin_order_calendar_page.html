@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Calendar - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#204cdf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111521",
+                        "status-pending": "#F59E0B",
+                        "status-progress": "#3B82F6",
+                        "status-ready": "#10B981",
+                        "status-completed": "#6B7280",
+                        "status-overdue": "#EF4444",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark p-4">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9EkHptoJzDwOcUQUImi4PTnEwb2JebArMJzRD-mqUT2WxwTOZjn2FO8aUDYv2duKIbO32tObm1SvCDpclzZTkm3AeOaxHjnzncXAz2K9MRpUrv-jOCM99rjtFQ4nHyA9wkAQ7Gmsq0V9MZ_JwkSMYJbWWTkJ0nZrupQrptA1R3FJJMwrGVbpL1QWUpvaTP9RAGWUczSJ9eWN96uABhQb0bZG8PME9sEkR93NPfiBu6xTNr6NYVVHoTu70gsEwCwcgdAhdjpvpUdtj");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-medium leading-normal">Olivia Rhye</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Administrator</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-white" href="#">
+<span class="material-symbols-outlined font-bold">calendar_month</span>
+<p class="text-sm font-bold leading-normal">Order Calendar</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">group</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-white/20">
+<span class="truncate">Log Out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col overflow-y-auto">
+<!-- Page Heading -->
+<header class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-800 p-6 bg-white dark:bg-background-dark">
+<div class="flex min-w-72 flex-col gap-1">
+<h1 class="text-gray-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">Order Calendar</h1>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Manage and reschedule orders with a drag-and-drop interface.</p>
+</div>
+<div class="flex items-center gap-4">
+<!-- Segmented Buttons -->
+<div class="flex h-10 w-48 items-center justify-center rounded-lg bg-gray-100 dark:bg-white/10 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-gray-900 dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">Month</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Month"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-sm has-[:checked]:text-gray-900 dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">
+<span class="truncate">Week</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Week"/>
+</label>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">New Order</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Filtering Sidebar -->
+<aside class="w-80 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark p-6 space-y-6">
+<!-- Search Bar -->
+<label class="flex flex-col w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-11">
+<div class="text-gray-500 dark:text-gray-400 flex border-none bg-gray-100 dark:bg-white/10 items-center justify-center pl-3.5 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-100 dark:bg-white/10 focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-2 text-sm font-normal leading-normal" placeholder="Search by Order ID or Customer..." value=""/>
+</div>
+</label>
+<!-- Text Fields (as Dropdowns) -->
+<div class="space-y-4">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Filter by Status</p>
+<select class="form-select w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary text-sm">
+<option>All Statuses</option>
+<option>Pending</option>
+<option>In Progress</option>
+<option>Ready for Pickup</option>
+<option>Completed</option>
+<option>Overdue</option>
+</select>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Filter by Customer</p>
+<select class="form-select w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary text-sm">
+<option>All Customers</option>
+<option>James Dean</option>
+<option>Marilyn Monroe</option>
+<option>Steve McQueen</option>
+</select>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Filter by Garment Type</p>
+<select class="form-select w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary text-sm">
+<option>All Garments</option>
+<option>Men's Suit</option>
+<option>Wedding Dress</option>
+<option>Blouse</option>
+</select>
+</label>
+</div>
+<!-- Status Legend -->
+<div>
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-3">Status Legend</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-status-pending"></div>
+<span class="text-sm text-gray-600 dark:text-gray-300">Pending</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-status-progress"></div>
+<span class="text-sm text-gray-600 dark:text-gray-300">In Progress</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-status-ready"></div>
+<span class="text-sm text-gray-600 dark:text-gray-300">Ready for Pickup</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-status-completed"></div>
+<span class="text-sm text-gray-600 dark:text-gray-300">Completed</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-status-overdue"></div>
+<span class="text-sm text-gray-600 dark:text-gray-300">Overdue</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Calendar Area -->
+<div class="flex flex-1 flex-col p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</div>
+<h2 class="text-xl font-semibold text-gray-900 dark:text-white">October 2023</h2>
+<button class="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-9 px-4 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700">Today</button>
+</div>
+<div class="grid grid-cols-7 flex-1 gap-px bg-gray-200 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<!-- Calendar Header -->
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Sun</div>
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Mon</div>
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Tue</div>
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Wed</div>
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Thu</div>
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Fri</div>
+<div class="text-center py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400">Sat</div>
+<!-- Calendar Days -->
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">24</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">25</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">26</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">27</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">28</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">29</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>1</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>2</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>3</span>
+<div class="mt-1 space-y-1">
+<div class="cursor-pointer rounded-md p-1.5 text-xs text-white bg-status-ready">
+<p class="font-semibold">#ORD-1254</p>
+<p>Steve McQueen</p>
+</div>
+</div>
+</div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>4</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>5</span>
+<div class="mt-1 space-y-1">
+<div class="cursor-pointer rounded-md p-1.5 text-xs text-white bg-status-progress">
+<p class="font-semibold">#ORD-1255</p>
+<p>Marilyn Monroe</p>
+</div>
+<div class="cursor-pointer rounded-md p-1.5 text-xs text-white bg-status-pending">
+<p class="font-semibold">#ORD-1256</p>
+<p>James Dean</p>
+</div>
+</div>
+</div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>6</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>7</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>8</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>9</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>10</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>11</span>
+<div class="mt-1 space-y-1">
+<div class="cursor-pointer rounded-md p-1.5 text-xs text-white bg-status-overdue">
+<p class="font-semibold">#ORD-1250</p>
+<p>Audrey Hepburn</p>
+</div>
+</div>
+</div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>12</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>13</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>14</span>
+<div class="mt-1 space-y-1">
+<div class="cursor-pointer rounded-md p-1.5 text-xs text-white bg-status-completed">
+<p class="font-semibold">#ORD-1249</p>
+<p>Grace Kelly</p>
+</div>
+</div>
+</div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>15</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>16</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>17</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>18</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>19</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>20</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>21</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>22</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>23</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>24</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>25</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>26</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>27</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>28</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>29</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>30</span></div>
+<div class="relative min-h-[120px] bg-white dark:bg-background-dark p-2"><span>31</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">1</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">2</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">3</span></div>
+<div class="relative min-h-[120px] bg-gray-50 dark:bg-gray-900 p-2"><span class="text-gray-400 dark:text-gray-500">4</span></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

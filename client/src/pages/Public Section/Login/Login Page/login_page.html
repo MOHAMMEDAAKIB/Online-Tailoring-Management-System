@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Tailor Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1e3fae",
+              "background-light": "#f6f6f8",
+              "background-dark": "#121520",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body>
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light p-4 dark:bg-background-dark font-display">
+<div class="w-full max-w-md space-y-8">
+<div class="flex flex-col items-center">
+<div class="w-full max-w-28 mb-4">
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-square" data-alt="Abstract geometric logo with purple and gold elements representing a needle and thread" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOEKQvEwQr6FRrYlQuiNCapoT4SiI3ajToRXZPuQPHK4V2wdt0_j2-7HelfEXLGE_2BOeYT6PbOYQ1PM9qjIMZvd9XZCMb7JzEIj6g1OQ-qRqZc8ZQofTRhAsqCJJ1ncK3QDqg9OKm4jbyCJjC-2E31ODTo_X2vUiHwX16QQMoXNftJrCUMWU7HYQ0jNIk3GTn_ZRVLZVqOiMeJS_TI2J6QsI09lSLr-bPgYWOxCpWvdHfAQNvej6Q3Ec-jYCxxYWIi4spKy-_sdm-");'></div>
+</div>
+<div class="flex min-w-72 flex-col gap-2 text-center">
+<p class="text-[#333333] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Welcome Back!</p>
+<p class="text-[#757575] dark:text-gray-300 text-base font-normal leading-normal">Log in to manage your appointments and orders.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#333333] dark:text-gray-200 text-base font-medium leading-normal pb-2">Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#333333] dark:text-white dark:bg-background-dark focus:outline-0 border border-[#dcdee5] dark:border-gray-600 bg-white focus:border-[#6A0DAD] focus:ring-2 focus:ring-[#6A0DAD]/30 h-14 placeholder:text-[#757575] p-[15px] text-base font-normal leading-normal" placeholder="Enter your email address" type="email" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#333333] dark:text-gray-200 text-base font-medium leading-normal pb-2">Password</p>
+<div class="flex w-full flex-1 items-stretch">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-lg text-[#333333] dark:text-white dark:bg-background-dark focus:outline-0 border border-[#dcdee5] dark:border-gray-600 bg-white focus:border-[#6A0DAD] focus:ring-2 focus:ring-[#6A0DAD]/30 h-14 placeholder:text-[#757575] p-[15px] border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Enter your password" type="password" value=""/>
+<div class="text-[#757575] flex border border-[#dcdee5] dark:border-gray-600 bg-white dark:bg-background-dark items-center justify-center px-4 rounded-r-lg border-l-0">
+<span class="material-symbols-outlined text-2xl">visibility</span>
+</div>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<input class="h-5 w-5 rounded border-[#dcdee5] dark:border-gray-500 border-2 bg-transparent text-[#6A0DAD] checked:bg-[#6A0DAD] checked:border-[#6A0DAD] checked:bg-center focus:ring-2 focus:ring-[#6A0DAD]/30 focus:ring-offset-0 focus:outline-none" id="remember-me" type="checkbox"/>
+<label class="text-[#333333] dark:text-gray-200 text-base font-normal leading-normal cursor-pointer" for="remember-me">Remember me</label>
+</div>
+<a class="text-base font-medium leading-normal text-[#6A0DAD] hover:text-[#580a91]" href="#">Forgot password?</a>
+</div>
+<button class="flex items-center justify-center w-full h-14 px-6 py-4 text-base font-bold text-white bg-[#6A0DAD] rounded-lg hover:bg-[#580a91] focus:outline-none focus:ring-2 focus:ring-[#6A0DAD] focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-colors duration-200">Login</button>
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
+<span class="flex-shrink mx-4 text-sm text-[#757575] dark:text-gray-400">Don't have an account?</span>
+<div class="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
+</div>
+<div class="text-center">
+<a class="text-base font-medium text-[#6A0DAD] hover:text-[#580a91]" href="#">Sign up</a>
+</div>
+</div>
+</div>
+</div>
+</body></html>
