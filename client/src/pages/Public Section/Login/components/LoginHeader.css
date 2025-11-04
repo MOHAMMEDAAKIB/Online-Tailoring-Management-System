@@ -1,0 +1,32 @@
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-header-content {
+    display: flex;
+    min-width: 18rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.login-header-title {
+    color: var(--text-primary);
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.033em;
+    margin: 0;
+}
+
+.login-header-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Dark mode handled by CSS variables */

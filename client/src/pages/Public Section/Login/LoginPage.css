@@ -1,0 +1,25 @@
+.login-page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+    padding: 1rem;
+    font-family: "Inter", sans-serif;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 28rem;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Dark mode handled by CSS variables */
