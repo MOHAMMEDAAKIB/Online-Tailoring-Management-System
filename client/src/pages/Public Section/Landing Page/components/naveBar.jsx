@@ -1,6 +1,11 @@
 import './naveBar.css';
 
 function NaveBar(){
+    
+    function signin(){
+        console.log("Sign In / Sign Up clicked");
+        window.location.href = "/login";
+    }
     return(
         <header className="navbar">
             <div className="navbar-brand">
@@ -12,14 +17,14 @@ function NaveBar(){
                 <h2 className="navbar-title">TailorSwift</h2>
             </div>
             <nav className="navbar-menu">
-                <a className="navbar-link" href="#">Services</a>
+                <a className="navbar-link" href="/services">Services</a>
                 <a className="navbar-link" href="#">How It Works</a>
-                <a className="navbar-link" href="#">Gallery</a>
+                <a className="navbar-link" href="/gallery">Gallery</a>
                 <a className="navbar-link" href="#">Pricing</a>
-                <a className="navbar-link" href="#">Contact</a>
+                <a className="navbar-link" href="/contact">Contact</a>
             </nav>
             <div className="navbar-actions">
-                <button className="navbar-button">
+                <button className="navbar-button" onClick={signin}>
                     <span>Sign In / Sign Up</span>
                 </button>
             </div>

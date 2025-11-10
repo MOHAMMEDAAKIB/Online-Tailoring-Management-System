@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './LoginForm.css';
+import {loginUsers} from '../../../../api/authAPI';
 
 function LoginForm() {
     const [email, setEmail] = useState('');
@@ -7,10 +8,12 @@ function LoginForm() {
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Handle login logic here
         console.log('Login attempt:', { email, password, rememberMe });
+        const responce = await loginUsers({ email, password })
+        console.log(responce);
     };
 
     return (
@@ -93,7 +96,7 @@ function LoginForm() {
 
                 {/* Sign Up Link */}
                 <div className="login-form-signup">
-                    <a className="login-form-signup-link" href="#">
+                    <a className="login-form-signup-link" href="/register">
                         Sign up
                     </a>
                 </div>

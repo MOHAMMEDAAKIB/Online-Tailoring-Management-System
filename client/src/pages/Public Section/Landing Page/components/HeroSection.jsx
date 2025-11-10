@@ -1,6 +1,13 @@
 import './HeroSection.css';
 
 function HeroSection() {
+    function tugletoSignin(){
+        window.location.href = "/login";
+    }
+
+    function tugletoServices(){
+        window.location.href = "/services";
+    }
     return (
         <section className="hero-section">
             <div className="hero-wrapper">
@@ -19,10 +26,10 @@ function HeroSection() {
                         </h2>
                     </div>
                     <div className="hero-buttons">
-                        <button className="hero-button hero-button-primary">
+                        <button className="hero-button hero-button-primary" onClick={tugletoSignin}>
                             <span>Get Started</span>
                         </button>
-                        <button className="hero-button hero-button-secondary">
+                        <button className="hero-button hero-button-secondary" onClick={tugletoServices}>
                             <span>View Services</span>
                         </button>
                     </div>
