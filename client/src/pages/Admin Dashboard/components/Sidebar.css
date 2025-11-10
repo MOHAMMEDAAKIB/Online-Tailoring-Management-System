@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.sidebar {
+    width: 16rem;
+    flex-shrink: 0;
+    background-color: var(--background);
+    border-right: 1px solid var(--border);
+}
+
+.sidebar-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+}
+
+.sidebar-logo {
+    background-color: rgba(30, 64, 175, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem;
+    color: var(--primary);
+}
+
+.sidebar-logo .material-symbols-outlined {
+    font-size: 1.75rem;
+}
+
+.sidebar-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.sidebar-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.sidebar-nav-item:hover {
+    background-color: var(--neutral-100);
+}
+
+.sidebar-nav-item.active {
+    background-color: rgba(30, 64, 175, 0.1);
+    color: var(--primary);
+}
+
+.sidebar-nav-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.sidebar-nav-item.active .sidebar-nav-label {
+    font-weight: bold;
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .sidebar {
+        background-color: var(--neutral-800);
+    }
+
+    .sidebar-logo {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .sidebar-nav-item:hover {
+        background-color: var(--neutral-700);
+    }
+
+    .sidebar-nav-item.active {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+}

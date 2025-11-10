@@ -1,0 +1,139 @@
+.charts-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .charts-section {
+        grid-template-columns: 3fr 2fr;
+        gap: 2rem;
+    }
+}
+
+.chart-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    background-color: var(--background);
+}
+
+.chart-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.chart-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.chart-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.chart-content {
+    display: flex;
+    min-height: 280px;
+    flex: 1;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+/* Revenue Chart */
+.revenue-chart .chart-content {
+    justify-content: center;
+}
+
+/* Donut Chart */
+.donut-chart {
+    align-items: center;
+    justify-content: center;
+}
+
+.donut-chart-wrapper {
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+}
+
+.donut-chart-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.donut-chart-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.donut-chart-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.donut-chart-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+.legend-dot.primary {
+    background-color: var(--primary);
+}
+
+.legend-dot.secondary {
+    background-color: var(--secondary);
+}
+
+.legend-dot.neutral {
+    background-color: var(--neutral-500);
+}
+
+.legend-text {
+    color: var(--text-primary);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .chart-card {
+        background-color: var(--neutral-800);
+    }
+}

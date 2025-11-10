@@ -1,19 +1,44 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
-import {loginUsers} from '../../../../api/authAPI';
+import { loginUsers } from '../../../../api/authAPI';
+import { useAuth } from '../../../../context/AuthContext';
 
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         // Handle login logic here
         console.log('Login attempt:', { email, password, rememberMe });
-        const responce = await loginUsers({ email, password })
-        console.log(responce);
+        try {
+            const responce = await loginUsers({ email, password })
+            if (responce.data.success){
+                // Store user data and token using AuthContext
+                login(responce.data.data.user, responce.data.data.token);
+                
+                alert ("Login successful!");
+                if (responce.data.data.user.role === 'admin'){
+                    navigate("/admin/dashboard", { state: { data: responce.data.data } });
+                    return;
+                }else if (responce.data.data.user.role === "customer"){
+                    navigate("/customer/dashboard", { state: { data: responce.data.data } });
+                    return;
+                }
+
+            }else{
+                alert ("Login failed: " + responce.data.message);
+            }
+        }catch(e){
+            alert ("Login failed: " + e.response.data.message);
+        }
+        
     };
 
     return (

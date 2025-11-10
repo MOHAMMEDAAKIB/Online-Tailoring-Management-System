@@ -1,0 +1,78 @@
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .stats-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stats-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    transition: box-shadow var(--transition-fast);
+}
+
+.stats-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.stats-card-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.stats-card-value {
+    color: var(--text-primary);
+    font-size: 1.875rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.stats-card-change {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+}
+
+.stats-card-change.up {
+    color: var(--success);
+}
+
+.stats-card-change.down {
+    color: var(--error);
+}
+
+.stats-card-change .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .stats-card {
+        background-color: var(--neutral-800);
+    }
+}
