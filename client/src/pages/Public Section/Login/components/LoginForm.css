@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Form Field */
+.login-form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-label {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+/* Input Styles */
+.login-form-input {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    resize: none;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    height: 3.5rem;
+    padding: 0.9375rem;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.login-form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.login-form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* Password Field */
+.login-form-password-wrapper {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    align-items: stretch;
+}
+
+.login-form-input-password {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    resize: none;
+    overflow: hidden;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-right: 0;
+    height: 3.5rem;
+    padding: 0.9375rem;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.login-form-input-password::placeholder {
+    color: var(--text-muted);
+}
+
+.login-form-input-password:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.login-form-password-toggle {
+    display: flex;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-left: 0;
+    background-color: var(--background);
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.login-form-password-toggle:hover {
+    color: var(--text-primary);
+}
+
+.login-form-password-toggle .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
+/* Remember Me & Forgot Password */
+.login-form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.login-form-remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login-form-checkbox {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    accent-color: var(--primary);
+}
+
+.login-form-checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.login-form-checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.1);
+}
+
+.login-form-checkbox-label {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    cursor: pointer;
+    margin: 0;
+}
+
+.login-form-forgot-link {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.login-form-forgot-link:hover {
+    color: var(--primary-dark);
+}
+
+/* Login Button */
+.login-form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--primary);
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.login-form-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.login-form-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.2);
+}
+
+/* Divider */
+.login-form-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.login-form-divider-line {
+    flex-grow: 1;
+    border-top: 1px solid var(--border);
+}
+
+.login-form-divider-text {
+    flex-shrink: 1;
+    margin: 0 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Sign Up Link */
+.login-form-signup {
+    text-align: center;
+}
+
+.login-form-signup-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.login-form-signup-link:hover {
+    color: var(--primary-dark);
+}
+
+/* Dark mode handled by CSS variables */

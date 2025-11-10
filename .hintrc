@@ -33,6 +33,16 @@
           "iframe[referrerpolicy=no-referrer-when-downgrade]"
         ]
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "backdrop-filter",
+          "container-type",
+          "container-type: inline-size"
+        ]
+      }
     ]
   }
 }

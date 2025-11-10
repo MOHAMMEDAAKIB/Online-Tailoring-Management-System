@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//import './App.css'
+import LandingPage from './pages/Public Section/Landing Page/landing_page'
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import LoginPage from './pages/Public Section/Login/LoginPage.jsx';
+import RegisterPage from './pages/Public Section/Register/RegisterPage.jsx';
+import GalleryPage from './pages/Public Section/Gallery/GalleryPage.jsx';
+import ContactPage from './pages/Public Section/About/Contact/ContactPage.jsx';
+import ServicesPage from './pages/Public Section/Services/ServicesPage.jsx';
+import TrackOrderPage from './pages/Public Section/Track Order/TrackOrderPage.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/track-order" element={<TrackOrderPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

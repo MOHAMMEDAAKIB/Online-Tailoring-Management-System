@@ -11,6 +11,7 @@ node_modules/
 dist
 dist-ssr
 *.local
+stitch_tailoring_service_landing_page
 
 # Editor directories and files
 .vscode/*

@@ -1,0 +1,127 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid #CED4DA;
+    background-color: rgba(248, 249, 250, 0.8);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .navbar {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #00539C;
+}
+
+.navbar-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.navbar-title {
+    color: #00539C;
+    font-size: 1.25rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+@media (min-width: 1024px) {
+    .navbar-menu {
+        display: flex;
+    }
+}
+
+.navbar-link {
+    color: #343A40;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #00539C;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: #00539C;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-button:hover {
+    opacity: 0.9;
+}
+
+.navbar-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        border-bottom-color: #343A40;
+        background-color: rgba(18, 21, 32, 0.8);
+    }
+
+    .navbar-brand {
+        color: #FFD700;
+    }
+
+    .navbar-title {
+        color: white;
+    }
+
+    .navbar-link {
+        color: #F8F9FA;
+    }
+
+    .navbar-link:hover {
+        color: #FFD700;
+    }
+}

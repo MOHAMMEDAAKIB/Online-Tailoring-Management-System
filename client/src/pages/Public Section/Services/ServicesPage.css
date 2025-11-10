@@ -1,0 +1,38 @@
+.services-page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--background);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+.services-page-container {
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.services-page-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 1.25rem 0;
+}
+
+.services-page-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 60rem;
+    flex: 1;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .services-page {
+        background-color: var(--neutral-900);
+    }
+}
