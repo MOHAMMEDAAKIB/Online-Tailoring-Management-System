@@ -29,7 +29,8 @@ const PORT = process.env.PORT || 4000;
 // 1. CORS - Allow requests from frontend (React, Vue, Angular, etc.)
 // Purpose: Enable cross-origin resource sharing
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:4000', // Frontend URL
+  origin: "http://localhost:5173", // allow React frontend
+  methods: ["GET", "POST", "PUT", "DELETE"], // Frontend URL
   credentials: true // Allow cookies
 }));
 
