@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Timeline - Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#204cdf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111521",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full grow">
+<!-- SideNavBar -->
+<aside class="flex-shrink-0 w-64 bg-white dark:bg-[#181d2c] border-r border-gray-200 dark:border-gray-700">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBDLugsj6N6r5NRbQEOZhvZpvUxCspbYcdu2YyjSLmK-29YOdRc2Pfcvd9egJWDTvzNJS8WQBVq4Z1y4G-OnMAzKYA5hXu2oEKqNDEKaT29pZPv_534pGRCIke2QhcHcxqCo-cuKPF6iEt4v6XnSSNh8iqjXRJzzteKwmNIfLfU6aW3zIuivqan_u_nct8bImFk13lWh2NoMpN8cZ0OcQwU0rc7T5MSx-pfVAhqOaC5hJ087D-7P1wfj8iODVHvzXo5Q-ofHBDBfjVk");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#111317] dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">admin@tailor.co</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined !font-bold">view_kanban</span>
+<p class="text-sm font-bold">Order Timeline</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">cut</span>
+<p class="text-sm font-medium">Tailors</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium">Reports</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#646c87] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium">Logout</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-6 lg:p-8 overflow-y-auto">
+<!-- PageHeading -->
+<header class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<div class="flex flex-col gap-1">
+<h1 class="text-[#111317] dark:text-white text-3xl font-black tracking-tight">Order Timeline</h1>
+<p class="text-[#646c87] dark:text-gray-400 text-base font-normal">Manage and track orders through the workflow.</p>
+</div>
+<button class="flex items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span class="truncate">Add New Order</span>
+</button>
+</header>
+<!-- ToolBar & SearchBar & Chips -->
+<div class="flex flex-col md:flex-row gap-4 mb-6 sticky top-0 bg-background-light dark:bg-background-dark py-4 z-10">
+<div class="flex-1">
+<label class="flex flex-col min-w-40 h-11 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+<div class="text-[#646c87] flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#111317] dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-[#646c87] px-2 text-sm font-normal" placeholder="Search by order ID or customer name" value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-2 items-center">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 pl-3 pr-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+<p class="text-sm font-medium">Filter by Tailor</p>
+<span class="material-symbols-outlined text-xl">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 pl-3 pr-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+<p class="text-sm font-medium">Sort by Due Date</p>
+<span class="material-symbols-outlined text-xl">arrow_drop_down</span>
+</button>
+<button class="p-2 text-gray-600 dark:text-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Column: Pending -->
+<div class="flex flex-col bg-gray-100 dark:bg-gray-800/50 rounded-xl p-4 min-h-[600px]">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-bold text-gray-800 dark:text-gray-200">Pending</h2>
+<span class="text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full px-2.5 py-0.5">3</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Order Card 1 -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-gray-800 dark:text-gray-100">#1024 - Amelia Chen</p>
+<div class="size-2.5 rounded-full bg-amber-500" data-alt="High priority indicator"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Custom Silk Blouse</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 px-2 py-1 rounded">Due: Oct 28, 2023</span>
+<img class="size-6 rounded-full ring-2 ring-white dark:ring-gray-800" data-alt="Avatar of tailor Sarah J." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYKZ3hW1xBRVowBeP2RYaY3QCgPI6T-Rvk4fdtg-SbEIuzVQdhOPQAMWQrRMwvbN_J_689yqfhRFUsinssidwsgbPjkatxOGQHwRR7bhyezI7irCRy3b1hSVoYAWwX0dvVO1bsQA6xsFOH5kgpktGTF-Hk5AwHzbX-tsmWiBIhCFkKascrlpcapZMn9EcbWO65tgTRSkV3tQDVnUSS6TjYMnLqlorfz0riJsViBh0t5QADelWuWcdpfaENQEWgqkNebtJqvf0oQ20T"/>
+</div>
+</div>
+<!-- Order Card 2 -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-gray-800 dark:text-gray-100">#1021 - Ben Carter</p>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Linen Trousers Alteration</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Due: Nov 05, 2023</span>
+<img class="size-6 rounded-full ring-2 ring-white dark:ring-gray-800" data-alt="Avatar of tailor Mike L." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtd-hpsIN_TrqY2Gzq92RFjmXATsp5Kyl4qg8bxFTcO-7sO-rnO2LdsPm-803xBrXMLyK6fZzW9zAdBgyTc0zkzxyQNcZ0hjle0oaRmo_zLsCmCl_5o_qfPqMHasXjybmNGXFiCxhZvlU6QhKSEH7-m7sMxfY1g-fP4H_KbgIPT9PGedZbyDbkE-u3obeUf7f6vm3jpEJo23ru3Tqm4im-nUN_BzDSkO8r7fOIbTTbbY_Rj3KFVVWzOctz5U_Vf0LshpdHZLHQeNKc"/>
+</div>
+</div>
+<!-- Order Card 3 -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-gray-800 dark:text-gray-100">#1019 - Chloe Davis</p>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Wedding Dress Fitting</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Due: Nov 10, 2023</span>
+<img class="size-6 rounded-full ring-2 ring-white dark:ring-gray-800" data-alt="Avatar of tailor Sarah J." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Nw30SpcmGjace4oEZvnFn7tMuDrc8NyUX4gVUVV0gUDWRTFYo2qvk36KPacBh3Zj6zaYx6Gexa1RRD1fuGnhGq41yWz3Y3xM6kqdiXxJN5xytR2NPPuLVgv11HN0HbOs-Ktk3U4u5r0JFHYCRcCd09BkCV57YHnbMS8_8bj_rR-6ioCMxv1V899zAKZUoskxqbIjG_Jy6GQOEq2PZF_lXywRuxcgqGvgbwunOFkajnhCD69Yx4vELpyxpipWDy-pISwmQ2i6skGJ"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="flex flex-col bg-gray-100 dark:bg-gray-800/50 rounded-xl p-4 min-h-[600px]">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-bold text-gray-800 dark:text-gray-200">In Progress</h2>
+<span class="text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full px-2.5 py-0.5">2</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Order Card 4 -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-gray-800 dark:text-gray-100">#1015 - David Kim</p>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Men's Suit, 2-piece</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Due: Nov 02, 2023</span>
+<img class="size-6 rounded-full ring-2 ring-white dark:ring-gray-800" data-alt="Avatar of tailor Mike L." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO7ngmjo0W9Cs1evUn9Om_JURBRb58RCY2p3ErddeMu7Pta7DtTLj10l3CDcfoTzlMbrIBrJhm5lsqtALwOx8x_XmGd2mttaxKiSz4HRyz8m6LDM9GSzjK72DFP9KM-DIxJmTYR9CyptqOcz9RpVQ4gwZQiTBEzQv3AzHu2xJcbdZUFD-IvSnnCRfYmqOtcKN-ZG0aFvrlvEJamNSXwuz2P5figa055Ow7WUKKgaXi1G9ZeNh9HazkNQu-npv_q38s_qftUhg-5oNJ"/>
+</div>
+</div>
+<!-- Order Card 5 -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-gray-800 dark:text-gray-100">#1012 - Eva Martinez</p>
+<div class="size-2.5 rounded-full bg-amber-500" data-alt="High priority indicator"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Evening Gown Hemming</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Due: Oct 30, 2023</span>
+<img class="size-6 rounded-full ring-2 ring-white dark:ring-gray-800" data-alt="Avatar of tailor Sarah J." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx4PyMK19Zhwpu3KKkSUOw4WiausGQ3kTGvSfVbdZQh-VbM4Jft10SJb1bqASlFvnyyjdqO0iPo3A6DE31-CP90gAcFWQRSBDGol9uFWOWWqMPwpdSmppV6UrV34kvYymiOa46r6sPpUBcJOtYYcBMaRTNbWL6xUeVvyExWOw6dBcQhNfehrchu0hfV8ZBLes-FzHDSyhj3v_RxyHpvHo6d8iPMysndqV6o7qRel5ep8JQfl00RcxZOvlbUsioXBGFfoMFBbCIc4uv"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Ready -->
+<div class="flex flex-col bg-gray-100 dark:bg-gray-800/50 rounded-xl p-4 min-h-[600px]">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-bold text-gray-800 dark:text-gray-200">Ready for Pickup</h2>
+<span class="text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full px-2.5 py-0.5">1</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Order Card 6 -->
+<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-gray-800 dark:text-gray-100">#1009 - Frank Wright</p>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Jacket Sleeve Adjustment</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Due: Oct 27, 2023</span>
+<img class="size-6 rounded-full ring-2 ring-white dark:ring-gray-800" data-alt="Avatar of tailor Mike L." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd3mf9DoPmaYx7efCp2JaQtmoLMLOScmdUS8qZLH0c--xC6oZDbrAtDV6zSy3WbyTRZY3sivBE4x6GdAmvpbr9HWWjWNjUrm5GUQ8AvBkFyzVLn1szjewE3Yl0EnzBAncgjh0doAUcYL34GMKU53RTZIK2eYp8oNqmC1bmz_d9e4YrWWWkPQUfgv2wwjrEnSZ_Xvo_6jpNIZEsHU7VCdYa-sFwbiWq70mzSxDXzaCc6qJIqnw0iuQUSFXX45RflJoLyLipEjrC-Hhn"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Delivered -->
+<div class="flex flex-col bg-gray-100 dark:bg-gray-800/50 rounded-xl p-4 min-h-[600px]">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-bold text-gray-800 dark:text-gray-200">Delivered</h2>
+<span class="text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full px-2.5 py-0.5">0</span>
+</div>
+<div class="flex flex-col items-center justify-center h-full text-center text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-4xl mb-2">inbox</span>
+<p class="text-sm">No orders in this stage.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

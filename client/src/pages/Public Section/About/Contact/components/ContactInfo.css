@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info-title {
+    color: #2C3E50;
+    font-size: 1.375rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(189, 195, 199, 0.1);
+}
+
+.contact-info-icon {
+    color: #2C3E50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: rgba(189, 195, 199, 0.3);
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+}
+
+.contact-info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info-label {
+    color: #2C3E50;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0 0 0.25rem 0;
+}
+
+.contact-info-text {
+    color: #34495E;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+}
+
+.contact-info-map {
+    width: 100%;
+    height: 20rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid rgba(189, 195, 199, 0.5);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .contact-info-title {
+        color: white;
+    }
+
+    .contact-info-item {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-info-icon {
+        color: #BDC3C7;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-info-label {
+        color: white;
+    }
+
+    .contact-info-text {
+        color: #E0E0E0;
+    }
+
+    .contact-info-map {
+        border-color: rgba(189, 195, 199, 0.2);
+    }
+}

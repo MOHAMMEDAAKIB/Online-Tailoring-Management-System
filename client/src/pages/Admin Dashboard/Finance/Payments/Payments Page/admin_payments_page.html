@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payments - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#204cdf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111521",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex flex-row min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-background-dark dark:border-r dark:border-slate-800 hidden lg:flex">
+<div class="flex h-full min-h-screen flex-col justify-between p-4 w-full">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Company Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQ4oCHT2CRBtvfMcBv04X1MEG0V-mb1-OqLTCjHPu9l8CCp2kLuK2rILZCV-CeSlT_mn7MNo45IM6kiu8AVjPxs7cbftFcoP4pkXjuMY2LFpMBhOGg21mlKys0RrEE1xkMnybK7-YljL7--s-mIRU2Q9m0jPAidWOUb0r0EiZsfnaxxwO-sX8S90dZFO5Ysqih2NHQlaa40e4idfX94bN2F1ESGJRRntRMblIqY-Im5XBh2T9PbcAvAhPVbdwXuqhfYGCcvnAXW2mI");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-200 text-base font-bold leading-normal">The Tailor Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">dashboard</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">shopping_cart</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">group</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-300" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<p class="text-primary dark:text-primary-300 text-sm font-bold leading-normal">Payments</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">settings</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">New Order</span>
+</button>
+<div class="flex flex-col gap-1 border-t border-slate-200 dark:border-slate-800 pt-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">help</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Help Center</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">logout</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Log out</p>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-4 sm:p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Payments</h1>
+<div class="flex items-center gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 hover:bg-slate-50 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-base">download</span>
+<span class="truncate">Export Data</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 hover:bg-primary/90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="truncate">Add Manual Payment</span>
+</button>
+</div>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+<div class="flex flex-1 flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Total Revenue</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">$125,430.00</p>
+<p class="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+2.5% vs last month</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Pending Payments</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">$8,210.50</p>
+<p class="text-red-600 dark:text-red-500 text-sm font-medium leading-normal">-1.2% vs last month</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Refunds This Month</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">$1,500.00</p>
+<p class="text-green-600 dark:text-green-500 text-sm font-medium leading-normal">+5.0% vs last month</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">Gateway Status</p>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">Online</p>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal invisible">Placeholder</p>
+</div>
+</div>
+<!-- Toolbar & Table Wrapper -->
+<div class="bg-white dark:bg-background-dark rounded-xl border border-slate-200 dark:border-slate-800">
+<!-- Toolbar -->
+<div class="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row gap-4">
+<div class="flex-1 min-w-0">
+<label class="flex flex-col w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-10">
+<div class="text-slate-500 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-3 rounded-l-lg border border-slate-300 dark:border-slate-700 border-r-0">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search by Order ID, Customer, or Transaction ID..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-2">
+<select class="form-select w-full md:w-auto h-10 rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm focus:ring-primary/50 focus:border-primary">
+<option>Date Range</option>
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+<select class="form-select w-full md:w-auto h-10 rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm focus:ring-primary/50 focus:border-primary">
+<option>Status: All</option>
+<option>Completed</option>
+<option>Pending</option>
+<option>Failed</option>
+<option>Refunded</option>
+</select>
+<select class="form-select w-full md:w-auto h-10 rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-sm focus:ring-primary/50 focus:border-primary">
+<option>Payment Method</option>
+<option>Credit Card</option>
+<option>PayPal</option>
+<option>Bank Transfer</option>
+</select>
+</div>
+</div>
+<!-- Transaction Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="p-4" scope="col"><input class="form-checkbox rounded border-slate-400 text-primary focus:ring-primary/50" type="checkbox"/></th>
+<th class="px-6 py-3" scope="col">Transaction ID</th>
+<th class="px-6 py-3" scope="col">Order ID</th>
+<th class="px-6 py-3" scope="col">Customer</th>
+<th class="px-6 py-3" scope="col">Date</th>
+<th class="px-6 py-3" scope="col">Amount</th>
+<th class="px-6 py-3" scope="col">Payment Method</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="p-4"><input class="form-checkbox rounded border-slate-400 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">#TXN120345</td>
+<td class="px-6 py-4">#ORD5890</td>
+<td class="px-6 py-4">Liam Johnson</td>
+<td class="px-6 py-4">2023-10-26</td>
+<td class="px-6 py-4">$250.00</td>
+<td class="px-6 py-4">Credit Card</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Completed</span></td>
+<td class="px-6 py-4 text-right"><button class="text-slate-500 dark:text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="p-4"><input class="form-checkbox rounded border-slate-400 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">#TXN120346</td>
+<td class="px-6 py-4">#ORD5891</td>
+<td class="px-6 py-4">Olivia Smith</td>
+<td class="px-6 py-4">2023-10-25</td>
+<td class="px-6 py-4">$150.50</td>
+<td class="px-6 py-4">PayPal</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Pending</span></td>
+<td class="px-6 py-4 text-right"><button class="text-slate-500 dark:text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="p-4"><input class="form-checkbox rounded border-slate-400 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">#TXN120347</td>
+<td class="px-6 py-4">#ORD5892</td>
+<td class="px-6 py-4">Noah Williams</td>
+<td class="px-6 py-4">2023-10-25</td>
+<td class="px-6 py-4">$99.99</td>
+<td class="px-6 py-4">Credit Card</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Failed</span></td>
+<td class="px-6 py-4 text-right"><button class="text-slate-500 dark:text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="p-4"><input class="form-checkbox rounded border-slate-400 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">#TXN120348</td>
+<td class="px-6 py-4">#ORD5893</td>
+<td class="px-6 py-4">Emma Brown</td>
+<td class="px-6 py-4">2023-10-24</td>
+<td class="px-6 py-4">$310.00</td>
+<td class="px-6 py-4">Bank Transfer</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-slate-300">Refunded</span></td>
+<td class="px-6 py-4 text-right"><button class="text-slate-500 dark:text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button></td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="p-4"><input class="form-checkbox rounded border-slate-400 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">#TXN120349</td>
+<td class="px-6 py-4">#ORD5894</td>
+<td class="px-6 py-4">James Jones</td>
+<td class="px-6 py-4">2023-10-23</td>
+<td class="px-6 py-4">$45.00</td>
+<td class="px-6 py-4">PayPal</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Completed</span></td>
+<td class="px-6 py-4 text-right"><button class="text-slate-500 dark:text-slate-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-sm text-slate-700 dark:text-slate-400">
+                                Showing <span class="font-semibold text-slate-900 dark:text-white">1-5</span> of <span class="font-semibold text-slate-900 dark:text-white">100</span>
+</span>
+<div class="inline-flex rounded-lg shadow-sm">
+<button class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-slate-500 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-l-lg hover:bg-slate-50 dark:hover:bg-slate-700 focus:z-10 focus:ring-2 focus:ring-primary">Previous</button>
+<button class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-slate-500 bg-white dark:bg-slate-800 border-t border-b border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 focus:z-10 focus:ring-2 focus:ring-primary">Next</button>
+<button class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-slate-500 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-r-lg hover:bg-slate-50 dark:hover:bg-slate-700 focus:z-10 focus:ring-2 focus:ring-primary">Last</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

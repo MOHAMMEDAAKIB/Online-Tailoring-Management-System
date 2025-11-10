@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Details - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#204cdf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111521",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a202c",
+                        "text-light": "#111317",
+                        "text-dark": "#e2e8f0",
+                        "text-muted-light": "#646c87",
+                        "text-muted-dark": "#a0aec0",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#2d3748"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKTw5dcz2neHvcyqpPqo11qVpJx-lF8sWzUDoVsDXCAZGsCxPPDfCbj3luL_rWUDKuC396_cIN19dqTRQJmRR5dadhmJsiZqHRCZGWDjyrbrUWLPqfhVz9a5jIEn2txa14pSKnQ521L3D4eKBQZ3DGnG4FR-vcxhYkgh77QDM2t8kubyj38V9S7FoJAKmdsJgw4Jm_FRnX27Nxvj4zA8a3BOJadBvXEOXYIF-0_qSGYDbgeWF2c3ZkQzV7urieaL_6jey3y7RjIOaC");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Alex Grim</h1>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal leading-normal">Administrator</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted-light dark:text-text-muted-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted-light dark:text-text-muted-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted-light dark:text-text-muted-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-2xl">straighten</span>
+<p class="text-sm font-medium leading-normal">Measurements</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted-light dark:text-text-muted-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-2xl">lab_profile</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">New Order</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted-light dark:text-text-muted-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted-light dark:text-text-muted-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-2xl">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8">
+<div class="w-full max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-text-light dark:text-text-dark text-4xl font-black leading-tight tracking-[-0.033em]">John Doe</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-base font-normal leading-normal">Customer ID: CUST-12345</p>
+</div>
+<!-- Chips -->
+<div class="flex gap-2">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-green-100 dark:bg-green-900/50 px-3">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-base">check_circle</span>
+<p class="text-green-700 dark:text-green-300 text-sm font-medium leading-normal">Active</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-yellow-100 dark:bg-yellow-900/50 px-3">
+<span class="material-symbols-outlined text-yellow-600 dark:text-yellow-400 text-base">star</span>
+<p class="text-yellow-700 dark:text-yellow-300 text-sm font-medium leading-normal">VIP</p>
+</div>
+</div>
+</div>
+<!-- ButtonGroup -->
+<div class="flex flex-1 sm:flex-initial gap-3 flex-wrap justify-start">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Add New Order</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Send Message</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="mt-8">
+<div class="flex border-b border-border-light dark:border-border-dark gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Overview</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-muted-light dark:text-text-muted-dark pb-[13px] pt-4 hover:border-b-gray-400 dark:hover:border-b-gray-600 hover:text-text-light dark:hover:text-text-dark transition-colors duration-200" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Orders</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-muted-light dark:text-text-muted-dark pb-[13px] pt-4 hover:border-b-gray-400 dark:hover:border-b-gray-600 hover:text-text-light dark:hover:text-text-dark transition-colors duration-200" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Measurements</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-muted-light dark:text-text-muted-dark pb-[13px] pt-4 hover:border-b-gray-400 dark:hover:border-b-gray-600 hover:text-text-light dark:hover:text-text-dark transition-colors duration-200" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Communication</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-muted-light dark:text-text-muted-dark pb-[13px] pt-4 hover:border-b-gray-400 dark:hover:border-b-gray-600 hover:text-text-light dark:hover:text-text-dark transition-colors duration-200" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Notes</p>
+</a>
+</div>
+</div>
+<!-- Tab Content: Overview -->
+<div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Column 1: Contact Details -->
+<div class="lg:col-span-1 bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
+<div class="flex justify-between items-center">
+<h2 class="text-lg font-bold text-text-light dark:text-text-dark">Contact Details</h2>
+<button class="text-primary text-sm font-bold">Edit</button>
+</div>
+<div class="mt-6 space-y-4">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm text-text-muted-light dark:text-text-muted-dark">Email</span>
+<a class="font-medium text-text-light dark:text-text-dark hover:text-primary" href="mailto:johndoe@example.com">johndoe@example.com</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">call</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm text-text-muted-light dark:text-text-muted-dark">Phone</span>
+<a class="font-medium text-text-light dark:text-text-dark hover:text-primary" href="tel:+1234567890">+1 (234) 567-890</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg mt-1">
+<span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm text-text-muted-light dark:text-text-muted-dark">Shipping Address</span>
+<p class="font-medium text-text-light dark:text-text-dark">123 Main Street<br/>Anytown, USA 12345</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2 & 3: Key Metrics & Recent Orders -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Key Metrics -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Total Orders</p>
+<p class="text-2xl font-bold mt-1 text-text-light dark:text-text-dark">28</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Total Revenue</p>
+<p class="text-2xl font-bold mt-1 text-text-light dark:text-text-dark">$7,450</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Avg. Order Value</p>
+<p class="text-2xl font-bold mt-1 text-text-light dark:text-text-dark">$266</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Customer Since</p>
+<p class="text-2xl font-bold mt-1 text-text-light dark:text-text-dark">2021</p>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark">
+<h2 class="text-lg font-bold p-6 text-text-light dark:text-text-dark">Recent Orders</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-border-light dark:border-border-dark bg-background-light dark:bg-card-dark">
+<tr>
+<th class="p-4 text-sm font-semibold text-text-muted-light dark:text-text-muted-dark">Order ID</th>
+<th class="p-4 text-sm font-semibold text-text-muted-light dark:text-text-muted-dark">Date</th>
+<th class="p-4 text-sm font-semibold text-text-muted-light dark:text-text-muted-dark">Status</th>
+<th class="p-4 text-sm font-semibold text-text-muted-light dark:text-text-muted-dark">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark/50">
+<td class="p-4 text-sm font-medium text-primary cursor-pointer">#ORD-00128</td>
+<td class="p-4 text-sm text-text-muted-light dark:text-text-muted-dark">Nov 15, 2023</td>
+<td class="p-4 text-sm"><span class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full dark:bg-green-900 dark:text-green-300">Delivered</span></td>
+<td class="p-4 text-sm font-medium text-text-light dark:text-text-dark">$350.00</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark hover:bg-background-light dark:hover:bg-background-dark/50">
+<td class="p-4 text-sm font-medium text-primary cursor-pointer">#ORD-00121</td>
+<td class="p-4 text-sm text-text-muted-light dark:text-text-muted-dark">Oct 2, 2023</td>
+<td class="p-4 text-sm"><span class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full dark:bg-green-900 dark:text-green-300">Delivered</span></td>
+<td class="p-4 text-sm font-medium text-text-light dark:text-text-dark">$210.50</td>
+</tr>
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50">
+<td class="p-4 text-sm font-medium text-primary cursor-pointer">#ORD-00115</td>
+<td class="p-4 text-sm text-text-muted-light dark:text-text-muted-dark">Aug 19, 2023</td>
+<td class="p-4 text-sm"><span class="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full dark:bg-green-900 dark:text-green-300">Delivered</span></td>
+<td class="p-4 text-sm font-medium text-text-light dark:text-text-dark">$420.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

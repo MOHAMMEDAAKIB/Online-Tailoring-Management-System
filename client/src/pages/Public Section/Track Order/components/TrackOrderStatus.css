@@ -1,0 +1,86 @@
+.track-order-status-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.track-order-status-heading {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.track-order-status-card {
+    background-color: var(--background);
+    border: 1px solid rgba(var(--border), 0.8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+}
+
+.track-order-status-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .track-order-status-info {
+        flex-direction: row;
+    }
+}
+
+.track-order-status-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.track-order-status-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.track-order-status-value {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.track-order-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(212, 175, 55, 0.1);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #d4af37;
+}
+
+.track-order-status-badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--radius-full);
+    background-color: #d4af37;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .track-order-status-card {
+        background-color: rgba(31, 41, 55, 0.5);
+        border-color: rgba(55, 65, 81, 0.8);
+    }
+
+    .track-order-status-badge {
+        background-color: rgba(212, 175, 55, 0.2);
+    }
+}

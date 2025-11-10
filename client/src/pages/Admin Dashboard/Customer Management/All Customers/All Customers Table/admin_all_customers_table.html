@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>All Customers - Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#204cdf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111521",
+                        "foreground-light": "#ffffff",
+                        "foreground-dark": "#181e2f",
+                        "text-light": "#111317",
+                        "text-dark": "#e0e1e3",
+                        "text-secondary-light": "#646c87",
+                        "text-secondary-dark": "#9ba1b4",
+                        "border-light": "#e3e4e8",
+                        "border-dark": "#2d344a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col border-r border-border-light dark:border-border-dark bg-foreground-light dark:bg-foreground-dark p-4">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-primary text-white flex items-center justify-center rounded-lg size-10">
+<span class="material-symbols-outlined text-2xl">cut</span>
+</div>
+<h1 class="text-text-light dark:text-text-dark text-lg font-bold">TailorFlow</h1>
+</div>
+<div class="flex flex-col gap-4 flex-1">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary rounded-md transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary rounded-md transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<p class="text-sm font-medium">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-md bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl !font-bold" style="font-variation-settings: 'FILL' 1;">groups</span>
+<p class="text-sm font-bold">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary rounded-md transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">straighten</span>
+<p class="text-sm font-medium">Measurements</p>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary rounded-md transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary rounded-md transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">logout</span>
+<p class="text-sm font-medium">Logout</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading & Toolbar -->
+<header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+<div>
+<p class="text-3xl font-black tracking-tight">All Customers</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">Manage, filter, and export your customer list.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center whitespace-nowrap overflow-hidden rounded-md h-10 border border-border-light dark:border-border-dark bg-foreground-light dark:bg-foreground-dark hover:bg-background-light dark:hover:bg-background-dark text-text-light dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+<span class="truncate">Export List</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center whitespace-nowrap overflow-hidden rounded-md h-10 bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4 transition-colors">
+<span class="material-symbols-outlined text-xl !font-bold" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="truncate">Add New Customer</span>
+</button>
+</div>
+</header>
+<div class="bg-foreground-light dark:bg-foreground-dark p-4 rounded-xl border border-border-light dark:border-border-dark">
+<!-- Filters & Chips -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+<div class="relative w-full sm:max-w-xs">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark text-xl">search</span>
+</div>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark py-2 pl-10 pr-4 text-sm placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark focus:ring-2 focus:ring-inset focus:ring-primary" placeholder="Search customers..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-md bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark px-3 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+<p class="text-sm font-medium">Filter</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-md bg-primary/10 text-primary px-3">
+<p class="text-sm font-medium">Last Order: 30 days</p>
+<button class="text-primary/70 hover:text-primary"><span class="material-symbols-outlined text-lg">close</span></button>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-md bg-primary/10 text-primary px-3">
+<p class="text-sm font-medium">Orders &gt; 5</p>
+<button class="text-primary/70 hover:text-primary"><span class="material-symbols-outlined text-lg">close</span></button>
+</div>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<div class="inline-block min-w-full align-middle">
+<div class="overflow-hidden border border-border-light dark:border-border-dark rounded-lg">
+<table class="min-w-full divide-y divide-border-light dark:divide-border-dark">
+<thead class="bg-background-light dark:bg-background-dark">
+<tr>
+<th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-text-light dark:text-text-dark sm:pl-6" scope="col">Customer</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-text-light dark:text-text-dark" scope="col">Contact</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-text-light dark:text-text-dark" scope="col">Total Orders</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-text-light dark:text-text-dark" scope="col">Last Order</th>
+<th class="relative py-3.5 pl-3 pr-4 sm:pr-6" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark bg-foreground-light dark:bg-foreground-dark">
+<!-- Table Row 1 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+<div class="flex items-center">
+<div class="size-10 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar for Olivia Rhye" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWH1bqeU4G4UClK5NpSRe4a2fTBP4MKYhpVLJ1QMpoIxNuGJSTwqLqa-HvXUou5037B9OyM2C2B5TiWUnbPfGguRL6iwqf2LXaPj4599JMORYWiohYuKtXwJ4b0aZeB0qCLKksTvZ-5kA70LV-_Ecg5c5wU_RADUliX9wwBMNezuj-6RHBn5fly9ss_gnO5oHJ_EDpEvYplM8tGRBcOAGsVkTmH4MRCojbHWR3AEfeUciBXsEfXBLl9RycYEw3IpxxMwhKSRKUAEqA");'></div>
+</div>
+<div class="ml-4">
+<div class="font-medium text-text-light dark:text-text-dark">Olivia Rhye</div>
+</div>
+</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<div class="text-text-light dark:text-text-dark">olivia@email.com</div>
+<div class="text-text-secondary-light dark:text-text-secondary-dark">(555) 123-4567</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">12</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-26</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<button class="p-2 text-text-secondary-light dark:text-text-secondary-dark rounded-md hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Table Row 2 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+<div class="flex items-center">
+<div class="size-10 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar for Phoenix Baker" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQnBm4cgR6pk-bSQwdZ8pvfM_IT_39Sx-WgfW68temeilCf5EMT42MtCQD7rtrv-JefD0WmAUrfes9jG7wMU4Xu6ZdAGp78B1GusjABdmjXpa0cPh4IhoOgfqv60felcQiEkt52HwLcVh9W4CAZCbYFphDVvct5q5cFDONqwXkXK8vhyGxFUsI2CK5kARYS9DfyPmHXkT6XKxSprcCPJ-8KRtIzYcZQzjiHoforEP7g8TsCJrLOzyUG-A-fnKV7zTHLQt_is6khJ5A");'></div>
+</div>
+<div class="ml-4">
+<div class="font-medium text-text-light dark:text-text-dark">Phoenix Baker</div>
+</div>
+</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<div class="text-text-light dark:text-text-dark">phoenix@email.com</div>
+<div class="text-text-secondary-light dark:text-text-secondary-dark">(555) 234-5678</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">8</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-25</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<button class="p-2 text-text-secondary-light dark:text-text-secondary-dark rounded-md hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Table Row 3 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+<div class="flex items-center">
+<div class="size-10 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar for Lana Steiner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5Xx4u0PhDSTGHym-4yHWGcSCZ27pYlBhzaBZh96QxsGe5eFo5Jylp_d2w2XkxqQosA-HRDQNPwT2Nj-lCGZeW45T81iAAYDz3JZK6qghzk-7DVOv9Aux0gERVmml_PX9iGyccArItHONc-ajVcwFCnbEkg0JuYV2D8p1ilFmYMOSfbkCLOCi73Aq5TRFy2MPWDn9E2WNJotm8RqA-it2r3is-6YIAcwe1KodxJ60C0VNAYmvzCNR10mZx3CVSBEpGk4iPEvwgQ7WF");'></div>
+</div>
+<div class="ml-4">
+<div class="font-medium text-text-light dark:text-text-dark">Lana Steiner</div>
+</div>
+</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<div class="text-text-light dark:text-text-dark">lana@email.com</div>
+<div class="text-text-secondary-light dark:text-text-secondary-dark">(555) 345-6789</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">5</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-22</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<button class="p-2 text-text-secondary-light dark:text-text-secondary-dark rounded-md hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Table Row 4 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+<div class="flex items-center">
+<div class="size-10 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar for Demi Wilkinson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAojMWQMslc87nInyfYqMHn7M-tLFL1O6VwtPi95wYHFP4QZfIX2CQgRK10pPyo-_740aABDLTxxy9DnYIs9PPegFtysgOK-jUnp6iYB_FNIrHwf0rAqgkGfrKRAf8kR_XqTYlCCtjMGo1TAfpJfed8P1z6m-SDvysWokTAvi_yC2w55gczG10oq5LhHkVJ2k-HZ8vajTAYvLEJIdqM6qjpXpMgyvmlzWUwSS5WzgCcj-gVYtSQLlI4CAvQ1Dv25t7v8wU77H7SLDFF");'></div>
+</div>
+<div class="ml-4">
+<div class="font-medium text-text-light dark:text-text-dark">Demi Wilkinson</div>
+</div>
+</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<div class="text-text-light dark:text-text-dark">demi@email.com</div>
+<div class="text-text-secondary-light dark:text-text-secondary-dark">(555) 456-7890</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">3</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-21</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<button class="p-2 text-text-secondary-light dark:text-text-secondary-dark rounded-md hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Table Row 5 -->
+<tr class="hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+<div class="flex items-center">
+<div class="size-10 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar for Candice Wu" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCq6-qTeS6hgIScAN1emMhWXnv9XNDV_3KT3uIddQGX-xOL4QLrqgz4mh8rcawJQAMtzM0FS3WgaCHoGR8ByjcA817zjpwNLaycswWrBtB9q6egxnWSPdDezMe6u25HPNhosjXtQ5LAtThnoJiP1qrij9QN4XJqIa9m9MkO_LAcOpM39kVUOLMAobE8FfM4a68B60I8-4DdgBVdvd1Imi0SmH5Dhvy30PDH46kJ5Nwz-XBX21eV_XOSqA1iixbgeTba0B0OZKJvSMyK");'></div>
+</div>
+<div class="ml-4">
+<div class="font-medium text-text-light dark:text-text-dark">Candice Wu</div>
+</div>
+</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+<div class="text-text-light dark:text-text-dark">candice@email.com</div>
+<div class="text-text-secondary-light dark:text-text-secondary-dark">(555) 567-8901</div>
+</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">1</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-18</td>
+<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+<button class="p-2 text-text-secondary-light dark:text-text-secondary-dark rounded-md hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between border-t border-border-light dark:border-border-dark pt-4 mt-4">
+<div class="flex flex-1 justify-between sm:hidden">
+<a class="relative inline-flex items-center rounded-md border border-border-light dark:border-border-dark bg-foreground-light dark:bg-foreground-dark px-4 py-2 text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">Previous</a>
+<a class="relative ml-3 inline-flex items-center rounded-md border border-border-light dark:border-border-dark bg-foreground-light dark:bg-foreground-dark px-4 py-2 text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">Next</a>
+</div>
+<div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                                    Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">97</span> results
+                                </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+<a class="relative inline-flex items-center rounded-l-md px-2 py-2 text-text-secondary-light dark:text-text-secondary-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-background-light dark:hover:bg-background-dark focus:z-20 focus:outline-offset-0" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</a>
+<a aria-current="page" class="relative z-10 inline-flex items-center bg-primary/10 px-4 py-2 text-sm font-semibold text-primary focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="#">1</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-text-light dark:text-text-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-background-light dark:hover:bg-background-dark focus:z-20 focus:outline-offset-0" href="#">2</a>
+<a class="relative hidden items-center px-4 py-2 text-sm font-semibold text-text-light dark:text-text-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-background-light dark:hover:bg-background-dark focus:z-20 focus:outline-offset-0 md:inline-flex" href="#">3</a>
+<span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-text-secondary-light dark:text-text-secondary-dark ring-1 ring-inset ring-border-light dark:ring-border-dark focus:outline-offset-0">...</span>
+<a class="relative hidden items-center px-4 py-2 text-sm font-semibold text-text-light dark:text-text-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-background-light dark:hover:bg-background-dark focus:z-20 focus:outline-offset-0 md:inline-flex" href="#">8</a>
+<a class="relative inline-flex items-center rounded-r-md px-2 py-2 text-text-secondary-light dark:text-text-secondary-dark ring-1 ring-inset ring-border-light dark:ring-border-dark hover:bg-background-light dark:hover:bg-background-dark focus:z-20 focus:outline-offset-0" href="#">
+<span class="sr-only">Next</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Email Verification - TailorSwift</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#204cdf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111521",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111317] dark:text-gray-300">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-4 border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-7">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-[#111317] dark:text-white">TailorSwift</h2>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Login</span>
+</button>
+</header>
+<main class="flex-1 flex items-center justify-center p-4">
+<div class="w-full max-w-md mx-auto">
+<div class="bg-white dark:bg-background-dark dark:border dark:border-gray-800 rounded-xl shadow-sm p-8 text-center">
+<div class="flex justify-center mb-6">
+<div class="bg-primary/20 text-primary dark:bg-primary/30 dark:text-blue-300 rounded-full p-4">
+<span class="material-symbols-outlined !text-4xl" data-icon="mail">mail</span>
+</div>
+</div>
+<h1 class="text-[#111317] dark:text-white tracking-tight text-[28px] font-bold leading-tight pb-3">Verify Your Email</h1>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal pb-6">We've sent a verification email to <span class="font-medium text-[#111317] dark:text-gray-200">user@example.com</span>. Please check your inbox and click the link to activate your account.</p>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] w-full max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-[#111317] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Resend Verification Email</span>
+</button>
+<a class="text-primary hover:underline text-sm font-medium" href="#">Already verified? Login</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full text-center p-6 text-gray-500 dark:text-gray-400 text-sm">
+<div class="flex justify-center gap-6">
+<a class="hover:underline" href="#">Contact Us</a>
+<a class="hover:underline" href="#">Help</a>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

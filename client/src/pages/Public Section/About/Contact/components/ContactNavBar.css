@@ -1,0 +1,168 @@
+.contact-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(189, 195, 199, 0.5);
+    padding: 1rem 1.5rem;
+    background-color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .contact-navbar {
+        padding: 1rem 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact-navbar {
+        padding: 1rem 5rem;
+    }
+}
+
+.contact-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #2C3E50;
+}
+
+.contact-navbar-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #2C3E50;
+}
+
+.contact-navbar-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: #2C3E50;
+    margin: 0;
+}
+
+.contact-navbar-menu {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+@media (min-width: 768px) {
+    .contact-navbar-menu {
+        display: flex;
+    }
+}
+
+.contact-navbar-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: normal;
+    color: #34495E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-navbar-link:hover {
+    color: #2C3E50;
+}
+
+.contact-navbar-link.active {
+    color: #2C3E50;
+    font-weight: bold;
+}
+
+.contact-navbar-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.contact-navbar-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-navbar-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact-navbar-button-primary {
+    background-color: #2C3E50;
+    color: white;
+}
+
+.contact-navbar-button-primary:hover {
+    opacity: 0.9;
+}
+
+.contact-navbar-button-secondary {
+    display: none;
+    background-color: rgba(189, 195, 199, 0.3);
+    color: #2C3E50;
+}
+
+@media (min-width: 640px) {
+    .contact-navbar-button-secondary {
+        display: flex;
+    }
+}
+
+.contact-navbar-button-secondary:hover {
+    background-color: rgba(189, 195, 199, 0.5);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .contact-navbar {
+        background-color: #111521;
+        border-bottom-color: rgba(189, 195, 199, 0.2);
+    }
+
+    .contact-navbar-brand,
+    .contact-navbar-logo {
+        color: white;
+    }
+
+    .contact-navbar-title {
+        color: white;
+    }
+
+    .contact-navbar-link {
+        color: #E0E0E0;
+    }
+
+    .contact-navbar-link:hover,
+    .contact-navbar-link.active {
+        color: white;
+    }
+
+    .contact-navbar-button-secondary {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .contact-navbar-button-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}

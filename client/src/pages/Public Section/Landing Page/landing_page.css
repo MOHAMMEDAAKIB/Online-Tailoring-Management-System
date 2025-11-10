@@ -1,0 +1,40 @@
+.landing-page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: #F8F9FA;
+    font-family: "Inter", sans-serif;
+    color: #343A40;
+}
+
+.landing-page-inner {
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.landing-page-content-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.landing-page-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 80rem;
+    flex: 1;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .landing-page {
+        background-color: #121520;
+        color: #F8F9FA;
+    }
+}

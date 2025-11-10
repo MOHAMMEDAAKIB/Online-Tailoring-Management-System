@@ -1,0 +1,55 @@
+.gallery-filters {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    flex-wrap: wrap;
+    padding-right: 1rem;
+    justify-content: center;
+}
+
+.gallery-filter-button {
+    display: flex;
+    height: 2rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-filter-button p {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+
+.gallery-filter-button.active {
+    background-color: #204cdf;
+    color: white;
+}
+
+.gallery-filter-button.inactive {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.gallery-filter-button.inactive:hover {
+    background-color: #e5e7eb;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .gallery-filter-button.inactive {
+        background-color: #374151;
+        color: #e5e7eb;
+    }
+
+    .gallery-filter-button.inactive:hover {
+        background-color: #4b5563;
+    }
+}

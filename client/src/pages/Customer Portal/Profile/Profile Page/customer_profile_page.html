@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - TailorSwift</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#204cdf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111521",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<header class="sticky top-0 z-10 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark px-6 lg:px-10 py-3 w-full">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">TailorSwift</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal" href="#">My Orders</a>
+<a class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal" href="#">Measurements</a>
+<a class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal" href="#">Appointments</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-3">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar of a person with short brown hair." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCh330KVy1HU1NHXrrhw7xrCaSW3e2CJZGaTf70VQtI0SfY5uwqYzUL4xB9qqDPnc7DzMzv2L6Rqec1A6qZfnwaVCzqIEUbj8tH5y2Ln-qqELyQrdjN3vMDY89IwO47WqQECSrGXjbqLAuEY-uxcfTBaMtns8V59wE7XbVs2qvvgxLsTvGGygZikDbG3aGz6OIo436_COcfiM1qivDB1ZRCI1S4J2-PJ_SfHF3vbW0kWzgQm5yHmYDoSatsIUOKWSUWJ1JWH0wBsJHg");'></div>
+</div>
+</header>
+<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Side Navigation -->
+<aside class="md:col-span-3">
+<div class="flex flex-col gap-2 bg-white dark:bg-background-dark p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">person</span>
+<p class="text-primary text-sm font-medium leading-normal">Personal Information</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 text-xl">lock</span>
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal">Change Password</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 text-xl">notifications</span>
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal">Notification Preferences</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="md:col-span-9 space-y-8">
+<div class="bg-white dark:bg-background-dark p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+<div class="flex flex-wrap justify-between gap-4 items-center pb-6 border-b border-gray-200 dark:border-gray-800">
+<h1 class="text-gray-900 dark:text-white text-2xl font-bold leading-tight tracking-tight">Personal Information</h1>
+</div>
+<div class="pt-6">
+<!-- Profile Header -->
+<div class="flex flex-col sm:flex-row w-full gap-6 items-start sm:items-center pb-8">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24" data-alt="User avatar of a person with short brown hair." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlzHo7Itmo6U3RmD1g8K__7Iyscxo26qeQQE7Zqgta7BTyRa6WsegLCpZOLTtSC0FHhMrsr31aq8Rsw9xY0NQ9rmJ5dZn-Zjt9XXATOPcWOKGhxelmB0qv54dGOpgGqDLTKkT21h-TEyFC9Y95wfVdQQBFI9wjvYrSJjt7g7wImLPgYUmFZxixelWdcSLESYus_QApC1iCY1A66urUBZAov78HrtospVkYJhRhqJEtUlFXny9gvBu-tTh34QQidp0oUwiHeNSZZnUj");'></div>
+<button class="absolute bottom-0 right-0 flex items-center justify-center size-8 bg-primary text-white rounded-full border-2 border-white dark:border-background-dark">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+</div>
+<div class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Amelia Chen</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Update your photo and personal details.</p>
+</div>
+</div>
+<!-- Form -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">Full Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="Amelia Chen"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">Email Address</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="amelia.chen@example.com"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">Phone Number</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="+1 (555) 123-4567"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">Country</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="United States"/>
+</label>
+<label class="flex flex-col md:col-span-2">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">Street Address</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="123 Artisan Lane"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">City</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="New York"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">State / Province</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="NY"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal pb-2">ZIP / Postal Code</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 h-11 placeholder:text-gray-400 px-3 text-sm font-normal leading-normal" value="10001"/>
+</label>
+</div>
+<!-- Action Buttons -->
+<div class="flex justify-end gap-3 mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal tracking-wide hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="truncate">Cancel</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal tracking-wide hover:bg-primary/90 disabled:bg-primary/50 disabled:cursor-not-allowed">
+<span class="truncate">Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

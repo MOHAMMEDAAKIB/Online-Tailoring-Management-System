@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reset Password - Online Tailoring Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A237E",
+                        "background-light": "#F0F2F5",
+                        "background-dark": "#111521",
+                        "text-light": "#333333",
+                        "text-dark": "#E0E0E0",
+                        "accent": "#D4AF37"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+<!-- Header -->
+<header class="absolute top-0 left-0 flex w-full items-center p-6 sm:p-8">
+<div class="flex items-center gap-3 text-text-light dark:text-text-dark">
+<div class="h-8 w-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-xl font-bold">Online Tailoring Management System</h2>
+</div>
+</header>
+<!-- Main Content Card -->
+<main class="w-full max-w-md">
+<div class="flex flex-col gap-6 rounded-xl bg-white p-8 shadow-sm dark:bg-background-dark dark:border dark:border-gray-700">
+<!-- Page Heading -->
+<div class="flex flex-col gap-2 text-center">
+<h1 class="text-3xl font-black text-text-light dark:text-white">Reset Your Password</h1>
+<p class="text-base font-normal text-gray-500 dark:text-gray-400">Enter your email to receive a password reset link.</p>
+</div>
+<!-- Form -->
+<div class="flex flex-col gap-4">
+<!-- Text Field -->
+<label class="flex flex-col">
+<p class="pb-2 text-sm font-medium text-text-light dark:text-text-dark">Email Address</p>
+<div class="relative flex w-full flex-1 items-center">
+<input class="form-input h-12 w-full flex-1 rounded-lg border border-gray-300 bg-white p-3 pl-10 text-base placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500" placeholder="e.g., yourname@example.com" type="email" value=""/>
+<span class="material-symbols-outlined absolute left-3 text-gray-400 dark:text-gray-500">mail</span>
+</div>
+</label>
+<!-- Single Button -->
+<button class="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50">
+<span class="truncate">Send Reset Link</span>
+</button>
+</div>
+<!-- Back to Login Link -->
+<div class="text-center">
+<p class="text-sm text-gray-600 dark:text-gray-400">Remember your password? 
+                        <a class="font-bold text-primary hover:text-accent dark:hover:text-accent" href="#">Back to Login</a>
+</p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

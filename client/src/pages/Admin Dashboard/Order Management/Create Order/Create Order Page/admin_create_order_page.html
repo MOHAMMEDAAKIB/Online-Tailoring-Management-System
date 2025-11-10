@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Order</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#204cdf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111521",
+                        "neutral-gray": "#F4F7FA",
+                        "text-charcoal": "#333333",
+                        "text-gray": "#777777",
+                        "success": "#50E3C2",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex h-screen flex-col border-r border-gray-200 dark:border-neutral-800 bg-white dark:bg-background-dark p-4 w-64">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2e2EYmvOtF7VLL_r7KQtFXtv08T8y6XkZGefYzLeVJYOHlvonLpkXTYo_MU4eBSvpaMU6xBt5-KNyhm1_Js_Pp4g1U59Y-qHWP3KGOwTAoJxLa_oz06sRuOdyOJM-Zw91ofdvx8NnSh4tB0VFtXRkksUbHPPrn2mbIEfbeQKhts0te1oXnJ3m1rNHdIJju9ke_COb5ty6BLTzvrOD2RycTVIxdrZkrYcr1wPkjBXRiYcOZQ2wxuXpsR654JBghFmme9Zc3VaIfIxO");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-charcoal dark:text-gray-200 text-base font-medium leading-normal">Admin Name</h1>
+<p class="text-text-gray dark:text-gray-400 text-sm font-normal leading-normal">admin@tailor.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-charcoal dark:text-gray-300 hover:bg-neutral-gray dark:hover:bg-neutral-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-charcoal dark:text-gray-300 hover:bg-neutral-gray dark:hover:bg-neutral-800" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-charcoal dark:text-gray-300 hover:bg-neutral-gray dark:hover:bg-neutral-800" href="#">
+<span class="material-symbols-outlined">straighten</span>
+<p class="text-sm font-medium leading-normal">Measurements</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-charcoal dark:text-gray-300 hover:bg-neutral-gray dark:hover:bg-neutral-800" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-charcoal dark:text-gray-300 hover:bg-neutral-gray dark:hover:bg-neutral-800" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-charcoal dark:text-gray-300 hover:bg-neutral-gray dark:hover:bg-neutral-800" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 items-center">
+<p class="text-text-charcoal dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Create New Order</p>
+</div>
+<!-- ProgressBar -->
+<div class="flex flex-col gap-3 p-4 mt-6">
+<div class="flex gap-6 justify-between">
+<p class="text-text-charcoal dark:text-gray-200 text-base font-medium leading-normal">Step 1 of 6: Customer</p>
+</div>
+<div class="rounded-full bg-gray-200 dark:bg-neutral-700">
+<div class="h-2 rounded-full bg-primary" style="width: 17%;"></div>
+</div>
+</div>
+<div class="flex gap-8 mt-6">
+<!-- Left Column: Form Steps -->
+<div class="w-2/3">
+<div class="bg-white dark:bg-neutral-900 rounded-xl p-6 shadow-sm">
+<!-- SectionHeader -->
+<h2 class="text-text-charcoal dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">Select Customer</h2>
+<!-- SearchBar -->
+<div class="py-3">
+<div class="flex items-center w-full">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-gray dark:text-gray-400 flex border-none bg-neutral-gray dark:bg-neutral-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-text-charcoal dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-neutral-gray dark:bg-neutral-800 h-full placeholder:text-text-gray dark:placeholder:text-gray-500 px-4 text-base font-normal leading-normal" placeholder="Search for an existing customer by name or phone" value=""/>
+</div>
+</label>
+<button class="ml-4 flex-shrink-0 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 px-4 py-3 rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">add</span>
+                                        New Customer
+                                    </button>
+</div>
+</div>
+<!-- Customer Info Card -->
+<div class="mt-6 border border-gray-200 dark:border-neutral-700 rounded-lg p-4 bg-neutral-gray/50 dark:bg-neutral-800/50">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Customer avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQdJ7XNlSBDaHcVuMzCixnle-LCVqNkV0HPXbKLNnnStuu06qvVxsPoZ1TPa7IMqJzmAlb8hX1ziQQDTVvbuqk3uT_IX6PwBYCfF6bCWwXDyyivAEQ8rvKJP0679LBATIv5wXhLq2zr61RUd2lw16s8YKA30P8M9oih5A--QqBTpLAUI-XygWpsnMUmosifUzwa2ZFPqYVi7lvkgHqVe-p7TWFQ03vO5xRPaE-S8fCUzmGEZnciTnioW-jtoNuhpc45P7FRUwjvu8j"/>
+<div>
+<p class="font-semibold text-text-charcoal dark:text-white">John Doe</p>
+<p class="text-sm text-text-gray dark:text-gray-400">john.doe@example.com</p>
+</div>
+</div>
+<p class="text-sm text-text-gray dark:text-gray-400">(123) 456-7890</p>
+</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="flex justify-between mt-8 pt-6 border-t border-gray-200 dark:border-neutral-800">
+<button class="px-6 py-2 rounded-lg text-sm font-medium bg-gray-200 dark:bg-neutral-700 text-text-charcoal dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-neutral-600" disabled="">Previous</button>
+<button class="px-6 py-2 rounded-lg text-sm font-medium bg-primary text-white hover:bg-primary/90">Next Step</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="w-1/3">
+<div class="bg-white dark:bg-neutral-900 rounded-xl p-6 shadow-sm sticky top-8">
+<h3 class="text-lg font-bold text-text-charcoal dark:text-white mb-4">Order Summary</h3>
+<div class="space-y-4">
+<!-- Customer Summary -->
+<div>
+<div class="flex justify-between items-center">
+<p class="text-sm font-medium text-text-gray dark:text-gray-400">Customer</p>
+<a class="text-sm text-primary hover:underline" href="#">Change</a>
+</div>
+<div class="mt-2 p-3 bg-neutral-gray dark:bg-neutral-800 rounded-lg">
+<p class="font-medium text-text-charcoal dark:text-gray-200">John Doe</p>
+<p class="text-sm text-text-gray dark:text-gray-500">(123) 456-7890</p>
+</div>
+</div>
+<!-- Placeholder for future steps -->
+<div class="text-center py-8 border-t border-dashed dark:border-neutral-700 mt-4">
+<p class="text-text-gray dark:text-gray-500">Your items will appear here.</p>
+</div>
+<!-- Total Section (disabled look) -->
+<div class="pt-4 border-t border-gray-200 dark:border-neutral-700">
+<div class="flex justify-between text-text-gray dark:text-gray-400 text-sm">
+<span>Subtotal</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between text-text-gray dark:text-gray-400 text-sm mt-2">
+<span>Tax</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between font-bold text-text-charcoal dark:text-white mt-4">
+<span>Total</span>
+<span>$0.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

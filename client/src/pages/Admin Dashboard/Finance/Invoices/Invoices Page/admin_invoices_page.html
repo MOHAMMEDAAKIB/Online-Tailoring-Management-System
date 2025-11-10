@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invoices - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#204cdf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111521",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex h-screen min-h-screen flex-col bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 w-64 p-4 sticky top-0">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2">
+<span class="material-symbols-outlined text-primary text-3xl">styler</span>
+<h1 class="text-[#111317] dark:text-white text-xl font-bold leading-normal">TailorFlow</h1>
+</div>
+<div class="flex flex-col gap-2 mt-6">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-[#111317] dark:text-gray-300">dashboard</span>
+<p class="text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-[#111317] dark:text-gray-300">shopping_cart</span>
+<p class="text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-[#111317] dark:text-gray-300">group</span>
+<p class="text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+<p class="text-primary text-sm font-medium leading-normal">Invoices</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-[#111317] dark:text-gray-300">settings</span>
+<p class="text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMNpUyTHdQ2g6nIqTQyXUOpYorRGyCGa75U89YMCh_F8MBkVJq46fBE7UIlIPRwPiP6U7W-gQ_PL2pR16ypES41JTnCY8OxmQsK5TQFuE9fKHwMKfAAHLuS5Bh08oQSqeN65cD-xIsFpYnUs5ugxXxJqNR29Fcg465mN8P3f8JCi1le9QmkuTk2bTUm9mkYqhNMmsxp8H6Y1yd0vje4loexGwgwbzavswjXytp4kh_hu4R0KG17CccDQEze3lKmWZKeRtZrPHortPq");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#111317] dark:text-white text-base font-medium leading-normal">Admin Name</h1>
+<p class="text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">Administrator</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 border-t border-gray-200 dark:border-gray-800 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-[#111317] dark:text-gray-300">help</span>
+<p class="text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined text-[#111317] dark:text-gray-300">logout</span>
+<p class="text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Log out</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-10">
+<div class="layout-content-container flex flex-col max-w-7xl mx-auto flex-1">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-4">
+<p class="text-[#111317] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Invoices</p>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="material-symbols-outlined !text-xl">add_circle</span>
+<span class="truncate">Generate Invoice</span>
+</button>
+</div>
+<!-- Search and Filter Bar -->
+<div class="flex flex-col lg:flex-row gap-4 mt-8">
+<!-- SearchBar -->
+<div class="flex-1">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#646c87] dark:text-gray-400 flex border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-[#111317] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark h-full placeholder:text-[#646c87] dark:placeholder:text-gray-400 px-4 border-l-0 text-base font-normal leading-normal" placeholder="Search by customer, order ID..." value=""/>
+</div>
+</label>
+</div>
+<!-- Chips -->
+<div class="flex gap-3 flex-wrap items-center">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 px-4">
+<p class="text-[#111317] dark:text-white text-sm font-medium leading-normal">Status: All</p>
+<span class="material-symbols-outlined text-[#111317] dark:text-white !text-xl">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 px-4">
+<p class="text-[#111317] dark:text-white text-sm font-medium leading-normal">Date Range</p>
+<span class="material-symbols-outlined text-[#111317] dark:text-white !text-xl">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20 px-4 text-sm font-medium">Apply Filters</button>
+<a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary" href="#">Clear</a>
+</div>
+</div>
+<!-- Table -->
+<div class="mt-8 @container">
+<div class="flex overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark">
+<table class="w-full">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-800/50">
+<th class="p-4 text-left w-12"><input class="form-checkbox rounded border-gray-300 text-primary focus:ring-primary/50" type="checkbox"/></th>
+<th class="px-4 py-3 text-left text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Invoice ID</th>
+<th class="px-4 py-3 text-left text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Customer Name</th>
+<th class="px-4 py-3 text-left text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Issue Date</th>
+<th class="px-4 py-3 text-left text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Due Date</th>
+<th class="px-4 py-3 text-left text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Amount</th>
+<th class="px-4 py-3 text-left text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Status</th>
+<th class="px-4 py-3 text-right text-[#111317] dark:text-gray-300 text-sm font-medium leading-normal">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-t-gray-200 dark:border-t-gray-800">
+<td class="p-4"><input class="form-checkbox rounded border-gray-300 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">INV-2024001</td>
+<td class="px-4 py-2 text-[#111317] dark:text-white text-sm font-normal leading-normal">John Doe</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-07-26</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-08-25</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">$250.00</td>
+<td class="px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">Paid</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="text-[#646c87] dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="border-t border-t-gray-200 dark:border-t-gray-800">
+<td class="p-4"><input class="form-checkbox rounded border-gray-300 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">INV-2024002</td>
+<td class="px-4 py-2 text-[#111317] dark:text-white text-sm font-normal leading-normal">Jane Smith</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-07-26</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-08-25</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">$150.75</td>
+<td class="px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center rounded-full bg-yellow-100 dark:bg-yellow-900/50 px-3 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-300">Unpaid</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="text-[#646c87] dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="border-t border-t-gray-200 dark:border-t-gray-800">
+<td class="p-4"><input class="form-checkbox rounded border-gray-300 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">INV-2024003</td>
+<td class="px-4 py-2 text-[#111317] dark:text-white text-sm font-normal leading-normal">Peter Jones</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-07-25</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-08-24</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">$320.50</td>
+<td class="px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">Paid</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="text-[#646c87] dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="border-t border-t-gray-200 dark:border-t-gray-800">
+<td class="p-4"><input class="form-checkbox rounded border-gray-300 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">INV-2024004</td>
+<td class="px-4 py-2 text-[#111317] dark:text-white text-sm font-normal leading-normal">Mary Johnson</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-07-24</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-07-20</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">$88.00</td>
+<td class="px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center rounded-full bg-red-100 dark:bg-red-900/50 px-3 py-1 text-xs font-medium text-red-700 dark:text-red-300">Overdue</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="text-[#646c87] dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+<tr class="border-t border-t-gray-200 dark:border-t-gray-800">
+<td class="p-4"><input class="form-checkbox rounded border-gray-300 text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">INV-2024005</td>
+<td class="px-4 py-2 text-[#111317] dark:text-white text-sm font-normal leading-normal">Chris Lee</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-07-23</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">2024-08-22</td>
+<td class="px-4 py-2 text-[#646c87] dark:text-gray-400 text-sm font-normal leading-normal">$540.00</td>
+<td class="px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">Paid</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="text-[#646c87] dark:text-gray-400 hover:text-primary"><span class="material-symbols-outlined">more_horiz</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between mt-6">
+<p class="text-sm text-gray-600 dark:text-gray-400">Showing 1 to 5 of 20 results</p>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-9 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined !text-xl">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-primary bg-primary/10 text-primary text-sm">1</button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 text-sm">2</button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 text-sm">3</button>
+<button class="flex items-center justify-center size-9 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-background-dark text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined !text-xl">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
