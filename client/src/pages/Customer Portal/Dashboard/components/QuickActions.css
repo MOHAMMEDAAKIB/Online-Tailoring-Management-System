@@ -1,0 +1,84 @@
+.quick-actions-section {
+    margin-top: 0;
+}
+
+.quick-actions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1.5rem;
+}
+
+.quick-actions-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.quick-actions-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .quick-actions-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+.quick-action-button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 2rem;
+    font-size: 1.0625rem;
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.quick-action-button .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
+.quick-action-button.primary {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+}
+
+.quick-action-button.primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+}
+
+.quick-action-button.secondary {
+    border: 2px solid var(--primary);
+    background-color: var(--background);
+    color: var(--primary);
+}
+
+.quick-action-button.secondary:hover {
+    background-color: var(--neutral-100);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .quick-action-button.secondary {
+        background-color: var(--neutral-800);
+    }
+
+    .quick-action-button.secondary:hover {
+        background-color: var(--neutral-700);
+    }
+}

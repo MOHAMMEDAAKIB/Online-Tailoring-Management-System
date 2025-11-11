@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.customer-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    background-color: var(--background);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.customer-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--primary);
+}
+
+.customer-navbar-logo {
+    width: 2rem;
+    height: 2rem;
+}
+
+.customer-navbar-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.customer-navbar-menu {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+@media (min-width: 768px) {
+    .customer-navbar-menu {
+        display: flex;
+    }
+}
+
+.customer-navbar-link {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    transition: color var(--transition-fast);
+}
+
+.customer-navbar-link:hover {
+    color: var(--primary);
+}
+
+.customer-navbar-link.active {
+    font-weight: bold;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.customer-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.customer-navbar-notification {
+    display: flex;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-full);
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--neutral-200);
+    color: var(--text-primary);
+    border: none;
+    transition: background-color var(--transition-fast);
+}
+
+.customer-navbar-notification:hover {
+    background-color: var(--neutral-300);
+}
+
+.customer-navbar-notification .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.customer-navbar-avatar {
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    border-radius: var(--radius-full);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .customer-navbar {
+        background-color: var(--neutral-800);
+    }
+
+    .customer-navbar-notification {
+        background-color: var(--neutral-900);
+    }
+
+    .customer-navbar-notification:hover {
+        background-color: var(--neutral-700);
+    }
+}
