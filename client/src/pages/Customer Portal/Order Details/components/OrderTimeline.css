@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.order-timeline-card {
+    background-color: var(--background);
+    padding: 1.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.order-timeline-title {
+    color: var(--primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0 0 1.5rem 0;
+}
+
+.order-timeline {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1rem;
+}
+
+.order-timeline-step-wrapper {
+    display: contents;
+}
+
+.order-timeline-step-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding-top: 0.25rem;
+}
+
+.order-timeline-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+.order-timeline-circle.completed {
+    background-color: var(--success);
+    color: white;
+}
+
+.order-timeline-circle.active {
+    background-color: var(--warning);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+}
+
+.order-timeline-circle.pending {
+    background-color: var(--neutral-200);
+    color: var(--text-muted);
+}
+
+.order-timeline-circle .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.order-timeline-line {
+    width: 2px;
+    height: 100%;
+}
+
+.order-timeline-line.completed {
+    background-color: var(--success);
+}
+
+.order-timeline-line.pending {
+    background-color: var(--border);
+}
+
+.order-timeline-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.order-timeline-content.with-line {
+    padding-bottom: 2rem;
+}
+
+.order-timeline-label {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.order-timeline-label.active {
+    font-weight: bold;
+}
+
+.order-timeline-label.pending {
+    color: var(--text-muted);
+}
+
+.order-timeline-date {
+    color: rgba(var(--text-primary-rgb, 17, 19, 23), 0.8);
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .order-timeline-card {
+        background-color: var(--neutral-800);
+    }
+
+    .order-timeline-title {
+        color: white;
+    }
+
+    .order-timeline-circle.pending {
+        background-color: var(--neutral-700);
+    }
+
+    .order-timeline-line.pending {
+        background-color: var(--neutral-700);
+    }
+
+    .order-timeline-label.pending {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .order-timeline-date {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}

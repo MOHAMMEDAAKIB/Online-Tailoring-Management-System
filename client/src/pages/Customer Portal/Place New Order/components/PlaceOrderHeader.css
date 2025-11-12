@@ -1,0 +1,44 @@
+.place-order-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.place-order-header-content {
+    display: flex;
+    min-width: 18rem;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.place-order-header-title {
+    color: var(--text-primary);
+    font-size: 1.875rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.033em;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .place-order-header-title {
+        font-size: 2.25rem;
+    }
+}
+
+.place-order-header-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .place-order-header-title {
+        color: white;
+    }
+}

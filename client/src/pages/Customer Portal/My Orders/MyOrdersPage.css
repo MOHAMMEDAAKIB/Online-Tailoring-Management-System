@@ -1,0 +1,54 @@
+.my-orders-page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--background);
+    font-family: "Inter", sans-serif;
+}
+
+.my-orders-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem 1rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .my-orders-container {
+        padding: 1.25rem 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .my-orders-container {
+        padding: 1.25rem 4rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .my-orders-container {
+        padding: 1.25rem 6rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .my-orders-container {
+        padding: 1.25rem 10rem;
+    }
+}
+
+.my-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .my-orders-page {
+        background-color: var(--neutral-900);
+    }
+}

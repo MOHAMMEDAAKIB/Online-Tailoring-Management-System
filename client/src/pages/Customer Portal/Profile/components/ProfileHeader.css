@@ -1,0 +1,108 @@
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-header-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+.profile-header-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.profile-header-user {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+@media (min-width: 640px) {
+    .profile-header-user {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.profile-header-avatar-wrapper {
+    position: relative;
+}
+
+.profile-header-avatar {
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    border-radius: var(--radius-full);
+    width: 6rem;
+    height: 6rem;
+}
+
+.profile-header-edit-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--background);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.profile-header-edit-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.profile-header-edit-button .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.profile-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.profile-header-name {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.profile-header-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .profile-header-edit-button {
+        border-color: var(--neutral-800);
+    }
+}

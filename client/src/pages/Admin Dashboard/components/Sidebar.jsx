@@ -1,6 +1,7 @@
 import './Sidebar.css';
 import { useAuth } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../../assets/logo.png';
 
 function Sidebar() {
     const { logout } = useAuth();
@@ -25,7 +26,7 @@ function Sidebar() {
                     {/* Logo & Brand */}
                     <div className="sidebar-brand">
                         <div className="sidebar-logo">
-                            <span className="material-symbols-outlined">cut</span>
+                            <img src={logo} alt="TailorSwift Logo" style={{width: "40px", height: "40px"}} />
                         </div>
                         <div className="sidebar-brand-text">
                             <h1 className="sidebar-title">TailorGo</h1>

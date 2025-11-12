@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.order-card-wrapper {
+    padding: 1rem;
+}
+
+.order-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: var(--radius-xl);
+    background-color: var(--background);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.order-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .order-card-header {
+        flex-direction: row;
+    }
+}
+
+.order-card-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.order-card-id {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.order-card-date {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.order-card-amount {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.order-card-divider {
+    border-top: 1px solid var(--border);
+}
+
+.order-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-card-items {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.order-card-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.order-card-timeline-item {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.order-card-timeline-item:last-child {
+    flex: 0;
+}
+
+.order-card-timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.order-card-timeline-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.25rem;
+}
+
+.order-card-timeline-circle.completed {
+    background-color: var(--success);
+    color: white;
+}
+
+.order-card-timeline-circle.active {
+    background-color: var(--warning);
+    color: white;
+}
+
+.order-card-timeline-circle.pending {
+    border: 2px solid var(--neutral-300);
+    background-color: transparent;
+}
+
+.order-card-timeline-circle .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.order-card-timeline-label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.order-card-timeline-connector {
+    flex: 1;
+    height: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.order-card-timeline-connector.completed {
+    background-color: var(--success);
+}
+
+.order-card-timeline-connector.active {
+    background-color: var(--warning);
+}
+
+.order-card-timeline-connector.pending {
+    background-color: var(--neutral-200);
+}
+
+.order-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+}
+
+.order-card-button {
+    display: flex;
+    min-width: 84px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    height: 2.25rem;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.order-card-button.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.order-card-button.primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.order-card-button.secondary {
+    background-color: var(--neutral-100);
+    color: var(--text-primary);
+}
+
+.order-card-button.secondary:hover {
+    background-color: var(--neutral-200);
+}
+
+.order-card-button.warning {
+    background-color: #E67E22;
+    color: white;
+}
+
+.order-card-button.warning:hover {
+    background-color: #D35400;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .order-card {
+        background-color: rgba(17, 21, 33, 0.5);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .order-card-id,
+    .order-card-amount {
+        color: white;
+    }
+
+    .order-card-timeline-circle.pending {
+        border-color: var(--neutral-600);
+    }
+
+    .order-card-timeline-connector.pending {
+        background-color: var(--neutral-700);
+    }
+
+    .order-card-button.secondary {
+        background-color: var(--neutral-800);
+        color: white;
+    }
+
+    .order-card-button.secondary:hover {
+        background-color: var(--neutral-700);
+    }
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.profile-navbar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .profile-navbar {
+        padding: 0.75rem 2.5rem;
+    }
+}
+
+.profile-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-primary);
+}
+
+.profile-navbar-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+}
+
+.profile-navbar-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.profile-navbar-menu {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+@media (min-width: 768px) {
+    .profile-navbar-menu {
+        display: flex;
+    }
+}
+
+.profile-navbar-link {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.profile-navbar-link:hover {
+    color: var(--primary);
+}
+
+.profile-navbar-actions {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.profile-navbar-button {
+    display: flex;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-full);
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--neutral-100);
+    color: var(--text-primary);
+    border: none;
+    transition: background-color var(--transition-fast);
+}
+
+.profile-navbar-button:hover {
+    background-color: var(--neutral-200);
+}
+
+.profile-navbar-button .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.profile-navbar-avatar {
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    border-radius: var(--radius-full);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .profile-navbar {
+        background-color: var(--neutral-800);
+    }
+
+    .profile-navbar-button {
+        background-color: var(--neutral-900);
+    }
+
+    .profile-navbar-button:hover {
+        background-color: var(--neutral-700);
+    }
+}

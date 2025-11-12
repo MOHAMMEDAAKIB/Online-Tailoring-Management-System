@@ -13,6 +13,11 @@
     padding: 0.75rem 1.5rem;
 }
 
+.logo-image{
+    width: 45px;
+    height: 45px;   
+}
+
 @media (min-width: 1024px) {
     .navbar {
         padding-left: 2.5rem;
@@ -34,6 +39,8 @@
 
 .navbar-title {
     color: #00539C;
+    margin-top: auto;
+    margin-bottom: auto;
     font-size: 1.25rem;
     font-family: "Poppins", sans-serif;
     font-weight: bold;

@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.my-measurements-navbar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    width: 100%;
+    border-bottom: 1px solid rgba(209, 213, 219, 0.8);
+    background-color: rgba(249, 250, 251, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.my-measurements-navbar-content {
+    max-width: 90rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+}
+
+@media (min-width: 640px) {
+    .my-measurements-navbar-content {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .my-measurements-navbar-content {
+        padding: 0.75rem 2rem;
+    }
+}
+
+.my-measurements-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--primary);
+}
+
+.my-measurements-navbar-logo {
+    width: 2rem;
+    height: 2rem;
+}
+
+.my-measurements-navbar-title {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.my-measurements-navbar-actions {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .my-measurements-navbar-actions {
+        gap: 1rem;
+    }
+}
+
+.my-measurements-navbar-nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .my-measurements-navbar-nav {
+        display: flex;
+    }
+}
+
+.my-measurements-navbar-link {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.my-measurements-navbar-link:hover {
+    color: var(--primary);
+}
+
+.my-measurements-navbar-link.active {
+    color: var(--primary);
+}
+
+.my-measurements-navbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.my-measurements-navbar-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.my-measurements-navbar-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.my-measurements-navbar-avatar {
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    border-radius: var(--radius-full);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .my-measurements-navbar {
+        border-bottom-color: rgba(55, 65, 81, 0.8);
+        background-color: rgba(17, 24, 39, 0.8);
+    }
+}

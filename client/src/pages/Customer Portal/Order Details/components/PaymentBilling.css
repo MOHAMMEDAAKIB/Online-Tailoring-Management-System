@@ -1,0 +1,105 @@
+.payment-billing-card {
+    background-color: var(--background);
+    padding: 1.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.payment-billing-title {
+    color: var(--primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+.payment-billing-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.payment-billing-status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-billing-label {
+    color: rgba(var(--text-primary-rgb, 17, 19, 23), 0.8);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.payment-billing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.payment-billing-badge.paid {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.payment-billing-amounts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.payment-billing-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.payment-billing-value {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.payment-billing-row.total {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.payment-billing-total-label {
+    color: var(--primary);
+    margin: 0;
+}
+
+.payment-billing-total-value {
+    color: var(--primary);
+    margin: 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .payment-billing-card {
+        background-color: var(--neutral-800);
+    }
+
+    .payment-billing-title {
+        color: white;
+    }
+
+    .payment-billing-label {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .payment-billing-amounts {
+        border-top-color: var(--neutral-700);
+    }
+
+    .payment-billing-total-label,
+    .payment-billing-total-value {
+        color: white;
+    }
+}

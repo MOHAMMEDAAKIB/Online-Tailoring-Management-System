@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.notifications-sidebar {
+    display: flex;
+    width: 16rem;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+    background-color: var(--background);
+    padding: 1rem;
+}
+
+.notifications-sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notifications-sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.notifications-sidebar-avatar {
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    border-radius: var(--radius-full);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.notifications-sidebar-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.notifications-sidebar-user-name {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.notifications-sidebar-user-email {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.notifications-sidebar-nav {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.notifications-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: var(--radius-lg);
+    padding: 0.5rem 0.75rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+}
+
+.notifications-sidebar-link:hover {
+    background-color: rgba(30, 64, 175, 0.1);
+}
+
+.notifications-sidebar-link.active {
+    background-color: rgba(30, 64, 175, 0.2);
+    color: var(--primary);
+}
+
+.notifications-sidebar-link .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.notifications-sidebar-link p {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.notifications-sidebar-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .notifications-sidebar {
+        background-color: var(--neutral-800);
+        border-right-color: var(--neutral-800);
+    }
+
+    .notifications-sidebar-user-name {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .notifications-sidebar-user-email {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .notifications-sidebar-link {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .notifications-sidebar-link:hover {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .notifications-sidebar-link.active {
+        background-color: rgba(59, 130, 246, 0.3);
+    }
+}

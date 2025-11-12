@@ -1,0 +1,31 @@
+.my-measurements-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+@media (min-width: 640px) {
+    .my-measurements-breadcrumb {
+        font-size: 1rem;
+    }
+}
+
+.my-measurements-breadcrumb-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.my-measurements-breadcrumb-link:hover {
+    color: var(--primary);
+}
+
+.my-measurements-breadcrumb-separator {
+    color: var(--text-muted);
+}
+
+.my-measurements-breadcrumb-current {
+    color: var(--text-primary);
+}

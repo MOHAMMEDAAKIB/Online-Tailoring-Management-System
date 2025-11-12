@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.order-navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(var(--border-rgb, 226, 232, 240), 0.8);
+}
+
+.order-navigation-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    height: 2.5rem;
+    padding: 0 1.5rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.order-navigation-button.previous {
+    background-color: var(--neutral-200);
+    color: var(--text-secondary);
+}
+
+.order-navigation-button.previous:hover:not(:disabled) {
+    background-color: var(--neutral-300);
+}
+
+.order-navigation-button.previous:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.order-navigation-button.next {
+    background-color: var(--primary);
+    color: white;
+    gap: 0.5rem;
+}
+
+.order-navigation-button.next:hover {
+    background-color: var(--primary-dark);
+}
+
+.order-navigation-button .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .order-navigation {
+        border-top-color: rgba(var(--neutral-800-rgb, 30, 35, 48), 0.8);
+    }
+
+    .order-navigation-button.previous {
+        background-color: var(--neutral-800);
+        color: var(--neutral-300);
+    }
+
+    .order-navigation-button.previous:hover:not(:disabled) {
+        background-color: var(--neutral-700);
+    }
+}

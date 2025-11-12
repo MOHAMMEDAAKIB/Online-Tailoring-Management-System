@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.empty-state-wrapper {
+    padding: 1rem;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border-radius: var(--radius-xl);
+    border: 2px dashed var(--neutral-300);
+    background-color: var(--background);
+    padding: 2rem;
+    text-align: center;
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    color: var(--neutral-400);
+}
+
+.empty-state-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.empty-state-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.empty-state-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.empty-state-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    height: 2.5rem;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border: none;
+    transition: background-color var(--transition-fast);
+}
+
+.empty-state-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.empty-state-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .empty-state {
+        border-color: var(--neutral-700);
+        background-color: rgba(17, 21, 33, 0.5);
+    }
+
+    .empty-state-icon {
+        color: var(--neutral-500);
+    }
+
+    .empty-state-title {
+        color: white;
+    }
+}

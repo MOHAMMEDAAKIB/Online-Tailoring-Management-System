@@ -1,0 +1,56 @@
+.measurement-form-page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--background);
+    font-family: "Inter", sans-serif;
+}
+
+.measurement-form-main {
+    flex: 1;
+    padding: 1rem;
+}
+
+@media (min-width: 640px) {
+    .measurement-form-main {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .measurement-form-main {
+        padding: 2rem 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .measurement-form-main {
+        padding: 2rem 5rem;
+    }
+}
+
+.measurement-form-container {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.measurement-form-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .measurement-form-content {
+        grid-template-columns: 2fr 3fr;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .measurement-form-page {
+        background-color: var(--neutral-900);
+    }
+}

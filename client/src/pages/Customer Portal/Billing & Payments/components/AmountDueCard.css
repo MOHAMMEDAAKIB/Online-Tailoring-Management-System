@@ -1,0 +1,82 @@
+.amount-due-card {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.amount-due-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+@media (min-width: 640px) {
+    .amount-due-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.amount-due-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.amount-due-label {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.amount-due-amount {
+    color: var(--text-primary);
+    font-size: 2.25rem;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+.amount-due-button {
+    display: flex;
+    min-width: 84px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    height: 3rem;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    border: none;
+    transition: background-color var(--transition-fast);
+}
+
+.amount-due-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.amount-due-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.5);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .amount-due-card {
+        background-color: var(--neutral-900);
+    }
+
+    .amount-due-amount {
+        color: white;
+    }
+}

@@ -11,6 +11,7 @@ import AdminDashboardPage from './pages/Admin Dashboard/AdminDashboardPage.jsx';
 import CustomerDashboardPage from './pages/Customer Portal/Dashboard/CustomerDashboardPage.jsx';
 import ProtectedRoute from './util/ProtectedRoute.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
+import ProfilePage from './pages/Customer Portal/Profile/CustomerProfilePage.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/track-order" element={<TrackOrderPage />} />
+          <Route path="/profile" element={<ProfilePage  />} />
 
           {/* Protected route */}
           <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDashboardPage data={data} /></ProtectedRoute>} />

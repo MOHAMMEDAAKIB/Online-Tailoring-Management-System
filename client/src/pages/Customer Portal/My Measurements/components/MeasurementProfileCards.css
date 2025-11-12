@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.measurement-profile-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .measurement-profile-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .measurement-profile-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.measurement-profile-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(209, 213, 219, 0.8);
+    background-color: var(--background);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-fast);
+}
+
+.measurement-profile-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.measurement-profile-card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+}
+
+.measurement-profile-card-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0 0 0.25rem 0;
+}
+
+.measurement-profile-card-date {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin: 0 0 1rem 0;
+}
+
+.measurement-profile-card-measurements {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.measurement-profile-card-item {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.measurement-profile-card-label {
+    font-weight: 500;
+}
+
+.measurement-profile-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(209, 213, 219, 0.8);
+    padding: 0.75rem 1.25rem;
+}
+
+.measurement-profile-card-button {
+    display: flex;
+    height: 2.25rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    transition: background-color var(--transition-fast);
+}
+
+.measurement-profile-card-button .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.measurement-profile-card-button.edit {
+    background-color: rgba(30, 64, 175, 0.1);
+    color: var(--primary);
+}
+
+.measurement-profile-card-button.edit:hover {
+    background-color: rgba(30, 64, 175, 0.2);
+}
+
+.measurement-profile-card-button.delete {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+}
+
+.measurement-profile-card-button.delete:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .measurement-profile-card {
+        border-color: rgba(55, 65, 81, 0.8);
+        background-color: var(--neutral-800);
+    }
+
+    .measurement-profile-card-actions {
+        border-top-color: rgba(55, 65, 81, 0.8);
+    }
+
+    .measurement-profile-card-button.edit {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .measurement-profile-card-button.edit:hover {
+        background-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .measurement-profile-card-button.delete {
+        background-color: rgba(239, 68, 68, 0.2);
+        color: #F87171;
+    }
+
+    .measurement-profile-card-button.delete:hover {
+        background-color: rgba(239, 68, 68, 0.3);
+    }
+}

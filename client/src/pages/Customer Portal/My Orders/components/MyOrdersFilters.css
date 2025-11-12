@@ -1,0 +1,54 @@
+.my-orders-filters {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.25rem 1rem;
+    overflow-x: auto;
+}
+
+.my-orders-filters-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.my-orders-filter-button {
+    display: flex;
+    height: 2.25rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-full);
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.my-orders-filter-button:not(.active) {
+    background-color: var(--neutral-100);
+    color: var(--text-primary);
+}
+
+.my-orders-filter-button:not(.active):hover {
+    background-color: var(--neutral-200);
+}
+
+.my-orders-filter-button.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .my-orders-filter-button:not(.active) {
+        background-color: rgba(17, 21, 33, 0.5);
+        color: white;
+    }
+
+    .my-orders-filter-button:not(.active):hover {
+        background-color: var(--neutral-700);
+    }
+}

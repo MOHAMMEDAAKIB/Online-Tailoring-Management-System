@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.payment-history-card {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.payment-history-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+.payment-history-list {
+    overflow: auto;
+}
+
+.payment-history-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.payment-history-item {
+    position: relative;
+}
+
+.payment-history-item.with-line {
+    padding-bottom: 1.5rem;
+}
+
+.payment-history-item-content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.payment-history-icon {
+    position: relative;
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background-color: rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 0 8px white;
+}
+
+.payment-history-icon .material-symbols-outlined {
+    color: var(--success);
+    font-size: 1.125rem;
+}
+
+.payment-history-details {
+    min-width: 0;
+    flex: 1;
+}
+
+.payment-history-info {
+    margin-bottom: 0.5rem;
+}
+
+.payment-history-amount {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.payment-history-method {
+    margin-top: 0.125rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.payment-history-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.payment-history-date {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.payment-history-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: text-decoration var(--transition-fast);
+}
+
+.payment-history-download:hover {
+    text-decoration: underline;
+}
+
+.payment-history-download .material-symbols-outlined {
+    font-size: 0.875rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .payment-history-card {
+        background-color: var(--neutral-900);
+    }
+
+    .payment-history-title {
+        color: white;
+    }
+
+    .payment-history-icon {
+        box-shadow: 0 0 0 8px var(--neutral-900);
+    }
+
+    .payment-history-amount {
+        color: white;
+    }
+
+    .payment-history-download {
+        color: var(--info);
+    }
+}

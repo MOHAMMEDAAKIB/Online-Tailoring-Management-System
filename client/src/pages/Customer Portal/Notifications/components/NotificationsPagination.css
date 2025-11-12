@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.notifications-pagination {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notifications-pagination-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--neutral-300);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.notifications-pagination-button:hover:not(:disabled) {
+    background-color: var(--neutral-100);
+}
+
+.notifications-pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.notifications-pagination-button .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.notifications-pagination-text {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .notifications-pagination-button {
+        border-color: var(--neutral-700);
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .notifications-pagination-button:hover:not(:disabled) {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .notifications-pagination-text {
+        color: rgba(255, 255, 255, 0.6);
+    }
+}

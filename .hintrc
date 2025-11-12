@@ -40,7 +40,8 @@
         "ignore": [
           "backdrop-filter",
           "container-type",
-          "container-type: inline-size"
+          "container-type: inline-size",
+          "min-width: fit-content"
         ]
       }
     ]

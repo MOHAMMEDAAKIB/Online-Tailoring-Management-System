@@ -1,0 +1,60 @@
+.order-progress-stepper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.order-progress-step {
+    flex: 1;
+    min-width: fit-content;
+}
+
+.order-progress-step-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.order-progress-step-label.active {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.order-progress-step-label.completed {
+    color: var(--text-secondary);
+}
+
+.order-progress-bar-container {
+    width: 100%;
+}
+
+.order-progress-bar-bg {
+    width: 100%;
+    background-color: var(--neutral-200);
+    border-radius: var(--radius-full);
+    height: 0.5rem;
+    overflow: hidden;
+}
+
+.order-progress-bar-fill {
+    background-color: var(--primary);
+    height: 0.5rem;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-slow);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .order-progress-bar-bg {
+        background-color: var(--neutral-700);
+    }
+}

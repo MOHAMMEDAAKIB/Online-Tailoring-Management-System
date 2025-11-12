@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.pagination-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination-button,
+.pagination-number {
+    display: flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.pagination-button {
+    color: var(--text-muted);
+    background-color: transparent;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: var(--neutral-100);
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-button .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.pagination-number {
+    color: var(--text-primary);
+    background-color: transparent;
+}
+
+.pagination-number:hover {
+    background-color: var(--neutral-100);
+}
+
+.pagination-number.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .pagination-button:hover:not(:disabled) {
+        background-color: var(--neutral-700);
+    }
+
+    .pagination-number {
+        color: white;
+    }
+
+    .pagination-number:hover {
+        background-color: var(--neutral-700);
+    }
+}

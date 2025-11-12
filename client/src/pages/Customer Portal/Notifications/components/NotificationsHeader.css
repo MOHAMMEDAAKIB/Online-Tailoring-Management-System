@@ -1,0 +1,72 @@
+.notifications-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.notifications-header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.notifications-header-title {
+    color: var(--text-primary);
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.033em;
+    margin: 0;
+}
+
+.notifications-header-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.notifications-header-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: background-color var(--transition-fast);
+}
+
+.notifications-header-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.notifications-header-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .notifications-header-title {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .notifications-header-subtitle {
+        color: rgba(255, 255, 255, 0.6);
+    }
+}

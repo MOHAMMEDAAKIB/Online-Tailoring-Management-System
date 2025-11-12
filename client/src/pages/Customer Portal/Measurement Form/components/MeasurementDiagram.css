@@ -1,0 +1,30 @@
+.measurement-diagram {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.measurement-diagram-card {
+    position: sticky;
+    top: 2rem;
+    width: 100%;
+    max-width: 32rem;
+    padding: 1rem;
+    background-color: var(--background);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.measurement-diagram-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .measurement-diagram-card {
+        background-color: var(--neutral-800);
+    }
+}

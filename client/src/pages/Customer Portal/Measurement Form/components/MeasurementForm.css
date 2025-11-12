@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.measurement-form-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.measurement-form-card {
+    background-color: var(--background);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .measurement-form-card {
+        padding: 2rem;
+    }
+}
+
+.measurement-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.measurement-form-top-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .measurement-form-top-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.measurement-form-section-title {
+    color: var(--text-primary);
+    font-size: 1.375rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+}
+
+.measurement-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    .measurement-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .measurement-form-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.measurement-form-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 10rem;
+}
+
+.measurement-form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.measurement-form-label {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.measurement-form-label-with-info {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.measurement-form-info-icon {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    cursor: help;
+}
+
+.measurement-form-input {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    resize: none;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    height: 3rem;
+    padding: 0 0.75rem;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.measurement-form-input::placeholder {
+    color: var(--neutral-400);
+}
+
+.measurement-form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.measurement-form-textarea {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    resize: vertical;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    min-height: 7.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.measurement-form-textarea::placeholder {
+    color: var(--neutral-400);
+}
+
+.measurement-form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.measurement-form-unit-toggle {
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background-color: var(--background-secondary);
+    padding: 0.25rem;
+}
+
+.measurement-form-unit-option {
+    display: flex;
+    cursor: pointer;
+    height: 100%;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    padding: 0 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: all var(--transition-fast);
+}
+
+.measurement-form-unit-option span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.measurement-form-unit-option.active {
+    background-color: var(--background);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+}
+
+.measurement-form-radio {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.measurement-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.measurement-form-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    height: 2.75rem;
+    padding: 0 1.5rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: all var(--transition-fast);
+}
+
+.measurement-form-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.measurement-form-button.primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.measurement-form-button.primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.measurement-form-button.secondary {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.measurement-form-button.secondary:hover {
+    background-color: var(--neutral-100);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .measurement-form-card {
+        background-color: var(--neutral-800);
+    }
+
+    .measurement-form-input,
+    .measurement-form-textarea {
+        background-color: var(--neutral-900);
+    }
+
+    .measurement-form-unit-toggle {
+        background-color: var(--neutral-900);
+    }
+
+    .measurement-form-unit-option.active {
+        background-color: var(--neutral-700);
+    }
+
+    .measurement-form-button.secondary:hover {
+        background-color: var(--neutral-700);
+    }
+}

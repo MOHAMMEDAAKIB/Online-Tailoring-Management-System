@@ -4,6 +4,12 @@ import './TopNavBar.css';
 function TopNavBar() {
     const [searchQuery, setSearchQuery] = useState('');
 
+    const [profileOpen, setProfileOpen] = useState(false);
+
+    const handleProfileClick = () => {
+        window.location.href = '/profile';
+    };
+    
     return (
         <header className="admin-topnav">
             <h2 className="admin-topnav-title">Dashboard</h2>
@@ -24,7 +30,7 @@ function TopNavBar() {
                     <button className="admin-topnav-button" aria-label="Notifications">
                         <span className="material-symbols-outlined">notifications</span>
                     </button>
-                    <button className="admin-topnav-avatar">
+                    <button className="admin-topnav-avatar" onClick={handleProfileClick}>
                         <div
                             className="admin-topnav-avatar-image"
                             style={{
@@ -39,5 +45,6 @@ function TopNavBar() {
         </header>
     );
 }
+
 
 export default TopNavBar;

@@ -1,0 +1,25 @@
+.notifications-page {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--background);
+    font-family: "Inter", sans-serif;
+}
+
+.notifications-main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.notifications-container {
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .notifications-page {
+        background-color: var(--neutral-900);
+    }
+}

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+.billing-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+@media (min-width: 640px) {
+    .billing-navbar {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .billing-navbar {
+        padding: 0.75rem 2.5rem;
+    }
+}
+
+.billing-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-primary);
+}
+
+.billing-navbar-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+}
+
+.billing-navbar-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.billing-navbar-menu {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.billing-navbar-links {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .billing-navbar-links {
+        display: flex;
+    }
+}
+
+.billing-navbar-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.billing-navbar-link:hover {
+    color: var(--primary);
+}
+
+.billing-navbar-link.active {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.billing-navbar-icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.billing-navbar-icon-button:hover {
+    background-color: var(--neutral-300);
+}
+
+.billing-navbar-avatar {
+    background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWdRRw0yheDW07jjertInJOTzuDsjJ0dHJqGKITzeB4a4tIXKcNySj_5oKM16XGGGpkBH6GijCQCUlELzXPxu25p53K_EsFew9AHchIAyDZFPvSxWB8yl5m6pmU4jcINVHBVBgsxsaDLLElL4fMMFfHp2K_1jfY1Bnt8q0mrlWOWwKi5B55JUl9lXlPzX6vGG-1m_Et95-AIwYQ71cO1tNuGFe5VhCOZEKCmBZN9vSZrnGFJLToOmfLiyub0qi9vWm7J-AxZmN59Lx");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--radius-full);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .billing-navbar {
+        background-color: rgba(var(--neutral-900-rgb, 15, 23, 42), 0.8);
+    }
+
+    .billing-navbar-title {
+        color: white;
+    }
+
+    .billing-navbar-link {
+        color: var(--neutral-300);
+    }
+
+    .billing-navbar-link:hover {
+        color: var(--primary);
+    }
+
+    .billing-navbar-link.active {
+        color: white;
+    }
+
+    .billing-navbar-icon-button {
+        background-color: var(--neutral-800);
+    }
+
+    .billing-navbar-icon-button:hover {
+        background-color: var(--neutral-700);
+    }
+}
