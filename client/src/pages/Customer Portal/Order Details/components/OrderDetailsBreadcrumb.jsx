@@ -1,13 +1,14 @@
 import './OrderDetailsBreadcrumb.css';
+import { Link } from 'react-router-dom';
 
-function OrderDetailsBreadcrumb() {
+function OrderDetailsBreadcrumb({ orderId }) {
     return (
         <div className="order-details-breadcrumb">
-            <a className="order-details-breadcrumb-link" href="#">Home</a>
+            <Link className="order-details-breadcrumb-link" to="/customer/dashboard">Home</Link>
             <span className="order-details-breadcrumb-separator">/</span>
-            <a className="order-details-breadcrumb-link" href="#">My Orders</a>
+            <Link className="order-details-breadcrumb-link" to="/customer/orders">My Orders</Link>
             <span className="order-details-breadcrumb-separator">/</span>
-            <span className="order-details-breadcrumb-current">Order #TS12345</span>
+            <span className="order-details-breadcrumb-current">Order #{orderId}</span>
         </div>
     );
 }

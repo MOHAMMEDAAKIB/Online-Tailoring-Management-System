@@ -1,28 +1,28 @@
 import './naveBar.css';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../../assets/logo.png'
 
 function NaveBar(){
+    const navigate = useNavigate();
     
     function signin(){
-        console.log("Sign In / Sign Up clicked");
-        window.location.href = "/login";
+        navigate("/login");
     }
+    
     return(
         <header className="navbar">
             <div className="navbar-brand">
                 <div className="navbar-logo">
-                    
                     <img src={logo} alt="TailorSwift Logo" className="logo-image"/>
-                    
                 </div>
                 <h2 className="navbar-title">TailorSwift</h2>
             </div>
             <nav className="navbar-menu">
-                <a className="navbar-link" href="/services">Services</a>
-                <a className="navbar-link" href="#">How It Works</a>
-                <a className="navbar-link" href="/gallery">Gallery</a>
-                <a className="navbar-link" href="#">Pricing</a>
-                <a className="navbar-link" href="/contact">Contact</a>
+                <Link className="navbar-link" to="/services">Services</Link>
+                <Link className="navbar-link" to="/gallery">Gallery</Link>
+                <Link className="navbar-link" to="/about">About</Link>
+                <Link className="navbar-link" to="/contact">Contact</Link>
+                <Link className="navbar-link" to="/track-order">Track Order</Link>
             </nav>
             <div className="navbar-actions">
                 <button className="navbar-button" onClick={signin}>

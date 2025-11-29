@@ -79,6 +79,24 @@ class User {
   }
 
   // ===========================================================================
+  // READ - Get all users
+  // ===========================================================================
+  /**
+   * Get all users in the system (admin only)
+   * @returns {Array} - Array of all user objects
+   */
+  static async findAll() {
+    const sql = `
+      SELECT id, name, email, phone, role, created_at
+      FROM users
+      ORDER BY created_at DESC
+    `;
+    
+    const [rows] = await db.execute(sql);
+    return rows;
+  }
+
+  // ===========================================================================
   // READ - Get all customers (admin feature)
   // ===========================================================================
   /**

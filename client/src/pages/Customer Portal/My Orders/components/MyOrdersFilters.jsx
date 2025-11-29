@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import './MyOrdersFilters.css';
 
-function MyOrdersFilters() {
-    const [activeFilter, setActiveFilter] = useState('all');
-
+function MyOrdersFilters({ activeFilter, onFilterChange }) {
     const filters = [
-        { id: 'all', label: 'All' },
+        { id: '', label: 'All' },
         { id: 'pending', label: 'Pending' },
-        { id: 'in-progress', label: 'In Progress' },
+        { id: 'in_progress', label: 'In Progress' },
         { id: 'ready', label: 'Ready' },
-        { id: 'completed', label: 'Completed' }
+        { id: 'delivered', label: 'Delivered' }
     ];
 
     return (
@@ -19,7 +16,7 @@ function MyOrdersFilters() {
                     <button
                         key={filter.id}
                         className={`my-orders-filter-button ${activeFilter === filter.id ? 'active' : ''}`}
-                        onClick={() => setActiveFilter(filter.id)}
+                        onClick={() => onFilterChange(filter.id)}
                     >
                         {filter.label}
                     </button>

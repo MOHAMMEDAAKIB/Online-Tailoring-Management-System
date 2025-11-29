@@ -1,25 +1,47 @@
-import { useState } from 'react';
 import './Pagination.css';
 
-function Pagination() {
-    const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = 3;
+function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
 
     const handlePrevious = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
+            onPageChange(currentPage - 1);
         }
     };
 
     const handleNext = () => {
         if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
+            onPageChange(currentPage + 1);
         }
     };
 
     const handlePageClick = (page) => {
-        setCurrentPage(page);
+        onPageChange(page);
     };
+
+    // Show max 5 page numbers
+    const getPageNumbers = () => {
+        const pages = [];
+        const maxVisible = 5;
+        
+        if (totalPages <= maxVisible) {
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            if (currentPage <= 3) {
+                pages.push(1, 2, 3, 4, '...', totalPages);
+            } else if (currentPage >= totalPages - 2) {
+                pages.push(1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+            } else {
+                pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+            }
+        }
+        
+        return pages;
+    };
+
+    if (totalPages <= 1) return null;
 
     return (
         <div className="pagination-wrapper">
@@ -33,8 +55,15 @@ function Pagination() {
                     <span className="material-symbols-outlined">chevron_left</span>
                 </button>
 
-                {[...Array(totalPages)].map((_, index) => {
-                    const page = index + 1;
+                {getPageNumbers().map((page, index) => {
+                    if (page === '...') {
+                        return (
+                            <span key={`ellipsis-${index}`} className="pagination-ellipsis">
+                                ...
+                            </span>
+                        );
+                    }
+                    
                     return (
                         <button
                             key={page}

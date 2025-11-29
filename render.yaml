@@ -1,0 +1,97 @@
+# =============================================================================
+# RENDER.COM DEPLOYMENT CONFIGURATION
+# =============================================================================
+# This file defines how to deploy your full-stack app on Render.com
+# Documentation: https://render.com/docs/blueprint-spec
+
+services:
+  # ===========================================================================
+  # BACKEND API SERVER (Node.js/Express)
+  # ===========================================================================
+  - type: web
+    name: tailoring-api
+    runtime: node
+    region: oregon  # Choose region: oregon, frankfurt, singapore, ohio
+    plan: free  # Plans: free, starter ($7/mo), standard ($25/mo)
+    buildCommand: cd Server && npm install
+    startCommand: cd Server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: DB_TYPE
+        value: postgres
+      # Database credentials (add these in Render dashboard or sync from Aiven)
+      - key: DB_HOST
+        sync: false  # Set this manually in Render dashboard
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_SSL
+        value: true
+      - key: JWT_SECRET
+        generateValue: true  # Render will auto-generate a secure secret
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 1h
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: 7d
+      - key: FRONTEND_URL
+        value: https://your-frontend-app.onrender.com  # Update after deploying frontend
+    healthCheckPath: /
+
+  # ===========================================================================
+  # FRONTEND (React/Vite) - STATIC SITE
+  # ===========================================================================
+  - type: web
+    name: tailoring-frontend
+    runtime: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/dist
+    pullRequestPreviewsEnabled: true  # Auto-deploy PR previews
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-XSS-Protection
+        value: 1; mode=block
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html  # SPA fallback for client-side routing
+
+# =============================================================================
+# NOTES FOR DEPLOYMENT
+# =============================================================================
+# 
+# 1. AIVEN.IO DATABASE SETUP:
+#    - Create a PostgreSQL service on Aiven.io
+#    - Get connection details (host, port, user, password, database)
+#    - Add these to Render environment variables
+#
+# 2. UPDATE FRONTEND API URL:
+#    - After backend deploys, update client/src/api/apiService.js
+#    - Replace localhost URL with your Render backend URL
+#
+# 3. UPDATE CORS:
+#    - Update FRONTEND_URL in backend env vars
+#    - Update Server/app.js cors origin to match frontend URL
+#
+# 4. RUN MIGRATIONS:
+#    - After first deploy, run migrations on Aiven database
+#    - Use Render shell or local connection to Aiven
+#
+# 5. CUSTOM DOMAINS (Optional):
+#    - Add custom domains in Render dashboard
+#    - Update CORS and API URLs accordingly

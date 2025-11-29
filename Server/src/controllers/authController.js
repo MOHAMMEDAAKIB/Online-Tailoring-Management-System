@@ -94,7 +94,7 @@ exports.register = async (req, res) => {
     // saltRounds = 10 is a good balance between speed and security
     const hashedPassword = await bcrypt.hash(password, 10);
     
-    console.log('🔒 Password hashed successfully');
+    console.log(' Password hashed successfully');
     
     // -----------------------------------------
     // STEP 3: Create user in database
@@ -107,7 +107,7 @@ exports.register = async (req, res) => {
       role: role || 'customer' // Default to customer if not specified
     });
     
-    console.log(`✅ User created with ID: ${userId}`);
+    console.log(` User created with ID: ${userId}`);
     
     // -----------------------------------------
     // STEP 4: Get the created user (without password)
@@ -120,7 +120,7 @@ exports.register = async (req, res) => {
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);
     
-    console.log('🎫 Tokens generated');
+    console.log(' Tokens generated');
     
     // -----------------------------------------
     // STEP 6: Return success response
@@ -144,7 +144,7 @@ exports.register = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Registration error:', error);
+    console.error(' Registration error:', error);
     res.status(500).json({
       success: false,
       message: 'Error during registration',
@@ -185,7 +185,7 @@ exports.login = async (req, res) => {
       });
     }
     
-    console.log(`🔍 User found: ${user.email}`);
+    console.log(` User found: ${user.email}`);
     
     // -----------------------------------------
     // STEP 2: Verify password
@@ -200,7 +200,7 @@ exports.login = async (req, res) => {
       });
     }
     
-    console.log('✅ Password verified');
+    console.log(' Password verified');
     
     // -----------------------------------------
     // STEP 3: Generate tokens
@@ -208,7 +208,7 @@ exports.login = async (req, res) => {
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);
     
-    console.log(`🎫 Tokens generated for user ${user.id}`);
+    console.log(` Tokens generated for user ${user.id}`);
     
     // -----------------------------------------
     // STEP 4: Return success response
@@ -232,7 +232,7 @@ exports.login = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Login error:', error);
+    console.error(' Login error:', error);
     res.status(500).json({
       success: false,
       message: 'Error during login',
@@ -298,7 +298,7 @@ exports.refreshToken = async (req, res) => {
     // -----------------------------------------
     const newAccessToken = generateAccessToken(user);
     
-    console.log(`🔄 Access token refreshed for user ${user.id}`);
+    console.log(` Access token refreshed for user ${user.id}`);
     
     // -----------------------------------------
     // STEP 4: Return new token
@@ -312,7 +312,7 @@ exports.refreshToken = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Refresh token error:', error);
+    console.error(' Refresh token error:', error);
     res.status(500).json({
       success: false,
       message: 'Error refreshing token',
@@ -358,7 +358,7 @@ exports.getCurrentUser = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Get current user error:', error);
+    console.error(' Get current user error:', error);
     res.status(500).json({
       success: false,
       message: 'Error fetching user profile',
@@ -391,7 +391,7 @@ exports.logout = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Logout error:', error);
+    console.error(' Logout error:', error);
     res.status(500).json({
       success: false,
       message: 'Error during logout',
@@ -434,7 +434,7 @@ exports.updateProfile = async (req, res) => {
     // Fetch updated user
     const updatedUser = await User.findById(userId);
     
-    console.log(`✏️ Profile updated for user ${userId}`);
+    console.log(` Profile updated for user ${userId}`);
     
     res.json({
       success: true,
@@ -445,7 +445,7 @@ exports.updateProfile = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Update profile error:', error);
+    console.error(' Update profile error:', error);
     res.status(500).json({
       success: false,
       message: 'Error updating profile',
@@ -510,7 +510,7 @@ exports.changePassword = async (req, res) => {
     // -----------------------------------------
     await User.updatePassword(userId, hashedNewPassword);
     
-    console.log(`🔐 Password changed for user ${userId}`);
+    console.log(` Password changed for user ${userId}`);
     
     res.json({
       success: true,
@@ -518,10 +518,50 @@ exports.changePassword = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Change password error:', error);
+    console.error(' Change password error:', error);
     res.status(500).json({
       success: false,
       message: 'Error changing password',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+};
+
+// =============================================================================
+// GET ALL USERS - Admin only
+// =============================================================================
+/**
+ * Get all users in the system (admin only)
+ * 
+ * @route GET /api/auth/users
+ * @access Private (Admin only)
+ */
+exports.getAllUsers = async (req, res) => {
+  try {
+    // Check if user is admin
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({
+        success: false,
+        message: 'Access denied. Admin only.'
+      });
+    }
+
+    // Get all users from database
+    const users = await User.findAll();
+
+    console.log(` Admin ${req.user.userId} fetched ${users.length} users`);
+
+    res.json({
+      success: true,
+      count: users.length,
+      data: users
+    });
+
+  } catch (error) {
+    console.error(' Get all users error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error fetching users',
       error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
@@ -541,6 +581,7 @@ router.post('/refresh', authController.refreshToken);
 
 // Protected routes (require authentication middleware)
 router.get('/me', authMiddleware, authController.getCurrentUser);
+router.get('/users', authMiddleware, authController.getAllUsers); // Admin only
 router.put('/profile', authMiddleware, validateUpdateProfile, authController.updateProfile);
 router.put('/change-password', authMiddleware, validateChangePassword, authController.changePassword);
 router.post('/logout', authMiddleware, authController.logout);

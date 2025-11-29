@@ -1,0 +1,325 @@
+.admin-all-customers-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f6f6f8;
+}
+
+.admin-all-customers-main {
+    flex: 1;
+    padding: 32px 40px;
+}
+
+.admin-all-customers-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.admin-all-customers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .admin-all-customers-header {
+        flex-direction: column;
+    }
+}
+
+.admin-all-customers-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #111317;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.admin-all-customers-subtitle {
+    font-size: 16px;
+    color: #646c87;
+    margin: 4px 0 0 0;
+}
+
+.admin-all-customers-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-all-customers-export-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    color: #111317;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-all-customers-export-btn:hover {
+    background-color: #f0f1f4;
+}
+
+.admin-all-customers-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: #204cdf;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-all-customers-add-btn:hover {
+    background-color: #1a3fb3;
+}
+
+.admin-all-customers-content {
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+}
+
+.admin-all-customers-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .admin-all-customers-filters {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.admin-all-customers-search-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 384px;
+}
+
+.admin-all-customers-search-wrapper .material-symbols-outlined {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #646c87;
+    font-size: 20px;
+}
+
+.admin-all-customers-search-input {
+    width: 100%;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f0f1f4;
+    font-size: 14px;
+    color: #111317;
+}
+
+.admin-all-customers-search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(32, 76, 223, 0.2);
+    border-color: #204cdf;
+}
+
+.admin-all-customers-search-input::placeholder {
+    color: #646c87;
+}
+
+.admin-all-customers-filter-chips {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.admin-all-customers-filter-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #f0f1f4;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111317;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-all-customers-filter-chip:hover {
+    background-color: rgba(32, 76, 223, 0.1);
+}
+
+.admin-all-customers-active-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 8px;
+    background-color: rgba(32, 76, 223, 0.1);
+    color: #204cdf;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.admin-all-customers-active-chip button {
+    background: transparent;
+    border: none;
+    color: #204cdf;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.admin-all-customers-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.admin-all-customers-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-all-customers-table thead {
+    background-color: #f9fafb;
+}
+
+.admin-all-customers-table th {
+    padding: 14px 24px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111317;
+}
+
+.admin-all-customers-table tbody tr {
+    border-top: 1px solid #e0e0e0;
+    transition: background-color 0.2s;
+}
+
+.admin-all-customers-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.admin-all-customers-table td {
+    padding: 16px 24px;
+    font-size: 14px;
+    color: #646c87;
+}
+
+.admin-all-customers-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.admin-all-customers-customer-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-all-customers-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #204cdf 0%, #5c7cfa 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.admin-all-customers-name {
+    font-weight: 600;
+    color: #111317;
+    margin-bottom: 2px;
+}
+
+.admin-all-customers-email {
+    font-size: 13px;
+    color: #646c87;
+}
+
+.admin-all-customers-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 24px;
+    padding: 0 8px;
+    border-radius: 12px;
+    background-color: rgba(32, 76, 223, 0.1);
+    color: #204cdf;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin-all-customers-view-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #646c87;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-all-customers-view-btn:hover {
+    background-color: #f0f1f4;
+    color: #204cdf;
+}
+
+.admin-all-customers-loading {
+    padding: 60px 24px;
+    text-align: center;
+    color: #646c87;
+}
+
+@media (max-width: 1024px) {
+    .admin-all-customers-main {
+        padding: 16px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-all-customers-table {
+        min-width: 700px;
+    }
+}

@@ -1,13 +1,40 @@
 import './OrderTimeline.css';
 
-function OrderTimeline() {
-    const steps = [
-        { id: 1, label: 'Order Placed', date: 'June 1, 2024', status: 'completed', icon: 'check' },
-        { id: 2, label: 'Measurement Confirmed', date: 'June 2, 2024', status: 'completed', icon: 'check' },
-        { id: 3, label: 'In Progress', date: 'June 5, 2024', status: 'active', icon: 'hourglass_top' },
-        { id: 4, label: 'Ready for Pickup', date: '', status: 'pending', icon: 'local_mall' },
-        { id: 5, label: 'Completed', date: '', status: 'pending', icon: 'flag' }
-    ];
+function OrderTimeline({ status, timeline }) {
+    const getTimelineSteps = () => {
+        const allSteps = [
+            { id: 'pending', label: 'Order Placed', icon: 'receipt' },
+            { id: 'in_progress', label: 'In Progress', icon: 'hourglass_top' },
+            { id: 'ready', label: 'Ready for Pickup', icon: 'local_mall' },
+            { id: 'delivered', label: 'Delivered', icon: 'check_circle' }
+        ];
+
+        const statusOrder = ['pending', 'in_progress', 'ready', 'delivered'];
+        const currentIndex = statusOrder.indexOf(status);
+
+        return allSteps.map((step, index) => {
+            const stepTimeline = timeline?.[step.id];
+            let stepStatus = 'pending';
+            
+            if (index < currentIndex) {
+                stepStatus = 'completed';
+            } else if (index === currentIndex) {
+                stepStatus = 'active';
+            }
+
+            return {
+                ...step,
+                status: stepStatus,
+                date: stepTimeline ? new Date(stepTimeline).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                }) : ''
+            };
+        });
+    };
+
+    const steps = getTimelineSteps();
 
     return (
         <div className="order-timeline-card">

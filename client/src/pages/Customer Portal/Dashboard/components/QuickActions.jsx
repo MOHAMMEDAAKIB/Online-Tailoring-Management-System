@@ -1,17 +1,20 @@
 import './QuickActions.css';
+import { useNavigate } from 'react-router-dom';
 
 function QuickActions() {
+    const navigate = useNavigate();
+    
     return (
         <div className="quick-actions-section">
             <div className="quick-actions-header">
                 <h2 className="quick-actions-title">Quick Actions</h2>
             </div>
             <div className="quick-actions-buttons">
-                <button className="quick-action-button primary">
+                <button className="quick-action-button primary" onClick={() => navigate('/customer/orders/new')}>
                     <span className="material-symbols-outlined">add_shopping_cart</span>
                     <span>Place a New Order</span>
                 </button>
-                <button className="quick-action-button secondary">
+                <button className="quick-action-button secondary" onClick={() => navigate('/customer/measurements/new')}>
                     <span className="material-symbols-outlined">edit</span>
                     <span>Update My Measurements</span>
                 </button>

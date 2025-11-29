@@ -1,13 +1,18 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { createMeasurement } from '../../../../api/masermentAPI';
 import './MeasurementForm.css';
 
 function MeasurementForm() {
-    const [unit, setUnit] = useState('inches');
+    const navigate = useNavigate();
+    const [unit, setUnit] = useState('inch');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
     const [formData, setFormData] = useState({
         profileName: '',
         neck: '',
         chest: '',
-        shoulders: '',
+        shoulder: '',
         sleeve: '',
         bicep: '',
         waist: '',
@@ -15,6 +20,7 @@ function MeasurementForm() {
         thigh: '',
         inseam: '',
         outseam: '',
+        length: '',
         notes: ''
     });
 
@@ -24,20 +30,67 @@ function MeasurementForm() {
             ...prev,
             [name]: value
         }));
+        setError('');
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', { ...formData, unit });
+        setLoading(true);
+        setError('');
+
+        try {
+            // Prepare measurement data according to API specification
+            const measurementData = {
+                chest: formData.chest ? parseFloat(formData.chest) : undefined,
+                waist: formData.waist ? parseFloat(formData.waist) : undefined,
+                hips: formData.hips ? parseFloat(formData.hips) : undefined,
+                sleeve: formData.sleeve ? parseFloat(formData.sleeve) : undefined,
+                shoulder: formData.shoulder ? parseFloat(formData.shoulder) : undefined,
+                neck: formData.neck ? parseFloat(formData.neck) : undefined,
+                length: formData.length ? parseFloat(formData.length) : undefined,
+                unit: unit,
+                notes: formData.notes || undefined
+            };
+
+            // Remove undefined values
+            Object.keys(measurementData).forEach(key => 
+                measurementData[key] === undefined && delete measurementData[key]
+            );
+
+            const response = await createMeasurement(measurementData);
+            
+            if (response.data.success) {
+                alert('Measurement created successfully!');
+                navigate('/customer/measurements');
+            }
+        } catch (err) {
+            console.error('Error creating measurement:', err);
+            setError(err.response?.data?.message || 'Failed to save measurement. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleCancel = () => {
-        console.log('Form cancelled');
+        navigate('/customer/measurements');
     };
 
     return (
         <div className="measurement-form-wrapper">
             <form className="measurement-form-card" onSubmit={handleSubmit}>
+                {error && (
+                    <div style={{ 
+                        padding: '12px', 
+                        marginBottom: '20px', 
+                        backgroundColor: '#fee', 
+                        color: '#c33',
+                        borderRadius: '8px',
+                        border: '1px solid #fcc'
+                    }}>
+                        {error}
+                    </div>
+                )}
+                
                 <div className="measurement-form-section">
                     <div className="measurement-form-top-row">
                         <label className="measurement-form-field">
@@ -54,13 +107,13 @@ function MeasurementForm() {
                         <div className="measurement-form-field">
                             <p className="measurement-form-label">Units</p>
                             <div className="measurement-form-unit-toggle">
-                                <label className={`measurement-form-unit-option ${unit === 'inches' ? 'active' : ''}`}>
+                                <label className={`measurement-form-unit-option ${unit === 'inch' ? 'active' : ''}`}>
                                     <span>Inches</span>
                                     <input
                                         type="radio"
                                         name="unit"
-                                        value="inches"
-                                        checked={unit === 'inches'}
+                                        value="inch"
+                                        checked={unit === 'inch'}
                                         onChange={(e) => setUnit(e.target.value)}
                                         className="measurement-form-radio"
                                     />
@@ -88,7 +141,8 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Neck</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="neck"
                                 value={formData.neck}
                                 onChange={handleChange}
@@ -99,7 +153,8 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Chest</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="chest"
                                 value={formData.chest}
                                 onChange={handleChange}
@@ -107,12 +162,13 @@ function MeasurementForm() {
                             />
                         </label>
                         <label className="measurement-form-field">
-                            <p className="measurement-form-label">Shoulders</p>
+                            <p className="measurement-form-label">Shoulder</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
-                                name="shoulders"
-                                value={formData.shoulders}
+                                type="number"
+                                step="0.1"
+                                name="shoulder"
+                                value={formData.shoulder}
                                 onChange={handleChange}
                                 placeholder="e.g., 18"
                             />
@@ -121,7 +177,8 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Sleeve</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="sleeve"
                                 value={formData.sleeve}
                                 onChange={handleChange}
@@ -132,7 +189,8 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Bicep</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="bicep"
                                 value={formData.bicep}
                                 onChange={handleChange}
@@ -143,7 +201,8 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Waist</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="waist"
                                 value={formData.waist}
                                 onChange={handleChange}
@@ -160,7 +219,8 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Hips</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="hips"
                                 value={formData.hips}
                                 onChange={handleChange}
@@ -171,11 +231,24 @@ function MeasurementForm() {
                             <p className="measurement-form-label">Thigh</p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="thigh"
                                 value={formData.thigh}
                                 onChange={handleChange}
                                 placeholder="e.g., 22"
+                            />
+                        </label>
+                        <label className="measurement-form-field">
+                            <p className="measurement-form-label">Length</p>
+                            <input
+                                className="measurement-form-input"
+                                type="number"
+                                step="0.1"
+                                name="length"
+                                value={formData.length}
+                                onChange={handleChange}
+                                placeholder="e.g., 42"
                             />
                         </label>
                         <label className="measurement-form-field">
@@ -190,7 +263,8 @@ function MeasurementForm() {
                             </p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="inseam"
                                 value={formData.inseam}
                                 onChange={handleChange}
@@ -209,7 +283,8 @@ function MeasurementForm() {
                             </p>
                             <input
                                 className="measurement-form-input"
-                                type="text"
+                                type="number"
+                                step="0.1"
                                 name="outseam"
                                 value={formData.outseam}
                                 onChange={handleChange}
@@ -227,6 +302,7 @@ function MeasurementForm() {
                         value={formData.notes}
                         onChange={handleChange}
                         placeholder="Add any special requests, such as fit preferences or specific alterations..."
+                        maxLength="500"
                     />
                 </label>
 
@@ -235,14 +311,16 @@ function MeasurementForm() {
                         type="button" 
                         className="measurement-form-button secondary"
                         onClick={handleCancel}
+                        disabled={loading}
                     >
                         <span>Cancel</span>
                     </button>
                     <button 
                         type="submit" 
                         className="measurement-form-button primary"
+                        disabled={loading}
                     >
-                        <span>Save Measurements</span>
+                        <span>{loading ? 'Saving...' : 'Save Measurements'}</span>
                     </button>
                 </div>
             </form>

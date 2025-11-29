@@ -1,0 +1,302 @@
+.admin-measurement-management-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f6f6f8;
+}
+
+.admin-measurement-management-main {
+    flex: 1;
+    padding: 24px 40px;
+}
+
+.admin-measurement-management-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.admin-measurement-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.admin-measurement-management-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #111317;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.admin-measurement-management-subtitle {
+    font-size: 16px;
+    color: #646c87;
+    margin: 4px 0 0 0;
+}
+
+.admin-measurement-management-search-bar {
+    background-color: white;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .admin-measurement-management-search-bar {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-measurement-management-search-wrapper {
+    flex: 1;
+}
+
+.admin-measurement-management-search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f0f1f4;
+    border-radius: 8px;
+    height: 48px;
+    padding-left: 16px;
+}
+
+.admin-measurement-management-search-input-wrapper .material-symbols-outlined {
+    color: #646c87;
+    margin-right: 8px;
+}
+
+.admin-measurement-management-search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    height: 100%;
+    padding-right: 16px;
+    font-size: 16px;
+    color: #111317;
+}
+
+.admin-measurement-management-search-input:focus {
+    outline: none;
+}
+
+.admin-measurement-management-search-input::placeholder {
+    color: #646c87;
+}
+
+.admin-measurement-management-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-measurement-management-filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    color: #111317;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-measurement-management-filter-btn:hover {
+    background-color: #f0f1f4;
+}
+
+.admin-measurement-management-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    background-color: #204cdf;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.admin-measurement-management-add-btn:hover {
+    background-color: #1a3fb3;
+}
+
+.admin-measurement-management-table-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+
+.admin-measurement-management-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-measurement-management-table thead {
+    background-color: #f9fafb;
+}
+
+.admin-measurement-management-table th {
+    padding: 12px 24px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: #646c87;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.admin-measurement-management-table tbody tr {
+    border-top: 1px solid #e0e0e0;
+}
+
+.admin-measurement-management-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.admin-measurement-management-table td {
+    padding: 16px 24px;
+    font-size: 14px;
+    color: #111317;
+}
+
+.admin-measurement-management-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: rgba(32, 76, 223, 0.1);
+    color: #204cdf;
+}
+
+.admin-measurement-management-row-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.admin-measurement-management-icon-btn {
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: #646c87;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.admin-measurement-management-icon-btn:hover {
+    background-color: #f0f1f4;
+    color: #204cdf;
+}
+
+.admin-measurement-management-icon-btn.delete:hover {
+    color: #ef4444;
+}
+
+.admin-measurement-management-icon-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.admin-measurement-management-loading,
+.admin-measurement-management-empty {
+    padding: 60px 24px;
+    text-align: center;
+    color: #646c87;
+}
+
+.admin-measurement-management-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    border-top: 1px solid #e0e0e0;
+    background-color: white;
+}
+
+@media (max-width: 640px) {
+    .admin-measurement-management-pagination {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.admin-measurement-management-pagination-info {
+    font-size: 14px;
+    color: #646c87;
+}
+
+.admin-measurement-management-pagination-controls {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.admin-measurement-management-pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    color: #646c87;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-measurement-management-pagination-btn:hover:not(:disabled) {
+    background-color: #f0f1f4;
+}
+
+.admin-measurement-management-pagination-btn.active {
+    background-color: rgba(32, 76, 223, 0.1);
+    color: #204cdf;
+    border-color: #204cdf;
+}
+
+.admin-measurement-management-pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.admin-measurement-management-pagination-ellipsis {
+    padding: 0 8px;
+    color: #646c87;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .admin-measurement-management-main {
+        padding: 16px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-measurement-management-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .admin-measurement-management-table {
+        min-width: 700px;
+    }
+}

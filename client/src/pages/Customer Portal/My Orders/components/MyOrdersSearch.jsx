@@ -1,9 +1,21 @@
 import { useState } from 'react';
 import './MyOrdersSearch.css';
 
-function MyOrdersSearch() {
+function MyOrdersSearch({ onSearchChange, onSortChange }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [sortBy, setSortBy] = useState('date');
+
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchQuery(value);
+        onSearchChange(value);
+    };
+
+    const handleSortChange = (e) => {
+        const value = e.target.value;
+        setSortBy(value);
+        onSortChange(value);
+    };
 
     return (
         <div className="my-orders-search">
@@ -19,7 +31,7 @@ function MyOrdersSearch() {
                                 type="text"
                                 placeholder="Search by Order ID or item name..."
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onChange={handleSearchChange}
                             />
                         </div>
                     </label>
@@ -28,7 +40,7 @@ function MyOrdersSearch() {
                     <select
                         className="my-orders-search-select"
                         value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
+                        onChange={handleSortChange}
                     >
                         <option value="date">Sort by: Date</option>
                         <option value="amount">Sort by: Amount</option>

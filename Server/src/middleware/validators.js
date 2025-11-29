@@ -211,6 +211,295 @@ const validateChangePassword = [
 ];
 
 // =============================================================================
+// MEASUREMENT VALIDATION RULES
+// =============================================================================
+/**
+ * Validates measurement creation data
+ * 
+ * Checks:
+ * - user_id: optional (admin only), must be positive integer
+ * - chest, waist, hips, sleeve, shoulder, neck, length: optional, must be positive numbers
+ * - unit: optional, must be 'cm', 'inch', or 'm'
+ * - notes: optional, max 500 characters
+ */
+const validateCreateMeasurement = [
+  body('user_id')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('User ID must be a positive integer'),
+  
+  body('chest')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Chest measurement must be a positive number'),
+  
+  body('waist')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Waist measurement must be a positive number'),
+  
+  body('hips')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Hips measurement must be a positive number'),
+  
+  body('sleeve')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Sleeve measurement must be a positive number'),
+  
+  body('shoulder')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Shoulder measurement must be a positive number'),
+  
+  body('neck')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Neck measurement must be a positive number'),
+  
+  body('length')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Length measurement must be a positive number'),
+  
+  body('unit')
+    .optional()
+    .isIn(['cm', 'inch', 'm'])
+    .withMessage('Unit must be "cm", "inch", or "m"'),
+  
+  body('notes')
+    .optional()
+    .isLength({ max: 500 })
+    .withMessage('Notes must not exceed 500 characters'),
+  
+  handleValidationErrors
+];
+
+/**
+ * Validates measurement update data
+ * Same as create but all fields are optional
+ */
+const validateUpdateMeasurement = [
+  body('chest')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Chest measurement must be a positive number'),
+  
+  body('waist')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Waist measurement must be a positive number'),
+  
+  body('hips')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Hips measurement must be a positive number'),
+  
+  body('sleeve')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Sleeve measurement must be a positive number'),
+  
+  body('shoulder')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Shoulder measurement must be a positive number'),
+  
+  body('neck')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Neck measurement must be a positive number'),
+  
+  body('length')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Length measurement must be a positive number'),
+  
+  body('unit')
+    .optional()
+    .isIn(['cm', 'inch', 'm'])
+    .withMessage('Unit must be "cm", "inch", or "m"'),
+  
+  body('notes')
+    .optional()
+    .isLength({ max: 500 })
+    .withMessage('Notes must not exceed 500 characters'),
+  
+  handleValidationErrors
+];
+
+// =============================================================================
+// ORDER VALIDATION RULES
+// =============================================================================
+/**
+ * Validates order creation data
+ * 
+ * Checks:
+ * - user_id: required, positive integer
+ * - items: required, must be array with at least 1 item
+ * - subtotal, tax, total: required, positive numbers
+ * - discount: optional, positive number
+ * - status: optional, valid status
+ */
+const createOrderValidator = [
+  body('user_id')
+    .notEmpty()
+    .withMessage('Customer ID is required')
+    .isInt({ min: 1 })
+    .withMessage('Customer ID must be a positive integer'),
+  
+  body('items')
+    .notEmpty()
+    .withMessage('Order items are required')
+    .isArray({ min: 1 })
+    .withMessage('Order must contain at least one item'),
+  
+  body('items.*.item_name')
+    .notEmpty()
+    .withMessage('Each item must have a name')
+    .isString()
+    .withMessage('Item name must be a string'),
+  
+  body('items.*.quantity')
+    .notEmpty()
+    .withMessage('Each item must have a quantity')
+    .isInt({ min: 1 })
+    .withMessage('Quantity must be at least 1'),
+  
+  body('items.*.price')
+    .notEmpty()
+    .withMessage('Each item must have a price')
+    .isFloat({ min: 0 })
+    .withMessage('Price must be a positive number'),
+  
+  body('subtotal')
+    .notEmpty()
+    .withMessage('Subtotal is required')
+    .isFloat({ min: 0 })
+    .withMessage('Subtotal must be a positive number'),
+  
+  body('tax')
+    .notEmpty()
+    .withMessage('Tax is required')
+    .isFloat({ min: 0 })
+    .withMessage('Tax must be a positive number'),
+  
+  body('discount')
+    .optional()
+    .isFloat({ min: 0 })
+    .withMessage('Discount must be a positive number'),
+  
+  body('total')
+    .notEmpty()
+    .withMessage('Total is required')
+    .isFloat({ min: 0 })
+    .withMessage('Total must be a positive number'),
+  
+  body('status')
+    .optional()
+    .isIn(['pending', 'in_progress', 'ready', 'delivered', 'cancelled'])
+    .withMessage('Invalid order status'),
+  
+  handleValidationErrors
+];
+
+/**
+ * Validates order status update
+ */
+const updateOrderStatusValidator = [
+  body('status')
+    .notEmpty()
+    .withMessage('Status is required')
+    .isIn(['pending', 'in_progress', 'ready', 'delivered', 'cancelled'])
+    .withMessage('Status must be one of: pending, in_progress, ready, delivered, cancelled'),
+  
+  handleValidationErrors
+];
+
+// =============================================================================
+// PAYMENT VALIDATION RULES
+// =============================================================================
+/**
+ * Validates checkout session creation
+ * 
+ * Checks:
+ * - order_id: required, positive integer
+ * - provider: required, valid payment provider
+ */
+const createCheckoutValidator = [
+  body('order_id')
+    .notEmpty()
+    .withMessage('Order ID is required')
+    .isInt({ min: 1 })
+    .withMessage('Order ID must be a positive integer'),
+  
+  body('provider')
+    .notEmpty()
+    .withMessage('Payment provider is required')
+    .isIn(['stripe', 'payhere', 'cash', 'bank_transfer'])
+    .withMessage('Provider must be one of: stripe, payhere, cash, bank_transfer'),
+  
+  handleValidationErrors
+];
+
+// =============================================================================
+// NOTIFICATION VALIDATION RULES
+// =============================================================================
+/**
+ * Validates notification sending
+ * 
+ * Checks:
+ * - user_id: required, positive integer
+ * - channel: required, email or sms
+ * - template: required, valid template name
+ * - payload: required, object with notification data
+ */
+const sendNotificationValidator = [
+  body('user_id')
+    .notEmpty()
+    .withMessage('User ID is required')
+    .isInt({ min: 1 })
+    .withMessage('User ID must be a positive integer'),
+  
+  body('channel')
+    .notEmpty()
+    .withMessage('Notification channel is required')
+    .isIn(['email', 'sms'])
+    .withMessage('Channel must be either "email" or "sms"'),
+  
+  body('template')
+    .notEmpty()
+    .withMessage('Template is required')
+    .isIn(['order_confirmation', 'payment_received', 'order_ready', 'order_delivered', 'custom'])
+    .withMessage('Invalid template name'),
+  
+  body('payload')
+    .notEmpty()
+    .withMessage('Payload is required')
+    .isObject()
+    .withMessage('Payload must be an object'),
+  
+  // If email, validate email field in payload
+  body('payload.email')
+    .if(body('channel').equals('email'))
+    .notEmpty()
+    .withMessage('Email address is required for email notifications')
+    .isEmail()
+    .withMessage('Invalid email address'),
+  
+  // If SMS, validate phone field in payload
+  body('payload.phone')
+    .if(body('channel').equals('sms'))
+    .notEmpty()
+    .withMessage('Phone number is required for SMS notifications')
+    .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/)
+    .withMessage('Invalid phone number format'),
+  
+  handleValidationErrors
+];
+
+// =============================================================================
 // Export all validators
 // =============================================================================
 module.exports = {
@@ -219,6 +508,12 @@ module.exports = {
   validateRefreshToken,
   validateUpdateProfile,
   validateChangePassword,
+  validateCreateMeasurement,
+  validateUpdateMeasurement,
+  createOrderValidator,
+  updateOrderStatusValidator,
+  createCheckoutValidator,
+  sendNotificationValidator,
   handleValidationErrors
 };
 

@@ -21,7 +21,11 @@ function LoginForm() {
             const responce = await loginUsers({ email, password })
             if (responce.data.success){
                 // Store user data and token using AuthContext
-                login(responce.data.data.user, responce.data.data.token);
+                // Backend returns: { user, tokens: { accessToken, refreshToken } }
+                login(responce.data.data.user, responce.data.data.tokens.accessToken);
+                
+                // Also store refresh token for later use
+                localStorage.setItem("refreshToken", responce.data.data.tokens.refreshToken);
                 
                 alert ("Login successful!");
                 if (responce.data.data.user.role === 'admin'){

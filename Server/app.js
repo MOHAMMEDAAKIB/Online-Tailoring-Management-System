@@ -15,6 +15,11 @@ const morgan = require('morgan');
 // IMPORT ROUTES
 // =============================================================================
 const authRoutes = require('./src/routes/authRoutes');
+const measurementRoutes = require('./src/routes/measurementRoutes');
+const orderRoutes = require('./src/routes/orderRoutes');
+const invoiceRoutes = require('./src/routes/invoiceRoutes');
+const paymentRoutes = require('./src/routes/paymentRoutes');
+const notificationRoutes = require('./src/routes/notificationRoutes');
 
 // =============================================================================
 // CREATE EXPRESS APP
@@ -28,9 +33,22 @@ const PORT = process.env.PORT || 4000;
 
 // 1. CORS - Allow requests from frontend (React, Vue, Angular, etc.)
 // Purpose: Enable cross-origin resource sharing
+const allowedOrigins = process.env.FRONTEND_URL 
+  ? process.env.FRONTEND_URL.split(',').map(url => url.trim())
+  : ["http://localhost:5173", "http://localhost:3000"];
+
 app.use(cors({
-  origin: "http://localhost:5173", // allow React frontend
-  methods: ["GET", "POST", "PUT", "DELETE"], // Frontend URL
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true // Allow cookies
 }));
 
@@ -62,11 +80,20 @@ app.get('/', (req, res) => {
 // Mount authentication routes
 app.use('/api/auth', authRoutes);
 
-// Future routes will go here:
-// app.use('/api/measurements', measurementRoutes);
-// app.use('/api/orders', orderRoutes);
-// app.use('/api/invoices', invoiceRoutes);
-// app.use('/api/payments', paymentRoutes);
+// Mount measurement routes
+app.use('/api/measurements', measurementRoutes);
+
+// Mount order routes
+app.use('/api/orders', orderRoutes);
+
+// Mount invoice routes
+app.use('/api/invoices', invoiceRoutes);
+
+// Mount payment routes
+app.use('/api/payments', paymentRoutes);
+
+// Mount notification routes
+app.use('/api/notifications', notificationRoutes);
 
 // =============================================================================
 // ERROR HANDLING MIDDLEWARE
@@ -103,13 +130,22 @@ app.listen(PORT, () => {
   console.log(`📦 Database: ${process.env.DB_NAME}`);
   console.log('='.repeat(60));
   console.log('Available Routes:');
-  console.log('  GET    /                          - Health check');
-  console.log('  POST   /api/auth/register         - Register new user');
-  console.log('  POST   /api/auth/login            - Login');
-  console.log('  POST   /api/auth/refresh          - Refresh access token');
-  console.log('  GET    /api/auth/me               - Get current user');
-  console.log('  PUT    /api/auth/profile          - Update profile');
-  console.log('  PUT    /api/auth/change-password  - Change password');
-  console.log('  POST   /api/auth/logout           - Logout');
+  console.log('  GET    /                           - Health check');
+  console.log('');
+  console.log('  Authentication:');
+  console.log('  POST   /api/auth/register          - Register new user');
+  console.log('  POST   /api/auth/login             - Login');
+  console.log('  POST   /api/auth/refresh           - Refresh access token');
+  console.log('  GET    /api/auth/me                - Get current user');
+  console.log('  PUT    /api/auth/profile           - Update profile');
+  console.log('  PUT    /api/auth/change-password   - Change password');
+  console.log('  POST   /api/auth/logout            - Logout');
+  console.log('');
+  console.log('  Measurements:');
+  console.log('  GET    /api/measurements           - Get measurements');
+  console.log('  POST   /api/measurements           - Create measurement');
+  console.log('  GET    /api/measurements/:id       - Get measurement by ID');
+  console.log('  PUT    /api/measurements/:id       - Update measurement');
+  console.log('  DELETE /api/measurements/:id       - Delete measurement');
   console.log('='.repeat(60));
 });

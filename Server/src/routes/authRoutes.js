@@ -127,6 +127,32 @@ router.post('/refresh', validateRefreshToken, authController.refreshToken);
 router.get('/me', authMiddleware, authController.getCurrentUser);
 
 /**
+ * @route   GET /api/auth/users
+ * @desc    Get all users (admin only)
+ * @access  Private (Admin only)
+ * 
+ * Headers required:
+ * Authorization: Bearer eyJhbGci...
+ * 
+ * Response: 200 OK
+ * {
+ *   "success": true,
+ *   "count": 10,
+ *   "data": [
+ *     {
+ *       "id": 1,
+ *       "name": "John Doe",
+ *       "email": "john@example.com",
+ *       "role": "customer",
+ *       "phone": "+94771234567",
+ *       "created_at": "2025-11-10T10:30:00.000Z"
+ *     }
+ *   ]
+ * }
+ */
+router.get('/users', authMiddleware, authController.getAllUsers);
+
+/**
  * @route   PUT /api/auth/profile
  * @desc    Update user's profile (name, phone)
  * @access  Private

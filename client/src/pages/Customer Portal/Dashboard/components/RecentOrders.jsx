@@ -1,4 +1,5 @@
 import './RecentOrders.css';
+import { Link } from 'react-router-dom';
 
 function RecentOrders() {
     const orders = [
@@ -7,21 +8,24 @@ function RecentOrders() {
             item: 'Custom Suit',
             date: '15 Aug 2024',
             status: 'In Progress',
-            statusClass: 'in-progress'
+            statusClass: 'in-progress',
+            orderId: '1024'
         },
         {
             id: '#1023-B2',
             item: 'Linen Shirt',
             date: '02 Aug 2024',
             status: 'Shipped',
-            statusClass: 'shipped'
+            statusClass: 'shipped',
+            orderId: '1023'
         },
         {
             id: '#1021-C9',
             item: 'Wedding Tuxedo',
             date: '18 Jul 2024',
             status: 'Delivered',
-            statusClass: 'delivered'
+            statusClass: 'delivered',
+            orderId: '1021'
         }
     ];
 
@@ -30,7 +34,7 @@ function RecentOrders() {
             {/* Section Header */}
             <div className="recent-orders-header">
                 <h2 className="recent-orders-title">Your Recent Orders</h2>
-                <a className="recent-orders-link" href="#">View All Orders</a>
+                <Link className="recent-orders-link" to="/customer/orders">View All Orders</Link>
             </div>
 
             {/* Orders Table */}
@@ -58,9 +62,9 @@ function RecentOrders() {
                                         </span>
                                     </td>
                                     <td className="recent-orders-td text-right">
-                                        <a className="order-action-link" href="#">
+                                        <Link className="order-action-link" to={`/customer/orders/${order.orderId}`}>
                                             View Details
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}

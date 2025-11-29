@@ -1,10 +1,20 @@
 import './OrderSummary.css';
 
-function OrderSummary() {
+function OrderSummary({ order }) {
+    const formatDate = (dateString) => {
+        if (!dateString) return 'N/A';
+        return new Date(dateString).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    };
+
     const summaryData = [
-        { label: 'Order Date', value: 'June 1, 2024' },
-        { label: 'Est. Completion', value: 'June 15, 2024' },
-        { label: 'Delivery Method', value: 'Store Pickup' }
+        { label: 'Order Date', value: formatDate(order.created_at) },
+        { label: 'Est. Completion', value: formatDate(order.delivery_date) },
+        { label: 'Delivery Method', value: order.delivery_method || 'Store Pickup' },
+        { label: 'Status', value: order.status.replace('_', ' ').toUpperCase() }
     ];
 
     return (
