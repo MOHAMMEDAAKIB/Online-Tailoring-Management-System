@@ -41,21 +41,17 @@ function MeasurementForm() {
         try {
             // Prepare measurement data according to API specification
             const measurementData = {
-                chest: formData.chest ? parseFloat(formData.chest) : undefined,
-                waist: formData.waist ? parseFloat(formData.waist) : undefined,
-                hips: formData.hips ? parseFloat(formData.hips) : undefined,
-                sleeve: formData.sleeve ? parseFloat(formData.sleeve) : undefined,
-                shoulder: formData.shoulder ? parseFloat(formData.shoulder) : undefined,
-                neck: formData.neck ? parseFloat(formData.neck) : undefined,
-                length: formData.length ? parseFloat(formData.length) : undefined,
+                label: formData.profileName || 'Custom Measurement',
+                chest: formData.chest ? parseFloat(formData.chest) : null,
+                waist: formData.waist ? parseFloat(formData.waist) : null,
+                hips: formData.hips ? parseFloat(formData.hips) : null,
+                sleeve: formData.sleeve ? parseFloat(formData.sleeve) : null,
+                shoulder: formData.shoulder ? parseFloat(formData.shoulder) : null,
+                neck: formData.neck ? parseFloat(formData.neck) : null,
+                length: formData.length ? parseFloat(formData.length) : null,
                 unit: unit,
-                notes: formData.notes || undefined
+                notes: formData.notes || null
             };
-
-            // Remove undefined values
-            Object.keys(measurementData).forEach(key => 
-                measurementData[key] === undefined && delete measurementData[key]
-            );
 
             const response = await createMeasurement(measurementData);
             

@@ -144,6 +144,7 @@ const createMeasurement = async (req, res) => {
     const { userId, role } = req.user;
     const {
       user_id,
+      label,
       chest,
       waist,
       hips,
@@ -185,18 +186,29 @@ const createMeasurement = async (req, res) => {
     // -----------------------------------------
     // STEP 2: Create measurement
     // -----------------------------------------
-    const measurementId = await Measurement.create({
+    // Debug: Log received data
+    console.log('📊 Received measurement data:', {
+      user_id, label, chest, waist, hips, sleeve, shoulder, neck, length, unit, notes
+    });
+    
+    const measurementData = {
       user_id: targetUserId,
-      chest,
-      waist,
-      hips,
-      sleeve,
-      shoulder,
-      neck,
-      length,
+      label: label || 'Custom Measurement',
+      chest: chest ?? null,
+      waist: waist ?? null,
+      hips: hips ?? null,
+      sleeve: sleeve ?? null,
+      shoulder: shoulder ?? null,
+      neck: neck ?? null,
+      length: length ?? null,
       unit: unit || 'cm',
       notes: notes || null
-    });
+    };
+    
+    // Debug: Log processed data
+    console.log('📤 Sending to database:', measurementData);
+    
+    const measurementId = await Measurement.create(measurementData);
     
     // -----------------------------------------
     // STEP 3: Fetch created measurement

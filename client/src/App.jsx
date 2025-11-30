@@ -25,6 +25,12 @@ import HelpSupportPage from './pages/Customer Portal/Help & Support/HelpSupportP
 import AdminMeasurementManagementPage from './pages/Admin Dashboard/Customer Management/Measurement Management/AdminMeasurementManagementPage.jsx';
 import AdminAllCustomersPage from './pages/Admin Dashboard/Customer Management/All Customers/AdminAllCustomersPage.jsx';
 import AdminAllOrdersPage from './pages/Admin Dashboard/Order Management/All Orders/AdminAllOrdersPage.jsx';
+import AdminInvoicesPage from './pages/Admin Dashboard/Finance/Invoices/AdminInvoicesPage.jsx';
+import AdminPaymentsPage from './pages/Admin Dashboard/Finance/Payments/AdminPaymentsPage.jsx';
+import AdminReportsPage from './pages/Admin Dashboard/Finance/Reports/AdminReportsPage.jsx';
+import AdminInventoryPage from './pages/Admin Dashboard/Inventory/AdminInventoryPage.jsx';
+import AdminNotificationsPage from './pages/Admin Dashboard/Notifications/AdminNotificationsPage.jsx';
+import AdminSettingsPage from './pages/Admin Dashboard/Settings/AdminSettingsPage.jsx';
 
 function App() {
   return (
@@ -57,14 +63,14 @@ function App() {
           <Route path="/admin/measurements" element={<ProtectedRoute><AdminMeasurementManagementPage /></ProtectedRoute>} />
           
           {/* Admin Finance */}
-          <Route path="/admin/invoices" element={<ProtectedRoute><AdminDashboardPage /></ProtectedRoute>} />
-          <Route path="/admin/payments" element={<ProtectedRoute><AdminDashboardPage /></ProtectedRoute>} />
-          <Route path="/admin/reports" element={<ProtectedRoute><AdminDashboardPage /></ProtectedRoute>} />
+          <Route path="/admin/invoices" element={<ProtectedRoute><AdminInvoicesPage /></ProtectedRoute>} />
+          <Route path="/admin/payments" element={<ProtectedRoute><AdminPaymentsPage /></ProtectedRoute>} />
+          <Route path="/admin/reports" element={<ProtectedRoute><AdminReportsPage /></ProtectedRoute>} />
           
           {/* Admin Other */}
-          <Route path="/admin/inventory" element={<ProtectedRoute><AdminDashboardPage /></ProtectedRoute>} />
-          <Route path="/admin/notifications" element={<ProtectedRoute><AdminDashboardPage /></ProtectedRoute>} />
-          <Route path="/admin/settings" element={<ProtectedRoute><AdminDashboardPage /></ProtectedRoute>} />
+          <Route path="/admin/inventory" element={<ProtectedRoute><AdminInventoryPage /></ProtectedRoute>} />
+          <Route path="/admin/notifications" element={<ProtectedRoute><AdminNotificationsPage /></ProtectedRoute>} />
+          <Route path="/admin/settings" element={<ProtectedRoute><AdminSettingsPage /></ProtectedRoute>} />
           
           {/* Customer Routes */}
           <Route path="/customer/dashboard" element={<ProtectedRoute><CustomerDashboardPage /></ProtectedRoute>} />

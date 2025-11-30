@@ -228,6 +228,12 @@ const validateCreateMeasurement = [
     .isInt({ min: 1 })
     .withMessage('User ID must be a positive integer'),
   
+  body('label')
+    .optional()
+    .isString()
+    .isLength({ min: 1, max: 100 })
+    .withMessage('Label must be between 1 and 100 characters'),
+  
   body('chest')
     .optional()
     .isFloat({ min: 0 })

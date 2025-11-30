@@ -23,7 +23,7 @@ function AdminAllCustomersPage() {
             const response = await getAllUsers();
             if (response.data.success) {
                 // Filter only customers (not admins)
-                const customerUsers = response.data.data.users.filter(user => user.role === 'customer');
+                const customerUsers = response.data.data.filter(user => user.role === 'customer');
                 setCustomers(customerUsers);
             }
         } catch (err) {
