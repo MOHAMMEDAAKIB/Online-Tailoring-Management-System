@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AdminSidebar from '../../components/AdminSidebar';
+import Sidebar from '../../components/Sidebar';
 import { getAllUsers } from '../../../../api/authAPI';
 import './AdminAllCustomersPage.css';
 
@@ -73,7 +73,7 @@ function AdminAllCustomersPage() {
     if (loading) {
         return (
             <div className="admin-all-customers-page">
-                <AdminSidebar />
+                <Sidebar />
                 <main className="admin-all-customers-main">
                     <div className="loading-state">
                         <div className="spinner"></div>
@@ -87,7 +87,7 @@ function AdminAllCustomersPage() {
     if (error) {
         return (
             <div className="admin-all-customers-page">
-                <AdminSidebar />
+                <Sidebar />
                 <main className="admin-all-customers-main">
                     <div className="error-state">
                         <span className="material-symbols-outlined">error</span>
@@ -102,7 +102,7 @@ function AdminAllCustomersPage() {
 
     return (
         <div className="admin-all-customers-page">
-            <AdminSidebar />
+            <Sidebar />
             <main className="admin-all-customers-main">
                 <div className="admin-all-customers-container">
                     {/* Page Header */}

@@ -26,7 +26,6 @@
 .services-page-content {
     display: flex;
     flex-direction: column;
-    max-width: 60rem;
     flex: 1;
 }
 

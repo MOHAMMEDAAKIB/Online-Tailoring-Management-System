@@ -18,6 +18,7 @@ function NaveBar(){
                 <h2 className="navbar-title">TailorSwift</h2>
             </div>
             <nav className="navbar-menu">
+                <Link className="navbar-link" to="/">Home</Link>
                 <Link className="navbar-link" to="/services">Services</Link>
                 <Link className="navbar-link" to="/gallery">Gallery</Link>
                 <Link className="navbar-link" to="/about">About</Link>

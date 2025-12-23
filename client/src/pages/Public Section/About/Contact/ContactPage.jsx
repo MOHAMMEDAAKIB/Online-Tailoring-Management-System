@@ -1,5 +1,5 @@
 import './ContactPage.css';
-import ContactNavBar from './components/ContactNavBar';
+import NavBar from '../../Landing Page/components/naveBar';
 import ContactHeader from './components/ContactHeader';
 import ContactIntro from './components/ContactIntro';
 import ContactInfo from './components/ContactInfo';
@@ -10,7 +10,7 @@ function ContactPage() {
     return (
         <div className="contact-page">
             <div className="contact-page-inner">
-                <ContactNavBar />
+                <NavBar />
                 <main className="contact-page-main">
                     <div className="contact-page-content">
                         <ContactHeader />

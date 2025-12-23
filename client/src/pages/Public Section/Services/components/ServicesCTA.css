@@ -1,9 +1,11 @@
 .services-cta {
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: var(--primary);
     border-radius: var(--radius-lg);
     padding: 3rem;
-    margin: 1.25rem 0;
+    
     color: white;
 }
 

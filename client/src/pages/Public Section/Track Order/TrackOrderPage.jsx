@@ -1,5 +1,5 @@
 import './TrackOrderPage.css';
-import TrackOrderNavBar from './components/TrackOrderNavBar';
+import NavBar from '../Landing Page/components/naveBar';
 import TrackOrderHeader from './components/TrackOrderHeader';
 import TrackOrderSearch from './components/TrackOrderSearch';
 import TrackOrderStatus from './components/TrackOrderStatus';
@@ -18,7 +18,7 @@ function TrackOrderPage() {
 
     return (
         <div className="track-order-page">
-            <TrackOrderNavBar />
+            <NavBar />
             <main className="track-order-main">
                 <div className="track-order-content">
                     <TrackOrderHeader />

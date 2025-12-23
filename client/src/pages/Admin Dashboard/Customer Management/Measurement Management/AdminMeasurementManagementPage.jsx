@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import AdminSidebar from '../../components/AdminSidebar';
+import Sidebar from '../../components/Sidebar';
 import { getAllMeasurements } from '../../../../api/masermentAPI';
 import './AdminMeasurementManagementPage.css';
 
@@ -77,7 +77,7 @@ function AdminMeasurementManagementPage() {
 
     return (
         <div className="admin-measurement-management-page">
-            <AdminSidebar />
+            <Sidebar />
             <main className="admin-measurement-management-main">
                 <div className="admin-measurement-management-container">
                     {/* Page Heading */}

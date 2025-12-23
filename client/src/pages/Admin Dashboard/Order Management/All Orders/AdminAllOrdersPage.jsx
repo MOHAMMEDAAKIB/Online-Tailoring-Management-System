@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AdminSidebar from '../../components/AdminSidebar';
+import Sidebar from '../../components/Sidebar';
 import { getAllOrders } from '../../../../api/orderAPI';
 import './AdminAllOrdersPage.css';
 
@@ -87,7 +87,7 @@ function AdminAllOrdersPage() {
     if (loading) {
         return (
             <div className="admin-all-orders-page">
-                <AdminSidebar />
+                <Sidebar />
                 <main className="admin-all-orders-main">
                     <div className="loading-state">
                         <div className="spinner"></div>
@@ -101,7 +101,7 @@ function AdminAllOrdersPage() {
     if (error) {
         return (
             <div className="admin-all-orders-page">
-                <AdminSidebar />
+                <Sidebar />
                 <main className="admin-all-orders-main">
                     <div className="error-state">
                         <span className="material-symbols-outlined">error</span>
@@ -124,7 +124,7 @@ function AdminAllOrdersPage() {
 
     return (
         <div className="admin-all-orders-page">
-            <AdminSidebar />
+            <Sidebar />
             <main className="admin-all-orders-main">
                 <div className="admin-all-orders-container">
                     {/* Page Header */}

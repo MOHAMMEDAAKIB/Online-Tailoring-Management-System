@@ -1,0 +1,20 @@
+# Environment and credentials files
+.env
+.env.*
+*.env
+defaultdbcloud.txt
+*credentials*.txt
+*password*.txt
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,5 +1,5 @@
 import './ServicesPage.css';
-import ServicesNavBar from './components/ServicesNavBar';
+import NavBar from '../Landing Page/components/naveBar';
 import ServicesHero from './components/ServicesHero';
 import ServicesGrid from './components/ServicesGrid';
 import ServicesFeatures from './components/ServicesFeatures';
@@ -12,7 +12,7 @@ function ServicesPage() {
             <div className="services-page-container">
                 <div className="services-page-wrapper">
                     <div className="services-page-content">
-                        <ServicesNavBar />
+                        <NavBar />
                         <ServicesHero />
                         <ServicesGrid />
                         <ServicesFeatures />
